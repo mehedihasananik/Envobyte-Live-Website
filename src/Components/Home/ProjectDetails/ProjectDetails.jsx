@@ -34,7 +34,7 @@ const ProjectDetails = () => {
               </div>
               <div>
                 <h3 className="text-[16px] text-[#94A3B8]">Email us</h3>
-                <p className="text-[#475569] text-[16px] ">envobyte.team@gmail.com</p>
+                <a href="mailto:support@envobyte.com" className="text-[#475569] text-[16px] pt-1">support@envobyte.com</a>
               </div>
             </div>
 
@@ -44,7 +44,8 @@ const ProjectDetails = () => {
               </div>
               <div>
                 <h3 className="text-[16px] text-[#94A3B8]">Whatsapp</h3>
-                <p className="text-[#475569] text-[16px] ">+01-6234-678900</p>
+                <a href="https://wa.me/8801711377731" className="text-[#475569] text-[16px] pt-1">+880 1711-377731</a>
+
               </div>
             </div>
           </div>
@@ -138,7 +139,7 @@ const ProjectDetails = () => {
                 </div>
                 <div className="pt-6">
                   {" "}
-                  <button className="text-[16px] bg-[#FA8D59] px-8 py-4 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
+                  <button className="text-[16px] bg-[#FF693B] px-8 py-4 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
                     Send Request
                   </button>
                 </div>

@@ -79,11 +79,11 @@ const Testimonial = () => {
                 </p>
               </div>
               <div>
-                <span className="text-[48px] font-Raleway text-[#1E293B] font-bold">
-                  02
+                <span className="text-[48px] font-Raleway text-[#0A2C8C] font-bold">
+                01
                 </span>
                 <span className="text-[16px] font-bold text-[#94A3B8] font-Raleway">
-                  /12
+                  / 05
                 </span>
               </div>
               <div className="flex justify-center items-center lg:justify-start lg:items-start gap-6 py-4 ">
