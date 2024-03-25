@@ -67,7 +67,7 @@ const Services = () => {
 
   return (
   <div className=' overflow-hidden '>
-    <div  className='xl:pl-[10%]'>
+    <div  className='max-w-[1680px] mx-auto px-[4%] md:px[8%] 4xl:px-[0] 4xl:max-w-[1920px] 4xl:pl-[10%]'>
                {/* services */}
     <div className='py-6 xl:pt-10 '>
     <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 lg:py-8">

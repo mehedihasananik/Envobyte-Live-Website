@@ -1,5 +1,6 @@
 import Container from "@/Components/Container/Container";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 import { HiArrowSmallRight } from "react-icons/hi2";
@@ -47,7 +48,8 @@ const Portfolio = () => {
           {/* 1st row */}
           <div className="  flex flex-col md:flex-row gap-10 justify-between pt-10 pb-5 ">
             {/* 1st row 1st column card */}
-            <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
+           <Link href="#">
+           <div className="group cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
                 width={800}
@@ -80,9 +82,11 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
+           </Link>
 
             {/* 1st row 2nd column card */}
-            <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
+       <Link href="#">
+       <div className="group cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
                 width={800}
@@ -115,18 +119,20 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
+       </Link>
           </div>
 
           {/* 2nd row */}
           <div className="flex flex-col md:flex-row  gap-10 justify-between pt-10 pb-5 ">
             {/* 2nd row 1st column card */}
-            <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
+     <Link href={"#"}>
+     <div className="group cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
                 width={800}
                 height={262}
                
-                 className="w-full lg:w-[400px] h-[420px] portfolio-bgHover"
+                 className="w-full lg:w-[400px] h-[420px] portfolio-bgHover object-cover"
                   src="/assets/portfolio3.png"
                   alt=""
                 />
@@ -154,8 +160,10 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
+     </Link>
             {/* 2nd row 2nd column card */}
-            <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
+           <Link href="#">
+           <div className="group cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
                 width={800}
@@ -188,6 +196,7 @@ const Portfolio = () => {
                 </div>
               </div>
             </div>
+           </Link>
           </div>
         </div>
 
