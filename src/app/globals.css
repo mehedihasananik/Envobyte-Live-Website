@@ -15,8 +15,8 @@
   .custom-rotate {
     background: linear-gradient(
       90deg,
-      #0a2c8c 0%,
-      rgba(10, 44, 140, 0.47) 100%
+      #2F4C9D 0%,
+      #0A2C8C  100%
     );
     /* filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.10)); */
     clip-path: polygon(0 23%, 100% 14%, 100% 90%, 0 80%);
@@ -28,7 +28,7 @@
   }
   .line-break {
     display: block;
-    margin-bottom: 0.5em; /* Adjust the spacing as needed */
+    margin-bottom: 0.1em; /* Adjust the spacing as needed */
   }
 
   .service-sec {
