@@ -34,7 +34,7 @@ const ProjectDetails = () => {
               </div>
               <div>
                 <h3 className="text-[16px] text-[#94A3B8]">Email us</h3>
-                <a href="mailto:support@envobyte.com" className="text-[#475569] text-[16px] pt-1">support@envobyte.com</a>
+                <a target="_blank" href="mailto:support@envobyte.com" className="text-[#475569] text-[16px] pt-1">support@envobyte.com</a>
               </div>
             </div>
 
@@ -44,7 +44,7 @@ const ProjectDetails = () => {
               </div>
               <div>
                 <h3 className="text-[16px] text-[#94A3B8]">Whatsapp</h3>
-                <a href="https://wa.me/8801711377731" className="text-[#475569] text-[16px] pt-1">+880 1711-377731</a>
+                <a target="_blank" href="https://wa.me/8801711377731" className="text-[#475569] text-[16px] pt-1">+880 1711-377731</a>
 
               </div>
             </div>

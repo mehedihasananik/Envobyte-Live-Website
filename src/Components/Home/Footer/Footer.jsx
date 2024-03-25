@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
     <Container>
-      <div className="flex flex-col py-5 md:py-8 lg:flex-row justify-between items-center lg:py-20 ">
+      <div className="flex flex-col py-5 md:py-8 lg:flex-row justify-between items-center lg:py-10 ">
         {/* left side */}
         <div className="w-full py-4 md:justify-between md:items-center lg:py-10 lg:flex-col lg:justify-start lg:items-start lg:w-[30%]">
           {/* logo & description */}
