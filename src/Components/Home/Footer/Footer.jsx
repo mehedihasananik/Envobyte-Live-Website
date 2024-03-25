@@ -15,7 +15,7 @@ const Footer = () => {
         {/* left side */}
         <div className="w-full py-4 md:justify-between md:items-center lg:py-10 lg:flex-col lg:justify-start lg:items-start lg:w-[30%]">
           {/* logo & description */}
-          <div>
+          <div className="relative left-[-10px]">
             <Image className="w-[159px] h-[49px]" width={200} height={100} src="/assets/footer.png" alt="" />
           </div> 
           <div className="w-[250px] py-5">

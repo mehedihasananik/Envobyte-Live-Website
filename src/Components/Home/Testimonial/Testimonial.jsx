@@ -98,11 +98,7 @@ const Testimonial = () => {
                   </button>
                 </div>
               </div>
-              <div className="py-8 lg:py-5 text-center lg:text-left ">
-                <button className="bg-[#FF693B] text-white text-[16px]  font-semibold py-4 px-14 rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
-                  View all
-                </button>
-              </div>
+           
             </div>
             {/* right swiper */}
             <div className="w-full lg:w-[65%]  ">

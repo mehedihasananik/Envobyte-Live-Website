@@ -28,6 +28,7 @@ const Header = () => {
                 width={159}
                 height={49}
                 alt="Picture of the logo"
+                className="relative left-[-8px]"
               />
             </Link>
             {/* nav items */}
