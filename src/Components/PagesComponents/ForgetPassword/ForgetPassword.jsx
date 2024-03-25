@@ -21,13 +21,13 @@ const ForgetPassword = () => {
               <h3 className="text-[32px] md:text-[40px] text-[#333333] font-Raleway font-bold">
                 Forgot password?
               </h3>
-              <p className="text-[16px]  text-[#032333] font-Raleway font-semibold">
+              <p className="text-[16px]  text-[#032333] font-Raleway font-semibold pt-3">
                 You can reset your password here.
               </p>
             </div>
 
             {/* form */}
-            <div className="pt-4 md:pt-8">
+            <div className="pt-2 md:pt-2">
               <form className="flex max-w-md flex-col gap-4">
                 <div>
                   <div className="mb-2 block">
@@ -61,7 +61,7 @@ const ForgetPassword = () => {
               <div className="text-[14px] font-Raleway font-[500] gap-1 ">
                 <span className="text-[#032333]">
                   {" "}
-                  Remember your password?{" "}
+                 Have an account?{" "}
                 </span>
                 <Link
                   href={"/login"}

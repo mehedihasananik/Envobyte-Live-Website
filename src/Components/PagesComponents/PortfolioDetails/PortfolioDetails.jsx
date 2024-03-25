@@ -16,19 +16,19 @@ const PortfolioDetails = () => {
             <p className='text-[18px] font-Poppins text-[#333333] md:leading-[27px] text-left py-3 lg:py-7'>Our Smart Corporate Website is a cutting-edge digital platform that embodies the essence of modern business and seamlessly integrates technological advancements with the core values of your company. Designed to captivate and engage both clients and stakeholders, this innovative online presence establishes a powerful brand identity and fosters meaningful connections in the digital landscape. With its sleek and intuitive interface, our Smart Corporate Website offers a seamless user experience, ensuring visitors can effortlessly navigate and access the information they seek.</p>
           </div>
           <div className='w-[100%]'>
-            <Image className='w-full' width={1000} height={500} src={"/assets/portDetails.png"} alt='image' />
+            <Image className='w-full h-full' width={1000} height={1000} src={"/assets/portDetails.png"} alt='image' />
           </div>
           <div className='text-center py-4 md:py-7 md:pb-8'>
             <h3 className='text-gray-500 text-[18px] md:text-[20px]  font-Raleway font-semibold'>Put The Image Caption Here Lorem Ipsum </h3>
           </div>
           <div className='w-[100%]'>
-            <Image className='w-full' width={1000} height={500} src={"/assets/portDetails2.png"} alt='image' />
+            <Image className='w-full h-full' width={1000} height={1000} src={"/assets/portDetails2.png"} alt='image' />
           </div>
           <div className='text-center py-4 md:py-7 md:pb-8'>
             <h3 className='text-gray-500 text-[18px] md:text-[24px] font-Raleway font-semibold'>Put The Image Caption Here Lorem Ipsum </h3>
           </div>
           <div className='w-[100%]'>
-            <Image className='w-full' width={1000} height={500} src={"/assets/portDetails3.png"} alt='image' />
+            <Image className='w-full h-full' width={1000} height={1000} src={"/assets/portDetails3.png"} alt='image' />
           </div>
           <div className='text-center py-4 md:py-7 md:pb-8'>
             <h3 className='text-gray-500 text-[18px] md:text-[24px] font-Raleway font-semibold'>Put The Image Caption Here Lorem Ipsum </h3>
