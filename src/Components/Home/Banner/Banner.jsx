@@ -42,7 +42,7 @@ const Banner = () => {
           <div>
             {/* right side image */}
             <div>
-              <Image width={742} height={554} src="/assets/banner.png" alt="" />
+              <Image className='w-full h-full' width={1000} height={1000} src="/assets/banner.png" alt="" />
             </div>
           </div>
         </div>
