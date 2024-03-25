@@ -22,14 +22,14 @@ const Header = () => {
         <div>
           <nav className="hidden  lg:flex justify-between items-center pt-5 ">
             {/* logo */}
-            <div>
+            <Link href={"/"}>
               <Image
                 src="/assets/logo.png"
                 width={159}
                 height={49}
                 alt="Picture of the logo"
               />
-            </div>
+            </Link>
             {/* nav items */}
             <div className="flex items-center gap-10 text-[#1E1E24]">
               <ul className="flex gap-10">
