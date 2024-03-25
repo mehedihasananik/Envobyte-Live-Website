@@ -32,6 +32,10 @@ const Services = () => {
 
     const breakpoints = {
         // when window width is >= 1024px (lg)
+        2500:{
+          slidesPerView: 3,
+          spaceBetween: 30
+      },
         1920:{
             slidesPerView: 3,
             spaceBetween: 30
@@ -63,7 +67,7 @@ const Services = () => {
 
   return (
   <div className=' overflow-hidden '>
-    <Container>
+    <div  className='xl:pl-[10%]'>
                {/* services */}
     <div className='py-6 xl:pt-10 '>
     <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 lg:py-8">
@@ -408,7 +412,7 @@ const Services = () => {
           </div>
         </div>
     </div>
-        </Container>
+        </div>
   </div>
 
   );
