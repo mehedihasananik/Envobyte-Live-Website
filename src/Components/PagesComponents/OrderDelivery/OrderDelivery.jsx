@@ -57,12 +57,12 @@ const OrderDelivery = () => {
             </div>
           </div>
           {/* 3rd */}
-          <div className="max-w-[400px] flex items-center gap-x-3  border border-[#E2E2E2] bg-[#FDFDFD] rounded-md p-3">
+          <div className="max-w-[400px] flex items-center gap-x-5  border border-[#E2E2E2] bg-[#FDFDFD] rounded-md p-3">
             <div>
               <img src="/assets/pin.png" alt="ui ux desing" />
             </div>
             <div>
-              <h2 className="text-[#444] font-Raleway text-[16px] font-[600]">
+              <h2 className="text-[#444] font-Raleway text-[14px] font-[600] whitespace-nowrap">
                 Requirement Submitted
               </h2>
               <p className="text-[#666] text-[14px] font-[400] ">
