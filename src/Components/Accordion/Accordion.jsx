@@ -12,7 +12,11 @@ const Accordion = ({ title, answer }) => {
         className="flex justify-between w-full bg-[#F8FAFC] rounded-md py-3 px-4 font-semibold"
       >
         <div className="flex items-center gap-4 ">
-          <span className="bg-[#0A2C8C] p-2 rounded-full">
+          <span
+            className={`p-2 rounded-full ${
+              accordionOpen ? "bg-red-500" : "bg-[#0A2C8C]"
+            }`}
+          >
             <RiEdit2Fill className="hidden md:block  text-white" />
           </span>
 
@@ -20,7 +24,6 @@ const Accordion = ({ title, answer }) => {
             {title}
           </span>
         </div>
-        {/* {accordionOpen ? <span>-</span> : <span>+</span>} */}
 
         <svg
           className="fill-indigo-500 shrink-0 ml-8"
