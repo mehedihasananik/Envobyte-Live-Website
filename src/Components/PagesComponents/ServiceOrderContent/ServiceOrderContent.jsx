@@ -304,7 +304,10 @@ const ServiceOrderContent = () => {
       </Container>
 
       <div>
-        <Questions className="bg-[#F8FAFC]" />
+        <Questions
+          title="Frequently Asked Questions"
+          className="bg-[#F8FAFC]"
+        />
       </div>
     </>
   );

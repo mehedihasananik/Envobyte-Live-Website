@@ -1,5 +1,6 @@
 import Container from "@/Components/Container/Container";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   const footer = [
@@ -16,8 +17,14 @@ const Footer = () => {
         <div className="w-full py-4 md:justify-between md:items-center lg:py-10 lg:flex-col lg:justify-start lg:items-start lg:w-[30%]">
           {/* logo & description */}
           <div className="relative left-[-10px]">
-            <Image className="w-[159px] h-[49px]" width={200} height={100} src="/assets/footer.png" alt="" />
-          </div> 
+            <Image
+              className="w-[159px] h-[49px]"
+              width={200}
+              height={100}
+              src="/assets/footer.png"
+              alt=""
+            />
+          </div>
           <div className="w-[250px] py-5">
             <h3 className="text-[16px] text-[#444444] ">
               We are an IT Company. We help businesses to bring ideas to life
@@ -26,7 +33,6 @@ const Footer = () => {
           </div>
         </div>
 
-        
         {/* right side */}
         <div className="w-full  lg:w-[70%] grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 lg:gap-0">
           {/* footer links */}
@@ -53,9 +59,12 @@ const Footer = () => {
               Company
             </h3>
             <ul className="flex flex-col gap-2 pt-5 text-[16px] text-[#444444]  ">
-              <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
-                About Us
-              </li>
+              <Link
+                href={"/dashboard"}
+                className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
+              >
+                Dashboard
+              </Link>
               <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
                 Services
               </li>

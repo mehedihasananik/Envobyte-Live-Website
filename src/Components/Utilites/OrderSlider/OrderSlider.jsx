@@ -72,8 +72,8 @@ const OrderSlider = () => {
       renderItem: (item) => (
         <div onClick={handleImageClick}>
           <Image
-            width={600}
-            height={700}
+            width={1000}
+            height={1000}
             alt="slider image"
             className={`w-[100%] ${
               isFullscreen ? "h-[100vh]" : "h-[200px] md:h-[600px]"

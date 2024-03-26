@@ -3,13 +3,13 @@ import React from "react";
 import Container from "@/Components/Container/Container";
 import Accordion from "@/Components/Accordion/Accordion";
 
-const Questions = ({ className }) => {
+const Questions = ({ className, title }) => {
   return (
     <div className={`py-10 ${className}`}>
       <div className="max-w-[1680px] mx-auto md:px-[8%]">
         <div className="text-center">
           <h3 className="text-[#0F172A] text-[32px] md:text-[48px] font-bold font-Raleway pb-5">
-            Questions Looks Here
+            {title}
           </h3>
           <p className=" text-[#0F172A] text-[16px]  ">
             Lorem Ipsum is simply dummy text of the printing and typesetting

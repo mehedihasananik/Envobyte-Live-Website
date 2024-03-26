@@ -22,7 +22,7 @@ const MessageContent = () => {
   };
   return (
     <div>
-      <div className="px-3">
+      <div className="px-6">
         {/* avater */}
         <div className="flex justify-between items-center px-4 bg-[#FFFFFF] py-5  rounded-lg">
           <div className="flex gap-x-3 ">
@@ -159,19 +159,19 @@ const MessageContent = () => {
             <div className="flex gap-8">
               <div className="bg-[#F1F8FC] flex gap-1 items-center py-4 text-[14px] font-Raleway font-[700]">
                 <span>
-                  <BiRevision />
+                  <BiRevision className="text-[20px] text-[#0A2C8C]" />
                 </span>{" "}
                 <span>1 Revision</span>
               </div>
               <div className="bg-[#F1F8FC] flex items-center py-4 text-[14px] font-Raleway font-[700] gap-1">
                 <span>
-                  <MdOutlineAccessTimeFilled />
+                  <MdOutlineAccessTimeFilled className="text-[20px] text-[#0A2C8C]" />
                 </span>{" "}
                 <span>Day Delivery</span>
               </div>
             </div>
             <div className="space-x-7">
-              <button className="text-[#000] text-[14px] w-[600] bg-[#B0B0B0] rounded-[4px] px-5 py-1.5 font-[600]">
+              <button className="text-[#B0B0B0] text-[14px] w-[600] bg-[#F3F3F3] rounded-[4px] px-5 py-1.5 font-[600]">
                 Cancel
               </button>
               <button className="text-[#FFF] text-[14px] w-[600] bg-[#FF693B] rounded-[4px] px-5 py-1.5 font-[600]">
@@ -199,7 +199,7 @@ const MessageContent = () => {
         </div>
       </div>
       {/* sending message input */}
-      <div className="pt-16 flex w-full items-center gap-5 px-10">
+      <div className="lg:pt-[10%] flex w-full items-center gap-5 px-10 ">
         <div className="w-[90%] relative">
           <input
             className="w-full border border-[#E2E2E2] rounded-md py-2.5 px-10"

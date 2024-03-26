@@ -29,14 +29,17 @@ const DashBoardSideNav = () => {
         <div>
           <section className="flex gap-6  ">
             <div
-              className={` min-h-screen flex flex-col justify-between ${
+              className={`h-[100vh] flex flex-col justify-between ${
                 open ? "w-44 lg:w-72" : "hidden"
               } duration-500 text-[16px] text-[#444444] px-6 `}
             >
               <div>
                 <div className="mt-4 flex flex-col justify-between gap-4 relative">
                   <div className="lg:pl-[13%] pt-1">
-                    <img src="/assets/logo.png" alt="" />
+                    <Link href={"/"}>
+                      {" "}
+                      <img src="/assets/logo.png" alt="" />
+                    </Link>
                   </div>
                   <div className="w-full">
                     {menus?.map((menu, i) => (
