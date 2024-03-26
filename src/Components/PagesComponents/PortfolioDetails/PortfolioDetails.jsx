@@ -16,13 +16,13 @@ const PortfolioDetails = () => {
             <p className='text-[18px] font-Poppins text-[#333333] md:leading-[27px] text-left py-3 lg:py-7'>Our Smart Corporate Website is a cutting-edge digital platform that embodies the essence of modern business and seamlessly integrates technological advancements with the core values of your company. Designed to captivate and engage both clients and stakeholders, this innovative online presence establishes a powerful brand identity and fosters meaningful connections in the digital landscape. With its sleek and intuitive interface, our Smart Corporate Website offers a seamless user experience, ensuring visitors can effortlessly navigate and access the information they seek.</p>
           </div>
           <div className='w-[100%]'>
-            <Image className='w-full h-full' width={1000} height={1000} src={"/assets/portDetails.png"} alt='image' />
+            <Image className='w-full h-[75vh] rounded-md' width={1000} height={1000} src={"/assets/portDetails.png"} alt='image' />
           </div>
           <div className='text-center py-4 md:py-7 md:pb-8'>
             <h3 className='text-gray-500 text-[18px] md:text-[20px]  font-Raleway font-semibold'>Put The Image Caption Here Lorem Ipsum </h3>
           </div>
           <div className='w-[100%]'>
-            <Image className='w-full h-full' width={1000} height={1000} src={"/assets/portDetails2.png"} alt='image' />
+            <Image className='w-full h-[75vh] rounded-md' width={1000} height={1000} src={"/assets/portDetails2.png"} alt='image' />
           </div>
           <div className='text-center py-4 md:py-7 md:pb-8'>
             <h3 className='text-gray-500 text-[18px] md:text-[24px] font-Raleway font-semibold'>Put The Image Caption Here Lorem Ipsum </h3>
@@ -46,9 +46,9 @@ const PortfolioDetails = () => {
         <Container>
           <div className='flex flex-col md:flex-row justify-center items-center gap-8 pb-8 md:gap-16 mt-5 md:mt-10 '>
             {/* one */}
-            <div className="max-w-xs shadow-lg rounded-md border border-[#E2E8F0] pb-2">
+            <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
               <div className="flex flex-col">
-                <div className="bg-[#E2E8F0]">
+                <div className="bg-[#E2E8F0] ">
                   <div>
                     <Image
                       width={700}
@@ -62,30 +62,30 @@ const PortfolioDetails = () => {
 
                 {/* title & description */}
 
-                <div className="px-5">
-                  <h3 className="text-[24px] font-bold text-[#1E293B] font-Raleway pt-5 pb-2">
+                <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-200">
+                  <h3 className="text-[24px] font-bold text-[#1E293B] font-Raleway pt-5 pb-2 group-hover:text-white transition-all duration-200">
                     Logo Design
                   </h3>
-                  <p className="text-[14px] text-[#475569]">
+                  <p className="text-[14px] text-[#475569]  group-hover:text-white transition-all duration-200">
                     Lorem ipsum dolor sit amet consectetur. Sodales malesuada
                     nulla sodales eget vitae turpis. Ac quis mauris vel arcu
                     lectus maecenas. Quis tellus risus senectus suscipit
                     accum...
                   </p>
                 </div>
-                <div className="flex items-center justify-between px-5 py-5">
+                <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
                   <div className="font-Raleway">
-                    <span className=" font-bold text-[16px] text-[#1E293B]">
+                    <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#FFF] transition-all duration-200">
                       Start From
                     </span>
                   </div>
                   <div>
-                    <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C]">
+                    <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#FFF] transition-all duration-20">
                       20$
                     </span>
                   </div>
                   <div>
-                    <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
+                    <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
                       View
                     </button>
                   </div>
@@ -93,9 +93,9 @@ const PortfolioDetails = () => {
               </div>
             </div>
             {/* two */}
-            <div className="max-w-xs shadow-lg rounded-md border border-[#E2E8F0] pb-2">
+            <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
               <div className="flex flex-col">
-                <div className="bg-[#E2E8F0]">
+                <div className="bg-[#E2E8F0] ">
                   <div>
                     <Image
                       width={700}
@@ -109,30 +109,30 @@ const PortfolioDetails = () => {
 
                 {/* title & description */}
 
-                <div className="px-5">
-                  <h3 className="text-[24px] font-bold text-[#1E293B] font-Raleway pt-5 pb-2">
+                <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-200">
+                  <h3 className="text-[24px] font-bold text-[#1E293B] font-Raleway pt-5 pb-2 group-hover:text-white transition-all duration-200">
                     Logo Design
                   </h3>
-                  <p className="text-[14px] text-[#475569]">
+                  <p className="text-[14px] text-[#475569]  group-hover:text-white transition-all duration-200">
                     Lorem ipsum dolor sit amet consectetur. Sodales malesuada
                     nulla sodales eget vitae turpis. Ac quis mauris vel arcu
                     lectus maecenas. Quis tellus risus senectus suscipit
                     accum...
                   </p>
                 </div>
-                <div className="flex items-center justify-between px-5 py-5">
+                <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
                   <div className="font-Raleway">
-                    <span className=" font-bold text-[16px] text-[#1E293B]">
+                    <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#FFF] transition-all duration-200">
                       Start From
                     </span>
                   </div>
                   <div>
-                    <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C]">
+                    <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#FFF] transition-all duration-20">
                       20$
                     </span>
                   </div>
                   <div>
-                    <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
+                    <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
                       View
                     </button>
                   </div>
