@@ -108,7 +108,13 @@ const Footer = () => {
                 </span>
                 <span className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
                   {" "}
-                  Ourstudio@hello.com
+                  <a
+                    target="_blank"
+                    href="mailto:support@envobyte.com"
+                    className="text-[#475569] text-[16px] pt-1"
+                  >
+                    support@envobyte.com
+                  </a>
                 </span>
               </li>
               <li className="flex items-center gap-3">
@@ -118,7 +124,13 @@ const Footer = () => {
                 </span>{" "}
                 <span className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
                   {" "}
-                  +1 386-688-3295
+                  <a
+                    target="_blank"
+                    href="https://wa.me/8801711377731"
+                    className="text-[#475569] text-[16px] pt-1"
+                  >
+                    +880 1711-377731
+                  </a>
                 </span>
               </li>
               <div className="flex gap-4 pt-4">
