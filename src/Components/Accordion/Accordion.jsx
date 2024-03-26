@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import { RiEdit2Fill } from "react-icons/ri";
 
@@ -11,9 +11,14 @@ const Accordion = ({ title, answer }) => {
         onClick={() => setAccordionOpen(!accordionOpen)}
         className="flex justify-between w-full bg-[#F8FAFC] rounded-md py-3 px-4 font-semibold"
       >
-        <div className="flex items-center gap-3 ">
-          <RiEdit2Fill className="hidden md:block" />
-          <span className="text-[#334155] text-[14px] md:text-[20px]">{title}</span>
+        <div className="flex items-center gap-4 ">
+          <span className="bg-[#0A2C8C] p-2 rounded-full">
+            <RiEdit2Fill className="hidden md:block  text-white" />
+          </span>
+
+          <span className="text-[#334155] text-[14px] md:text-[20px]">
+            {title}
+          </span>
         </div>
         {/* {accordionOpen ? <span>-</span> : <span>+</span>} */}
 
