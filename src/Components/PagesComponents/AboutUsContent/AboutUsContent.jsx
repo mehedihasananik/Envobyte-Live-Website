@@ -94,9 +94,9 @@ const AboutUsContent = () => {
           
           </div>
           {/* right side */}
-          <div className="lg:w-[50%] flex justify-center lg:justify-end gap-x-3 ">
-          <Image className="w-[320px] h-[400px]"  width={500} height={500} src="/assets/aboutusB.png" alt="" />
-          <Image className="w-[320px] h-[400px]"  width={500} height={500} src="/assets/aboutusB2.png" alt="" />
+          <div className="lg:w-[40%] flex justify-center lg:justify-end gap-x-3 ">
+          <Image className="w-[50%] h-[400px]"  width={1000} height={1000} src="/assets/aboutusB.png" alt="" />
+          <Image className="w-[50%] h-[400px]"  width={1000} height={1000} src="/assets/aboutusB2.png" alt="" />
           </div>
         </div>
         {/* communication */}
@@ -112,9 +112,9 @@ const AboutUsContent = () => {
           
           </div>
           {/* right side */}
-          <div className="lg:w-[50%] flex justify-center lg:justify-start gap-x-3 ">
-          <Image className="w-[320px] h-[400px]"  width={500} height={500} src="/assets/aboutusB3.png" alt="" />
-          <Image className="w-[320px] h-[400px]"  width={500} height={500} src="/assets/aboutusB4.png" alt="" />
+          <div className="lg:w-[40%] flex justify-center lg:justify-start gap-x-3 ">
+          <Image className="w-[50%] h-[400px] rounded-md"  width={1000} height={1000} src="/assets/aboutusB3.jpg" alt="" />
+          <Image className="w-[50%] h-[400px] rounded-md"  width={1000} height={1000} src="/assets/aboutusB4.jpg" alt="" />
           </div>
         </div>
         {/* Project Management */}
@@ -130,9 +130,9 @@ const AboutUsContent = () => {
           
           </div>
           {/* right side */}
-          <div className="lg:w-[50%] flex justify-center lg:justify-end gap-x-3 ">
-          <Image className="w-[320px] h-[400px]"  width={500} height={500} src="/assets/aboutusB5.png" alt="" />
-          <Image className="w-[320px] h-[400px]"  width={500} height={500} src="/assets/aboutusB6.png" alt="" />
+          <div className="lg:w-[40%] flex justify-center lg:justify-end gap-x-3 ">
+          <Image className="w-[50%] h-[400px]"  width={1000} height={1000} src="/assets/aboutusB5.png" alt="" />
+          <Image className="w-[50%] h-[400px]"  width={1000} height={1000} src="/assets/aboutusB6.png" alt="" />
           </div>
         </div>
         {/* Attention To Details */}
@@ -148,9 +148,9 @@ const AboutUsContent = () => {
           
           </div>
           {/* right side */}
-          <div className="lg:w-[50%] flex justify-center lg:justify-start gap-x-3 ">
-          <Image className="w-[320px] h-[400px]"  width={500} height={500} src="/assets/aboutusB7.png" alt="" />
-          <Image className="w-[320px] h-[400px]"  width={500} height={500} src="/assets/aboutusB8.png" alt="" />
+          <div className="lg:w-[40%] flex justify-center lg:justify-start gap-x-3 ">
+          <Image className="w-[50%] h-[400px]"  width={1000} height={1000} src="/assets/aboutusB7.png" alt="" />
+          <Image className="w-[50%] h-[400px]"  width={1000} height={1000} src="/assets/aboutusB8.png" alt="" />
           </div>
         </div>
       </div>

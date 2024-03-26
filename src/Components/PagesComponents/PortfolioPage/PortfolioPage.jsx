@@ -64,7 +64,8 @@ const PortfolioPage = () => {
           {/* 1st row */}
           <div className="  flex flex-col md:flex-row gap-10 justify-between pt-10 pb-5 ">
             {/* 1st row 1st column card */}
-            <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
+        <Link href={"/portfolio-details"}>
+        <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
                 width={800}
@@ -97,8 +98,9 @@ const PortfolioPage = () => {
                 </div>
               </div>
             </div>
-
+        </Link>
             {/* 1st row 2nd column card */}
+            <Link href={"/portfolio-details"}>
             <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
@@ -132,17 +134,19 @@ const PortfolioPage = () => {
                 </div>
               </div>
             </div>
+            </Link>
+            
           </div>
-
           {/* 2nd row */}
           <div className="flex flex-col md:flex-row  gap-10 justify-between pt-10 pb-5 ">
             {/* 2nd row 1st column card */}
+            <Link href={"/portfolio-details"}>
             <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
                 width={800}
                 height={262}
-                 className="lg:w-[400px] h-[420px] portfolio-bgHover"
+                 className="lg:w-[400px] h-[420px] object-cover portfolio-bgHover"
                   src="/assets/portfolio3.png"
                   alt=""
                 />
@@ -170,7 +174,10 @@ const PortfolioPage = () => {
                 </div>
               </div>
             </div>
+            </Link>
+        
             {/* 2nd row 2nd column card */}
+            <Link href={"/portfolio-details"}>
             <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
@@ -204,10 +211,14 @@ const PortfolioPage = () => {
                 </div>
               </div>
             </div>
-          </div>  {/* 1st row */}
-          <div className="  flex flex-col md:flex-row gap-10 justify-between pt-10 pb-5 ">
+            </Link>
+           
+          </div> 
+            {/* 1st row */}
+            <div className="  flex flex-col md:flex-row gap-10 justify-between pt-10 pb-5 ">
             {/* 1st row 1st column card */}
-            <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
+        <Link href={"/portfolio-details"}>
+        <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
                 width={800}
@@ -240,8 +251,9 @@ const PortfolioPage = () => {
                 </div>
               </div>
             </div>
-
+        </Link>
             {/* 1st row 2nd column card */}
+            <Link href={"/portfolio-details"}>
             <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
@@ -275,17 +287,19 @@ const PortfolioPage = () => {
                 </div>
               </div>
             </div>
+            </Link>
+            
           </div>
-
           {/* 2nd row */}
           <div className="flex flex-col md:flex-row  gap-10 justify-between pt-10 pb-5 ">
             {/* 2nd row 1st column card */}
+            <Link href={"/portfolio-details"}>
             <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
                 width={800}
                 height={262}
-                 className="lg:w-[400px] h-[420px] portfolio-bgHover"
+                 className="lg:w-[400px] h-[420px] object-cover portfolio-bgHover"
                   src="/assets/portfolio3.png"
                   alt=""
                 />
@@ -313,7 +327,10 @@ const PortfolioPage = () => {
                 </div>
               </div>
             </div>
+            </Link>
+        
             {/* 2nd row 2nd column card */}
+            <Link href={"/portfolio-details"}>
             <div className="group flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
               <div>
                 <Image 
@@ -340,14 +357,16 @@ const PortfolioPage = () => {
                 </div>
                 <div className="group flex justify-center items-center gap-2 text-[#FF693B] font-bold mt-5 portfolio-textHover pb-6 lg:pb-0">
                   {" "}
-                  <Link href={"/portfolio-details"} className=" text-[14px]  ">Read More </Link>
+                  <button className=" text-[14px]  ">Read More </button>
                   <span className="w-[19px] font-bold">
                     <HiArrowSmallRight className="text-xl " />
                   </span>{" "}
                 </div>
               </div>
             </div>
-          </div>
+            </Link>
+           
+          </div> 
         </div>
         <div className="flex justify-center pt-8 lg:pt-16">
           <button className="text-[16px] bg-[#FF693B] px-10 py-3 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
