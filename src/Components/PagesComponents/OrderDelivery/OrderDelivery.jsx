@@ -294,12 +294,26 @@ const OrderDelivery = () => {
                   <img className="" src="/assets/delivery3.png" alt="" />
                 </div>
               </div>
+              <div className="space-x-4 pt-3">
+                <button className="text-[16px] font-[600] text-[#fff] bg-[#FF693B] px-4 py-2 rounded-md hover:text-[#B0B0B0] hover:bg-[#F3F3F3] transition-all duration-200">
+                  Approve
+                </button>
+                <button className="text-[16px] font-[600] text-[#B0B0B0] bg-[#F3F3F3] px-4 py-2 rounded-md hover:text-[#fff] hover:bg-[#FF693B] transition-all duration-200">
+                  Send a Revision
+                </button>
+              </div>
+              <div className="py-3">
+                <p className="text-[#666] text-[14px] font-[400]">
+                  You have until Dec 18, 11:42 to approve or request a revision.
+                  Otherwise, the order will mark as complete.
+                </p>
+              </div>
             </div>
           </div>
         </div>
 
         {/* sending message input */}
-        <div className="pt-16 flex w-full items-center gap-5 pl-3 ">
+        <div className="pt-16 flex w-full items-center gap-5 pl-3 pb-5 ">
           <div className="w-[82.5%] relative">
             <input
               className="w-full border border-[#E2E2E2] rounded-md py-2.5 px-10"
