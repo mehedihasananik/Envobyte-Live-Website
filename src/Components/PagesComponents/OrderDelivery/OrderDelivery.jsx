@@ -21,7 +21,7 @@ const OrderDelivery = () => {
     // Handle file input change here if needed
   };
   return (
-    <div className="py-5 bg-[#fff] mx-8">
+    <div className="py-3 bg-[#fff] mx-8">
       <div className="">
         {/* cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-20 px-4">
@@ -70,7 +70,7 @@ const OrderDelivery = () => {
               </p>
             </div>
             <div>
-              <button className="bg-[#FF693B] text-[14px] font-[600] text-white px-4 py-1 rounded-md ">
+              <button className="bg-[#FF693B] text-[14px] font-[600] border border-[#FF693B] text-white px-4 py-1 rounded-md hover:text-[#FF693B] hover:bg-[#fff] transition-all duration-200">
                 View
               </button>
             </div>
@@ -199,22 +199,26 @@ const OrderDelivery = () => {
               <div className="flex gap-8">
                 <div className="bg-[#F1F8FC] flex gap-1 items-center py-4 text-[14px] font-Raleway font-[700]">
                   <span>
-                    <BiRevision />
+                    <BiRevision className="text-[20px] text-[#123390]" />
                   </span>{" "}
-                  <span>1 Revision</span>
+                  <span className="text-[16px] font-Raleway font-[600]">
+                    1 Revision
+                  </span>
                 </div>
                 <div className="bg-[#F1F8FC] flex items-center py-4 text-[14px] font-Raleway font-[700] gap-1">
                   <span>
-                    <MdOutlineAccessTimeFilled />
+                    <MdOutlineAccessTimeFilled className="text-[20px] text-[#123390]" />
                   </span>{" "}
-                  <span>Day Delivery</span>
+                  <span className="text-[16px] font-Raleway font-[600]">
+                    2 Day Delivery
+                  </span>
                 </div>
               </div>
               <div className="space-x-7">
-                <button className="text-[#000] text-[14px] w-[600] bg-[#B0B0B0] rounded-[4px] px-5 py-1.5 font-[600]">
+                <button className="text-[#000] text-[14px] w-[600] bg-[#B0B0B0] hover:shadow-xl  rounded-[4px] px-5 py-1.5 font-[600] transition-all duration-300">
                   Cancel
                 </button>
-                <button className="text-[#FFF] text-[14px] w-[600] bg-[#FF693B] rounded-[4px] px-5 py-1.5 font-[600]">
+                <button className="text-[#FFF] text-[14px] w-[600] bg-[#FF693B] hover:shadow-xl  rounded-[4px] px-5 py-1.5 font-[600] transition-all duration-300">
                   Accept
                 </button>
               </div>
@@ -295,10 +299,10 @@ const OrderDelivery = () => {
                 </div>
               </div>
               <div className="space-x-4 pt-3">
-                <button className="text-[16px] font-[600] text-[#fff] bg-[#FF693B] px-4 py-2 rounded-md hover:text-[#B0B0B0] hover:bg-[#F3F3F3] transition-all duration-200">
+                <button className="text-[16px] font-[600] text-[#fff] bg-[#FF693B] px-4 py-2 rounded-md hover:shadow-xl transition-all duration-200">
                   Approve
                 </button>
-                <button className="text-[16px] font-[600] text-[#B0B0B0] bg-[#F3F3F3] px-4 py-2 rounded-md hover:text-[#fff] hover:bg-[#FF693B] transition-all duration-200">
+                <button className="text-[16px] font-[600] text-[#B0B0B0] bg-[#F3F3F3] px-4 py-2 rounded-md hover:shadow-xl  transition-all duration-200">
                   Send a Revision
                 </button>
               </div>
@@ -316,15 +320,15 @@ const OrderDelivery = () => {
         <div className="pt-16 flex w-full items-center gap-5 pl-3 pb-5 ">
           <div className="w-[82.5%] relative">
             <input
-              className="w-full border border-[#E2E2E2] rounded-md py-2.5 px-10"
+              className="w-full border border-[#E2E2E2] rounded-md py-2.5 px-5#FF693B"
               type="text"
               placeholder="Write a message..."
             />
-            <div className="absolute top-[13px] left-[14px]">
+            {/* <div className="absolute top-[13px] left-[14px]">
               <button>
                 <BsPlusCircle className=" text-[#8A8A8A] text-[20px]" />
               </button>
-            </div>
+            </div> */}
             <div className="flex gap-2 absolute right-3 top-[13px]">
               <button onClick={handleButtonClick}>
                 <GoPaperclip className="text-[20px]" />
@@ -341,7 +345,7 @@ const OrderDelivery = () => {
             </div>
           </div>
           <div className="w-[10%]">
-            <button className="w-full bg-[#FF693B] text-white  text-[16px] font-[600]px-[20px] py-2.5 rounded-[4px]">
+            <button className="w-full font-[600] bg-[#FF693B] border border-[#FF693B] text-white hover:text-[#FF693B] hover:bg-[#ffff] transition-all duration-200  text-[16px] font-[600]px-[20px] py-2.5 rounded-[4px]">
               Send
             </button>
           </div>
