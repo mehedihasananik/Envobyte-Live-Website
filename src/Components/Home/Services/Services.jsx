@@ -115,6 +115,7 @@ const Services = () => {
               <Swiper
                 ref={swiperRef}
                 slidesPerView={4}
+                slidesPerGroup={3}
                 spaceBetween={200}
                 breakpoints={breakpoints}
                 className="mySwiper space-x-4"
