@@ -105,6 +105,7 @@ const Testimonial = () => {
               <Swiper
                 ref={swiperRef}
                 slidesPerView={3}
+                slidesPerGroup={3}
                 spaceBetween={30}
                 breakpoints={breakpoints}
                 className="mySwiper mx-auto "
