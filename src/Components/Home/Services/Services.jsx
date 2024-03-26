@@ -32,16 +32,16 @@ const Services = () => {
   const breakpoints = {
     // when window width is >= 1024px (lg)
     2500: {
-      slidesPerView: 3,
+      slidesPerView: 4,
       spaceBetween: 30,
     },
     1920: {
-      slidesPerView: 3,
-      spaceBetween: 30,
+      slidesPerView: 4,
+      spaceBetween: 50,
     },
     1336: {
-      slidesPerView: 2,
-      spaceBetween: 30,
+      slidesPerView: 4,
+      spaceBetween: 10,
     },
     1280: {
       slidesPerView: 2,
@@ -84,7 +84,7 @@ const Services = () => {
                 </p>
               </div>
               <div className="text-center lg:text-left">
-                <span className="text-[48px] font-Raleway text-[#1E293B] font-bold">
+                <span className="text-[48px] font-Raleway text-[#0A2C8C] font-bold">
                   02
                 </span>
                 <span className="text-[16px] font-bold text-[#94A3B8] font-Raleway">
@@ -98,8 +98,8 @@ const Services = () => {
                   </button>
                 </div>
                 <div className="group" onClick={() => goNext()}>
-                  <button className=" bg-[#FF693B]  group-hover:bg-[#FF9F711A] px-5 py-5 rounded-lg transition-all duration-300">
-                    <HiArrowRight className="text-[#fff]  group-hover:text-[#FF693B] w-[24px] h-[24px]" />
+                  <button className=" bg-[#FF9F711A]  group-hover:bg-[#FF693B] px-5 py-5 rounded-lg transition-all duration-300">
+                    <HiArrowRight className="text-[#FF693B]  group-hover:text-[#fff] w-[24px] h-[24px]" />
                   </button>
                 </div>
               </div>
@@ -114,13 +114,13 @@ const Services = () => {
               {/* cards */}
               <Swiper
                 ref={swiperRef}
-                slidesPerView={3}
-                spaceBetween={30}
+                slidesPerView={4}
+                spaceBetween={200}
                 breakpoints={breakpoints}
                 className="mySwiper "
               >
                 <SwiperSlide className="">
-                  <div className="group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                  <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
                     <div className="flex flex-col">
                       <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
                         <div>
@@ -168,7 +168,55 @@ const Services = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className="">
-                  <div className="group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                  <div className="w-[300px]  group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                    <div className="flex flex-col">
+                      <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
+                        <div>
+                          <Image
+                            width={700}
+                            height={700}
+                            className="w-full h-[270px]"
+                            src="/assets/service2.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+
+                      {/* title & description */}
+
+                      <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
+                        <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
+                          Logo Design
+                        </h3>
+                        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
+                          Lorem ipsum dolor sit amet consectetur. Sodales
+                          malesuada nulla sodales eget vitae turpis. Ac quis
+                          mauris vel arcu lectus maecenas. Quis tellus risus
+                          senectus suscipit accum...
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
+                        <div className="font-Raleway">
+                          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
+                            Start From
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
+                            20$
+                          </span>
+                        </div>
+                        <div>
+                          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="">
+                  <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
                     <div className="flex flex-col">
                       <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
                         <div>
@@ -216,7 +264,55 @@ const Services = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className="">
-                  <div className="group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                  <div className="w-[300px]  group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                    <div className="flex flex-col">
+                      <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
+                        <div>
+                          <Image
+                            width={700}
+                            height={700}
+                            className="w-full h-[270px]"
+                            src="/assets/service2.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+
+                      {/* title & description */}
+
+                      <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
+                        <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
+                          Logo Design
+                        </h3>
+                        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
+                          Lorem ipsum dolor sit amet consectetur. Sodales
+                          malesuada nulla sodales eget vitae turpis. Ac quis
+                          mauris vel arcu lectus maecenas. Quis tellus risus
+                          senectus suscipit accum...
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
+                        <div className="font-Raleway">
+                          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
+                            Start From
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
+                            20$
+                          </span>
+                        </div>
+                        <div>
+                          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="">
+                  <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
                     <div className="flex flex-col">
                       <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
                         <div>
@@ -264,7 +360,55 @@ const Services = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className="">
-                  <div className="group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                  <div className="w-[300px]  group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                    <div className="flex flex-col">
+                      <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
+                        <div>
+                          <Image
+                            width={700}
+                            height={700}
+                            className="w-full h-[270px]"
+                            src="/assets/service2.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+
+                      {/* title & description */}
+
+                      <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
+                        <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
+                          Logo Design
+                        </h3>
+                        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
+                          Lorem ipsum dolor sit amet consectetur. Sodales
+                          malesuada nulla sodales eget vitae turpis. Ac quis
+                          mauris vel arcu lectus maecenas. Quis tellus risus
+                          senectus suscipit accum...
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
+                        <div className="font-Raleway">
+                          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
+                            Start From
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
+                            20$
+                          </span>
+                        </div>
+                        <div>
+                          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="">
+                  <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
                     <div className="flex flex-col">
                       <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
                         <div>
@@ -312,7 +456,55 @@ const Services = () => {
                   </div>
                 </SwiperSlide>
                 <SwiperSlide className="">
-                  <div className="group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                  <div className="w-[300px]  group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                    <div className="flex flex-col">
+                      <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
+                        <div>
+                          <Image
+                            width={700}
+                            height={700}
+                            className="w-full h-[270px]"
+                            src="/assets/service2.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+
+                      {/* title & description */}
+
+                      <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
+                        <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
+                          Logo Design
+                        </h3>
+                        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
+                          Lorem ipsum dolor sit amet consectetur. Sodales
+                          malesuada nulla sodales eget vitae turpis. Ac quis
+                          mauris vel arcu lectus maecenas. Quis tellus risus
+                          senectus suscipit accum...
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
+                        <div className="font-Raleway">
+                          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
+                            Start From
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
+                            20$
+                          </span>
+                        </div>
+                        <div>
+                          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="">
+                  <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
                     <div className="flex flex-col">
                       <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
                         <div>
@@ -321,6 +513,150 @@ const Services = () => {
                             height={700}
                             className="w-full h-[270px]"
                             src="/assets/service1.jpeg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+
+                      {/* title & description */}
+
+                      <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
+                        <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
+                          Logo Design
+                        </h3>
+                        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
+                          Lorem ipsum dolor sit amet consectetur. Sodales
+                          malesuada nulla sodales eget vitae turpis. Ac quis
+                          mauris vel arcu lectus maecenas. Quis tellus risus
+                          senectus suscipit accum...
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
+                        <div className="font-Raleway">
+                          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
+                            Start From
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
+                            20$
+                          </span>
+                        </div>
+                        <div>
+                          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="">
+                  <div className="w-[300px]  group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                    <div className="flex flex-col">
+                      <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
+                        <div>
+                          <Image
+                            width={700}
+                            height={700}
+                            className="w-full h-[270px]"
+                            src="/assets/service2.png"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+
+                      {/* title & description */}
+
+                      <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
+                        <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
+                          Logo Design
+                        </h3>
+                        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
+                          Lorem ipsum dolor sit amet consectetur. Sodales
+                          malesuada nulla sodales eget vitae turpis. Ac quis
+                          mauris vel arcu lectus maecenas. Quis tellus risus
+                          senectus suscipit accum...
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
+                        <div className="font-Raleway">
+                          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
+                            Start From
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
+                            20$
+                          </span>
+                        </div>
+                        <div>
+                          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="">
+                  <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                    <div className="flex flex-col">
+                      <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
+                        <div>
+                          <Image
+                            width={700}
+                            height={700}
+                            className="w-full h-[270px]"
+                            src="/assets/service1.jpeg"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+
+                      {/* title & description */}
+
+                      <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
+                        <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
+                          Logo Design
+                        </h3>
+                        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
+                          Lorem ipsum dolor sit amet consectetur. Sodales
+                          malesuada nulla sodales eget vitae turpis. Ac quis
+                          mauris vel arcu lectus maecenas. Quis tellus risus
+                          senectus suscipit accum...
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
+                        <div className="font-Raleway">
+                          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
+                            Start From
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
+                            20$
+                          </span>
+                        </div>
+                        <div>
+                          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide className="">
+                  <div className="w-[300px]  group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                    <div className="flex flex-col">
+                      <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
+                        <div>
+                          <Image
+                            width={700}
+                            height={700}
+                            className="w-full h-[270px]"
+                            src="/assets/service2.png"
                             alt=""
                           />
                         </div>

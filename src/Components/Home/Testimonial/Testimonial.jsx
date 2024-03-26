@@ -93,8 +93,8 @@ const Testimonial = () => {
                   </button>
                 </div>
                 <div className="group" onClick={() => goNext()}>
-                  <button className=" bg-[#FF693B]  group-hover:bg-[#FF9F711A] px-5 py-5 rounded-lg transition-all duration-300">
-                    <HiArrowRight className="text-[#fff]  group-hover:text-[#FF693B] w-[24px] h-[24px]" />
+                  <button className=" bg-[#FF9F711A]  group-hover:bg-[#FF693B] px-5 py-5 rounded-lg transition-all duration-300">
+                    <HiArrowRight className="text-[#FF693B]  group-hover:text-[#fff] w-[24px] h-[24px]" />
                   </button>
                 </div>
               </div>

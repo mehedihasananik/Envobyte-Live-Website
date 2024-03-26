@@ -12,7 +12,7 @@ const ManageOrder = () => {
     <div className="px-6">
       {/* table */}
       <div className="overflow-x-auto">
-        <Table>
+        <Table hoverable className="cursor-pointer">
           <Table.Head>
             <Table.HeadCell className="order_title">Order ID</Table.HeadCell>
             <Table.HeadCell className="order_title">Service</Table.HeadCell>
