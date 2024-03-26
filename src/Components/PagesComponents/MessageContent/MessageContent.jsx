@@ -202,15 +202,15 @@ const MessageContent = () => {
       <div className="bg-[#FFFFFF lg:pt-[10%] flex w-full items-center gap-5 px-10 ">
         <div className="w-[90%] relative">
           <input
-            className="w-full border border-[#E2E2E2] rounded-md py-2.5 px-10"
+            className="w-full border border-[#E2E2E2] rounded-md py-2.5 px-4"
             type="text"
             placeholder="Write a message..."
           />
-          <div className="absolute top-[13px] left-[14px]">
+          {/* <div className="absolute top-[13px] left-[14px]">
             <button>
               <BsPlusCircle className=" text-[#8A8A8A] text-[20px]" />
             </button>
-          </div>
+          </div> */}
           <div className="flex gap-2 absolute right-3 top-[13px]">
             <button onClick={handleButtonClick}>
               <GoPaperclip className="text-[20px]" />
