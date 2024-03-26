@@ -225,7 +225,7 @@ const Services = () => {
                             width={700}
                             height={700}
                             className="w-full h-[270px]"
-                            src="/assets/service1.jpeg"
+                            src="/assets/service3.png"
                             alt=""
                           />
                         </div>
