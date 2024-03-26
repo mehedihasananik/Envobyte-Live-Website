@@ -12,7 +12,7 @@ const Footer = () => {
 
   return (
     <Container>
-      <div className="flex flex-col py-5 md:py-8 lg:flex-row justify-between items-center lg:py-10 ">
+      <div className="flex flex-col py-3 md:py-4 lg:flex-row justify-between items-center lg:pt-4 ">
         {/* left side */}
         <div className="w-full py-4 md:justify-between md:items-center lg:py-10 lg:flex-col lg:justify-start lg:items-start lg:w-[30%]">
           {/* logo & description */}
@@ -42,12 +42,18 @@ const Footer = () => {
               Company
             </h3>
             <ul className="flex flex-col gap-2 pt-5 text-[16px] text-[#444444]  ">
-              <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
+              <Link
+                href={"/about-us"}
+                className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
+              >
                 About Us
-              </li>
-              <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
+              </Link>
+              <Link
+                href={"/services"}
+                className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
+              >
                 Services
-              </li>
+              </Link>
               <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
                 Terms & Conditions
               </li>
@@ -56,7 +62,7 @@ const Footer = () => {
           {/* 2nd col */}
           <div>
             <h3 className="text-[18px] font-Raleway text-[#444444] font-bold">
-              Company
+              Learn More
             </h3>
             <ul className="flex flex-col gap-2 pt-5 text-[16px] text-[#444444]  ">
               <Link
@@ -82,15 +88,21 @@ const Footer = () => {
           {/* 3rd col */}
           <div>
             <h3 className="text-[18px] font-Raleway text-[#444444] font-bold">
-              Company
+              Support
             </h3>
             <ul className="flex flex-col gap-2 pt-5 text-[16px] text-[#444444]  ">
-              <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
+              <Link
+                href={"/about-us"}
+                className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
+              >
                 About Us
-              </li>
-              <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
+              </Link>
+              <Link
+                href={"/services"}
+                className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
+              >
                 Services
-              </li>
+              </Link>
               <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
                 Terms & Conditions
               </li>

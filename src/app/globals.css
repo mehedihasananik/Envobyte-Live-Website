@@ -105,6 +105,9 @@
     width: 100%;
     height: 100vh;
   }
+  .active {
+    color: red;
+  }
 
   /* slider pop up */
 

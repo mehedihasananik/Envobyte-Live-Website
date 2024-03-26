@@ -1,17 +1,19 @@
 "use client";
-
 import Container from "@/Components/Container/Container";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { Navbar } from "flowbite-react";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
+  const pathname = usePathname();
+
   const menus = [
-    { name: "Home", link: "/" },
-    { name: "Services", link: "/services" },
-    { name: "Portfolio", link: "/portfolio" },
-    { name: "About Us", link: "/about-us" },
+    { name: "Home", link: "/", activeClassName: "active" },
+    { name: "Services", link: "/services", activeClassName: "active" },
+    { name: "Portfolio", link: "/portfolio", activeClassName: "active" },
+    { name: "About Us", link: "/about-us", activeClassName: "active" },
   ];
 
   return (
@@ -37,7 +39,11 @@ const Header = () => {
                 {menus.map((item, index) => {
                   return (
                     <Link
-                      className="text-[16px] text-[#0F172A] cursor-pointer font-normal hover:text-[#FF693B] transition-colors duration-300"
+                      className={
+                        pathname === item.link
+                          ? "text-[16px] text-[#FF0000] font-normal"
+                          : "text-[16px] text-[#0F172A] cursor-pointer font-normal hover:text-[#FF693B] transition-colors duration-300"
+                      }
                       href={item.link}
                       key={index}
                     >
@@ -49,7 +55,7 @@ const Header = () => {
               {/* nav button */}
               <Link
                 href={"/login"}
-                className=" bg-[#FF693B] border border-[#FF693B] text-white font-medium px-10 py-2 rounded-lg hover:bg-white hover:text-[#FF693B] transition-all duration-300"
+                className=" bg-[#FF693B] border border-[#FF693B] text-white font-medium px-12 py-2 rounded-lg hover:bg-white hover:text-[#FF693B] transition-all duration-300"
               >
                 Login
               </Link>
@@ -71,12 +77,15 @@ const Header = () => {
           </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="">
-            <Navbar.Link href="#">Home</Navbar.Link>
-            <Navbar.Link as={Link} href="#">
-              Services
-            </Navbar.Link>
-            <Navbar.Link href="#">Portfolio</Navbar.Link>
-            <Navbar.Link href="#">About us</Navbar.Link>
+            {menus.map((item, index) => (
+              <Navbar.Link
+                key={index}
+                href={item.link}
+                className={pathname === item.link ? "text-[#FF0000]" : ""}
+              >
+                {item.name}
+              </Navbar.Link>
+            ))}
             <Link
               href={"/login"}
               className=" bg-[#FF693B] border border-[#FF693B] text-white font-medium px-10 py-2 rounded-lg hover:bg-white hover:text-[#FF693B] transition-all duration-300"
