@@ -171,10 +171,10 @@ const MessageContent = () => {
               </div>
             </div>
             <div className="space-x-7">
-              <button className="text-[#B0B0B0] text-[14px] w-[600] bg-[#F3F3F3] rounded-[4px] px-5 py-1.5 font-[600]">
+              <button className="text-[#000] text-[14px] w-[600] bg-[#B0B0B0] hover:shadow-xl  rounded-[4px] px-5 py-1.5 font-[600] transition-all duration-300">
                 Cancel
               </button>
-              <button className="text-[#FFF] text-[14px] w-[600] bg-[#FF693B] rounded-[4px] px-5 py-1.5 font-[600]">
+              <button className="text-[#FFF] text-[14px] w-[600] bg-[#FF693B] hover:shadow-xl rounded-[4px] px-5 py-1.5 font-[600]">
                 Accept
               </button>
             </div>
@@ -227,7 +227,7 @@ const MessageContent = () => {
           </div>
         </div>
         <div className="w-[10%]">
-          <button className="w-full bg-[#FF693B] text-white  text-[16px] font-[600]px-[20px] py-2.5 rounded-[4px]">
+          <button className="w-full font-[600] bg-[#FF693B] border border-[#FF693B] text-white hover:text-[#FF693B] hover:bg-[#ffff] transition-all duration-200  text-[16px] font-[600]px-[20px] py-2.5 rounded-[4px]">
             Send
           </button>
         </div>
