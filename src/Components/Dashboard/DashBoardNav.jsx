@@ -1,3 +1,5 @@
+"use client";
+import { Dropdown } from "flowbite-react";
 import Link from "next/link";
 import React from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
@@ -11,7 +13,7 @@ const DashBoardNav = ({ title }) => {
         </h3>
       </div>
       <div>
-        <ul className="flex items-center gap-3 pt-4">
+        <ul className="flex items-center gap-x-7 pt-4">
           <Link
             href={"/"}
             className="text-[18px] hover:text-[#FF693B] transition-all duration-200"
@@ -31,8 +33,23 @@ const DashBoardNav = ({ title }) => {
             <img src="/assets/dashperson.png" alt="" />
             <span className="flex items-center gap-x-4 text-[16px] hover:text-[#FF693B] transition-all duration-200">
               Ryan Milan{" "}
-              <MdKeyboardArrowDown className="text-[24px] text-[#9EA5B1]" />
             </span>
+            <Dropdown
+              label="Ryan Milan"
+              dismissOnClick={false}
+              renderTrigger={() => (
+                <span>
+                  {
+                    <MdKeyboardArrowDown className="text-[24px] cursor-pointer" />
+                  }
+                </span>
+              )}
+            >
+              <Dropdown.Item>Dashboard</Dropdown.Item>
+              <Dropdown.Item>Settings</Dropdown.Item>
+              <Dropdown.Item>Earnings</Dropdown.Item>
+              <Dropdown.Item>Sign out</Dropdown.Item>
+            </Dropdown>
           </button>
         </ul>
       </div>

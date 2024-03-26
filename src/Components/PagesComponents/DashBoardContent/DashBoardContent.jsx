@@ -65,7 +65,7 @@ const DashBoardContent = () => {
                     </h3>
                   </div>
                   <div>
-                    <h2 className="text-[14px] text-[#3371F2] font-[500]">
+                    <h2 className="text-[14px] text-[#505050] font-[500]">
                       In Progress
                     </h2>
                   </div>
@@ -126,7 +126,7 @@ const DashBoardContent = () => {
                     </h3>
                   </div>
                   <div>
-                    <h2 className="text-[14px] text-[#3371F2] font-[500]">
+                    <h2 className="text-[14px] text-[#505050] font-[500]">
                       In Progress
                     </h2>
                   </div>
@@ -186,7 +186,7 @@ const DashBoardContent = () => {
                     </h3>
                   </div>
                   <div>
-                    <h2 className="text-[14px] text-[#3371F2] font-[500]">
+                    <h2 className="text-[14px] text-[#505050] font-[500]">
                       In Progress
                     </h2>
                   </div>
@@ -246,7 +246,7 @@ const DashBoardContent = () => {
                     </h3>
                   </div>
                   <div>
-                    <h2 className="text-[14px] text-[#3371F2] font-[500]">
+                    <h2 className="text-[14px] text-[#505050] font-[500]">
                       In Progress
                     </h2>
                   </div>
