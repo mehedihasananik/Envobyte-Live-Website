@@ -195,16 +195,16 @@ const AboutUsContent = () => {
             </div>
           </div>
           {/* right side */}
-          <div className="lg:w-[40%] flex justify-center lg:justify-start gap-x-3 ">
+          <div className="lg:w-[40%] flex justify-center lg:justify-start gap-x-4 ">
             <Image
-              className="w-[50%] h-[400px] rounded-md"
+              className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
               src="/assets/aboutusB3.jpg"
               alt=""
             />
             <Image
-              className="w-[50%] h-[400px] rounded-md"
+              className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
               src="/assets/aboutusB4.jpg"
@@ -236,19 +236,20 @@ const AboutUsContent = () => {
             </div>
           </div>
           {/* right side */}
-          <div className="lg:w-[40%] flex justify-center lg:justify-end gap-x-3 ">
+          <div className="lg:w-[40%] flex justify-center lg:justify-end gap-x-4 ">
             <Image
-              className="w-[50%] h-[400px]"
+              className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src="/assets/aboutusB5.png"
+              src="/assets/aboutusB5.jpg"
               alt=""
             />
             <Image
-              className="w-[50%] h-[400px]"
+              c
+              className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src="/assets/aboutusB6.png"
+              src="/assets/aboutusB6.jpg"
               alt=""
             />
           </div>
@@ -277,19 +278,19 @@ const AboutUsContent = () => {
             </div>
           </div>
           {/* right side */}
-          <div className="lg:w-[40%] flex justify-center lg:justify-start gap-x-3 ">
+          <div className="lg:w-[40%] flex justify-center lg:justify-start gap-x-4 ">
             <Image
-              className="w-[50%] h-[400px]"
+              className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src="/assets/aboutusB7.png"
+              src="/assets/aboutusB7.jpg"
               alt=""
             />
             <Image
-              className="w-[50%] h-[400px]"
+              className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src="/assets/aboutusB8.png"
+              src="/assets/aboutusB8.jpg"
               alt=""
             />
           </div>
