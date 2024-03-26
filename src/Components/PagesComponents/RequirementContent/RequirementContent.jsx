@@ -50,7 +50,7 @@ const RequirementContent = () => {
 
                   <button
                     onClick={handleButtonClick}
-                    className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
+                    className="h-[45px] bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
                   >
                     Attach file
                   </button>
@@ -88,7 +88,7 @@ const RequirementContent = () => {
 
                   <button
                     onClick={handleButtonClick}
-                    className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
+                    className="h-[45px] bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
                   >
                     Attach file
                   </button>
@@ -127,7 +127,7 @@ const RequirementContent = () => {
 
                   <button
                     onClick={handleButtonClick}
-                    className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
+                    className="h-[45px] bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
                   >
                     Attach file
                   </button>
@@ -163,10 +163,9 @@ const RequirementContent = () => {
                     rows={1}
                     required
                   />
-
                   <button
                     onClick={handleButtonClick}
-                    className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
+                    className="h-[45px] bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
                   >
                     Attach file
                   </button>
@@ -204,7 +203,7 @@ const RequirementContent = () => {
 
                   <button
                     onClick={handleButtonClick}
-                    className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
+                    className="h-[45px] bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
                   >
                     Attach file
                   </button>
