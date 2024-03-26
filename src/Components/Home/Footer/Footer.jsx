@@ -134,22 +134,42 @@ const Footer = () => {
                 </span>
               </li>
               <div className="flex gap-4 pt-4">
-                <img className="cursor-pointer" src="assets/insta.svg" alt="" />
-                <img
-                  className="cursor-pointer"
-                  src="assets/facebook.svg"
-                  alt=""
-                />
+                <Link
+                  href={"https://www.instagram.com/envobyte"}
+                  target="_blank"
+                >
+                  <img
+                    className="cursor-pointer"
+                    src="assets/insta.svg"
+                    alt=""
+                  />
+                </Link>
+
+                <Link
+                  href={"https://www.facebook.com/envobyte"}
+                  target="_blank"
+                >
+                  <img
+                    className="cursor-pointer"
+                    src="assets/facebook.svg"
+                    alt=""
+                  />
+                </Link>
                 <img
                   className="cursor-pointer"
                   src="/assets/twitter-color-svgrepo-com 1.svg"
                   alt=""
                 />
-                <img
-                  className="cursor-pointer"
-                  src="/assets/linkedin.svg"
-                  alt=""
-                />
+                <Link
+                  target="_blank"
+                  href={"https://www.linkedin.com/company/envobyte"}
+                >
+                  <img
+                    className="cursor-pointer"
+                    src="/assets/linkedin.svg"
+                    alt=""
+                  />
+                </Link>
               </div>
             </ul>
           </div>
