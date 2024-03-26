@@ -14,7 +14,7 @@ const ServiceOrderContent = () => {
   return (
     <>
       <Container>
-        <div className="py-16">
+        <div className="py-8">
           {/* title */}
           <div className="text-center font-Raleway pb-10">
             <h1 className="text-[#10F172A] text-[32px] md:text-[48px] font-bold ">
