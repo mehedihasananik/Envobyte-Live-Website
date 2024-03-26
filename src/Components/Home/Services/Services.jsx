@@ -33,15 +33,15 @@ const Services = () => {
     // when window width is >= 1024px (lg)
     2500: {
       slidesPerView: 4,
-      spaceBetween: 30,
+      spaceBetween: 200,
     },
     1920: {
       slidesPerView: 4,
-      spaceBetween: 50,
+      spaceBetween: 200,
     },
     1336: {
       slidesPerView: 4,
-      spaceBetween: 10,
+      spaceBetween: 200,
     },
     1280: {
       slidesPerView: 2,
@@ -117,7 +117,7 @@ const Services = () => {
                 slidesPerView={4}
                 spaceBetween={200}
                 breakpoints={breakpoints}
-                className="mySwiper "
+                className="mySwiper space-x-4"
               >
                 <SwiperSlide className="">
                   <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
