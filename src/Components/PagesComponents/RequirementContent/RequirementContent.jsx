@@ -18,7 +18,7 @@ const RequirementContent = () => {
   return (
     <div className="pt-5">
       <div className=" max-w-[1680px] mx-auto px-[4%] md:px-[10%]">
-        <div className="bg-[#F4F4F4] p-5 md:p-10 rounded-md">
+        <div className="bg-[#F4F4F4] p-5 md:px-10 md:py-7 rounded-md">
           {/* title */}
           <div>
             <h3 className="text-[36px] font-Raleway font-[600] text-[#333333] px-4">
