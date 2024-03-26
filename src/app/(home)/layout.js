@@ -3,7 +3,6 @@ import "../globals.css";
 import { Footer } from "@/Components";
 import Header from "@/Components/Home/Navbar/Header";
 import Head from "next/head";
-import icon from "../favicon.ico";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +14,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="shortcut icon" href={icon} />
-        {/* You can also specify other metadata here */}
-      </Head>
       <body className={inter.className}>
         <Header />
         {children}
