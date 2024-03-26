@@ -21,8 +21,8 @@ const MessageContent = () => {
     // Handle file input change here if needed
   };
   return (
-    <div>
-      <div className="px-6">
+    <div style={{ background: "#fff" }}>
+      <div className="px-6 ">
         {/* avater */}
         <div className="flex justify-between items-center px-4 bg-[#FFFFFF] py-5  rounded-lg">
           <div className="flex gap-x-3 ">
@@ -72,7 +72,7 @@ const MessageContent = () => {
                   Dec 13, 10.40 am
                 </span>
               </div>
-              <p className="text-[14px] font-Raleway font-[600] text-[#666666]">
+              <p className="text-[14px] font-Raleway font-[500] text-[#666666]">
                 Hi Sir
               </p>
             </div>
@@ -122,13 +122,13 @@ const MessageContent = () => {
         </div>
         {/* custom order */}
         {/* custom title */}
-        <div className="px-5  lg:px-20 pb-3 ">
+        <div className="px-5  lg:px-20 pb-3 bg-[#FFFFFF">
           <h3 className="text-[14px] font-Raleway font-[600] text-[#0A2C8C]">
             Here&apos;s your custom offer
           </h3>
         </div>
         {/* custom box */}
-        <div className="border border-[#E2E2E2]   py-5 rounded-md pb-0">
+        <div className="border border-[#E2E2E2]   py-5 rounded-md pb-0 bg-[#FFFFFF">
           <div className="px-5 lg:px-20">
             {/* title */}
             <div className="flex justify-between">
@@ -199,7 +199,7 @@ const MessageContent = () => {
         </div>
       </div>
       {/* sending message input */}
-      <div className="lg:pt-[10%] flex w-full items-center gap-5 px-10 ">
+      <div className="bg-[#FFFFFF lg:pt-[10%] flex w-full items-center gap-5 px-10 ">
         <div className="w-[90%] relative">
           <input
             className="w-full border border-[#E2E2E2] rounded-md py-2.5 px-10"
