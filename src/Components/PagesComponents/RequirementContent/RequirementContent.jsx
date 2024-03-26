@@ -17,7 +17,7 @@ const RequirementContent = () => {
 
   return (
     <div className="pt-5">
-      <Container>
+      <div className=" max-w-[1680px] mx-auto px-[4%] md:px-[10%]">
         <div className="bg-[#F4F4F4] p-5 md:p-10 rounded-md">
           {/* title */}
           <div>
@@ -39,12 +39,15 @@ const RequirementContent = () => {
                   <span>What is your Logo or Business name?</span>
                 </label>
                 <div className="flex flex-col gap-y-5 md:gap-y-0 md:flex-row gap-x-4 px-8">
-                  <input
+                  <textarea
                     type="text"
                     id="businessName"
                     className="w-full md:w-[85%] border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 text-[16px] font-Raleway  text-[#323941] font-[400] "
                     placeholder="Write your answer here"
+                    rows={1}
+                    required
                   />
+
                   <button
                     onClick={handleButtonClick}
                     className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
@@ -74,12 +77,15 @@ const RequirementContent = () => {
                   </span>
                 </label>
                 <div className="flex flex-col gap-y-5 md:gap-y-0 md:flex-row gap-x-4 px-8">
-                  <input
+                  <textarea
                     type="text"
                     id="businessName"
                     className="w-full md:w-[85%] border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 text-[16px] font-Raleway  text-[#323941] font-[400] "
                     placeholder="Write your answer here"
+                    rows={1}
+                    required
                   />
+
                   <button
                     onClick={handleButtonClick}
                     className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
@@ -96,7 +102,6 @@ const RequirementContent = () => {
                 </div>
               </div>
 
-
               <div className="mb-4 px-5 pt-2 pb-1 rounded-t-md">
                 <label
                   htmlFor="businessName"
@@ -111,12 +116,15 @@ const RequirementContent = () => {
                   </span>
                 </label>
                 <div className="flex flex-col gap-y-5 md:gap-y-0 md:flex-row gap-x-4 px-8">
-                  <input
+                  <textarea
                     type="text"
                     id="businessName"
                     className="w-full md:w-[85%] border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 text-[16px] font-Raleway  text-[#323941] font-[400] "
                     placeholder="Write your answer here"
+                    rows={1}
+                    required
                   />
+
                   <button
                     onClick={handleButtonClick}
                     className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
@@ -147,12 +155,15 @@ const RequirementContent = () => {
                   </span>
                 </label>
                 <div className="flex flex-col gap-y-5 md:gap-y-0 md:flex-row gap-x-4 px-8">
-                  <input
+                  <textarea
                     type="text"
                     id="businessName"
                     className="w-full md:w-[85%] border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 text-[16px] font-Raleway  text-[#323941] font-[400] "
                     placeholder="Write your answer here"
+                    rows={1}
+                    required
                   />
+
                   <button
                     onClick={handleButtonClick}
                     className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
@@ -182,12 +193,15 @@ const RequirementContent = () => {
                   </span>
                 </label>
                 <div className="flex flex-col gap-y-5 md:gap-y-0 md:flex-row gap-x-4 px-8">
-                  <input
+                  <textarea
                     type="text"
                     id="businessName"
                     className="w-full md:w-[85%] border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:border-blue-500 text-[16px] font-Raleway  text-[#323941] font-[400] "
                     placeholder="Write your answer here"
+                    rows={1}
+                    required
                   />
+
                   <button
                     onClick={handleButtonClick}
                     className="bg-[#FFF3EF] text-[16px] text-[#FF693B] font-[600] px-10 py-2.5 rounded-md whitespace-nowrap"
@@ -206,7 +220,7 @@ const RequirementContent = () => {
               <div className="text-center md:text-left md:px-12 md:pt-5">
                 <button
                   type="submit"
-                  className="bg-[#FF693B] text-[16px] font-[600] text-white px-5 py-2.5 rounded-md"
+                  className="bg-[#FF693B] border border-[#FF693B] text-[16px] font-[600] text-white px-5 py-2.5 rounded-md hover:bg-white hover:text-[#FF693B] transition-all duration-300"
                 >
                   Submit Requirement
                 </button>
@@ -222,7 +236,7 @@ const RequirementContent = () => {
             </span>
           </div>
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

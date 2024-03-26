@@ -6,9 +6,9 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 const DashBoardNav = ({ title }) => {
   return (
-    <nav className="flex flex-col justify-center items-center md:flex-row md:justify-between w-[100%] py-6 px-2">
+    <nav className="flex flex-col justify-center items-center md:flex-row md:justify-between w-[100%] py-4 px-2">
       <div>
-        <h3 className="text-[#333] text-[32px] md:text-[40px] font-[600] capitalize px-5">
+        <h3 className="text-[#333] text-[28px] md:text-[30px] font-[600] capitalize px-5 py-3">
           {title}
         </h3>
       </div>
@@ -30,17 +30,22 @@ const DashBoardNav = ({ title }) => {
             <img src="/assets/Active-Notification.png" alt="" />
           </Link>
           <button className="flex gap-3 items-center">
-            <img src="/assets/dashperson.png" alt="" />
-            <span className="flex items-center gap-x-4 text-[16px] hover:text-[#FF693B] transition-all duration-200">
-              Ryan Milan{" "}
-            </span>
             <Dropdown
               label="Ryan Milan"
               dismissOnClick={false}
               renderTrigger={() => (
                 <span>
                   {
-                    <MdKeyboardArrowDown className="text-[24px] cursor-pointer" />
+                    <div className="flex gap-x-4 items-center">
+                      <span>
+                        {" "}
+                        <img src="/assets/dashperson.png" alt="" />
+                      </span>
+                      <span className="flex items-center gap-x-4 text-[16px] hover:text-[#FF693B] transition-all duration-200">
+                        Ryan Milan{" "}
+                      </span>
+                      <MdKeyboardArrowDown className="text-[24px] cursor-pointer" />
+                    </div>
                   }
                 </span>
               )}

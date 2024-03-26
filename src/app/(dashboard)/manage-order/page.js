@@ -9,7 +9,7 @@ const ManageOrderPage = () => {
     <div className="bg-[#FCFCFC]">
       <div className="max-w-[1700px] mx-auto  lg:pl-[4%]">
         <div className="w-full flex">
-          <DashBoardSideNav />
+          <DashBoardSideNav height="100vh" />
           <div className="w-full">
             <DashBoardNav title="Manage-order" />
             <ManageOrder />

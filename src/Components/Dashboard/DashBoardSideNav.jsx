@@ -7,7 +7,8 @@ import { LuLayoutGrid } from "react-icons/lu";
 import { FiMessageSquare } from "react-icons/fi";
 import { FiLayers } from "react-icons/fi";
 
-const DashBoardSideNav = () => {
+const DashBoardSideNav = ({ height }) => {
+  console.log(height);
   const menus = [
     { name: "Dashboard", link: "/dashboard", icon: LuLayoutGrid },
     { name: "Message", link: "/message", icon: FiMessageSquare },
@@ -26,10 +27,12 @@ const DashBoardSideNav = () => {
             onClick={() => setOpen(!open)}
           />
         </div>
+
         <div>
           <section className="flex gap-6  ">
             <div
-              className={`h-[100vh] flex flex-col justify-between ${
+              style={{ height: height }}
+              className={` h-[${height}] flex flex-col justify-between ${
                 open ? "w-44 lg:w-72" : "hidden"
               } duration-500 text-[16px] text-[#444444] px-6 `}
             >

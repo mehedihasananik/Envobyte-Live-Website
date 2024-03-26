@@ -21,17 +21,17 @@ const OrderDelivery = () => {
     // Handle file input change here if needed
   };
   return (
-    <div className="py-5">
-      <div className="px-3">
+    <div className="py-5 bg-[#fff] mx-8">
+      <div className="">
         {/* cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-20 px-4">
           {/* 1st */}
-          <div className="max-w-[310px] flex  items-start gap-x-3  border border-[#E2E2E2] bg-[#FDFDFD] rounded-md p-3">
+          <div className="max-w-[330px] flex  items-start gap-x-3  border border-[#E2E2E2] bg-[#FDFDFD] rounded-md p-3">
             <div>
               <img src="/assets/ui.png" alt="ui ux desing" />
             </div>
             <div>
-              <h2 className="text-[#444] font-Raleway text-[18px] font-[600]">
+              <h2 className="text-[#444] font-Raleway text-[16px] font-[600]">
                 UI/UX Design
               </h2>
               <p className="text-[#666] text-[14px] font-[400] ">
@@ -43,12 +43,12 @@ const OrderDelivery = () => {
             </div>
           </div>
           {/* 2nd */}
-          <div className="max-w-[310px] flex items-start gap-x-3  border border-[#E2E2E2] bg-[#FDFDFD] rounded-md p-3">
+          <div className="max-w-[330px] flex items-start gap-x-3  border border-[#E2E2E2] bg-[#FDFDFD] rounded-md p-3">
             <div>
               <img src="/assets/date.png" alt="ui ux desing" />
             </div>
             <div>
-              <h2 className="text-[#444] font-Raleway text-[18px] font-[600]">
+              <h2 className="text-[#444] font-Raleway text-[16px] font-[600]">
                 Order Placed
               </h2>
               <p className="text-[#666] text-[14px] font-[400] ">
@@ -62,7 +62,7 @@ const OrderDelivery = () => {
               <img src="/assets/pin.png" alt="ui ux desing" />
             </div>
             <div>
-              <h2 className="text-[#444] font-Raleway text-[18px] font-[600]">
+              <h2 className="text-[#444] font-Raleway text-[16px] font-[600]">
                 Requirement Submitted
               </h2>
               <p className="text-[#666] text-[14px] font-[400] ">
@@ -167,7 +167,7 @@ const OrderDelivery = () => {
           </h3>
         </div>
         {/* custom box */}
-        <div className="lg:mx-20">
+        <div className="lg:mx-20 ">
           <div className=" border border-[#E2E2E2]   py-5 rounded-md pb-0">
             <div className="px-5 lg:px-4">
               {/* title */}

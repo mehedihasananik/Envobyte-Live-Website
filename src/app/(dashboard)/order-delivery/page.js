@@ -9,7 +9,7 @@ const OrderDeliveryPage = () => {
     <div className="bg-[#FCFCFC]">
       <div className="max-w-[1700px] mx-auto  lg:pl-[4%]">
         <div className="w-full flex">
-          <DashBoardSideNav />
+          <DashBoardSideNav height="161vh" />
           <div className="w-full">
             <DashBoardNav title="Order #F06CE0914A11" />
             <OrderDelivery />
