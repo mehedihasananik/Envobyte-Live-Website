@@ -65,12 +65,18 @@ const Footer = () => {
               >
                 Dashboard
               </Link>
-              <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
-                Services
-              </li>
-              <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
-                Terms & Conditions
-              </li>
+              <Link
+                href={"/order-delivery"}
+                className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
+              >
+                Order Delivery
+              </Link>
+              <Link
+                href={"/requirement-page"}
+                className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
+              >
+                Requirement page
+              </Link>
             </ul>
           </div>
           {/* 3rd col */}

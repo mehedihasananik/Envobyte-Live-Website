@@ -9,7 +9,7 @@ const ManageOrder = () => {
   const onPageChange = (page) => setCurrentPage(page);
 
   return (
-    <div className="">
+    <div className="px-6">
       {/* table */}
       <div className="overflow-x-auto">
         <Table>
