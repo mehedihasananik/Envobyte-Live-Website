@@ -1,12 +1,12 @@
 const nextConfig = {
-    reactStrictMode: false,
-    swcMinify: false, 
-    eslint: {
-      ignoreDuringBuilds: true,
-    },
-    images: {
-      domains: ["127.0.0.1"], 
-    },
-  };
-  
-  export default nextConfig;
+  reactStrictMode: false,
+  swcMinify: false,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  images: {
+    domains: ["192.168.10.14"],
+  },
+};
+
+export default nextConfig;

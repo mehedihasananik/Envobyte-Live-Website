@@ -1,10 +1,23 @@
-import Container from '@/Components/Container/Container'
-import Image from 'next/image'
-import React from 'react'
+import Container from "@/Components/Container/Container";
+import Image from "next/image";
+import React from "react";
 
-const Brands = () => {
+async function getData() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+    next: { revalidate: 10 },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+const Brands = async () => {
+  const data = await getData();
+  console.log(data);
+
   return (
-    <div className="bg-[#F8FAFC]  ">
+    <div className="bg-[#F8FAFC]">
       <Container>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-2 lg:gap-0 py-5 lg:py-2">
           {/* left side */}
@@ -12,11 +25,11 @@ const Brands = () => {
             TRUSTED BY GLOBAL BRANDS
           </div>
           {/* right side */}
-          <div className=" w-full lg:w-[60%] ">
+          <div className="w-full lg:w-[60%] ">
             <div className="w-[100%] flex items-center justify-center">
               <Image
-              width={763}
-              height={78}
+                width={763}
+                height={78}
                 className="w-ful h-full "
                 src="/assets/Group 127.png"
                 alt=""
@@ -26,7 +39,7 @@ const Brands = () => {
         </div>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Brands
+export default Brands;
