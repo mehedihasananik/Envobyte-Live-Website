@@ -19,22 +19,74 @@ const DashBoardSideNav = ({ height }) => {
 
   return (
     <div className="">
-      <div className="bg-[#8CD3FB1A]">
+      <div className="bg-[#8CD3FB1A] ">
         <div className=" lg:flex lg:justify-end h-full bg-[#8CD3FB1A">
           <HiMenuAlt3
             size={26}
-            className="relative top-[20px] left-[10px] cursor-pointer block lg:hidden"
+            className="relative top-[20px] left-[10px] lg:left-0 lg:top-0 lg:relative cursor-pointer block lg:hidden"
             onClick={() => setOpen(!open)}
           />
         </div>
 
-        <div>
+        <div className=" hidden lg:block">
           <section className="flex gap-6  ">
             <div
               style={{ height: height }}
-              className={` h-[${height}] flex flex-col justify-between items-center ${
-                open ? "w-44 lg:w-96" : "hidden"
-              } duration-500 text-[16px] text-[#444444] px-6 relative`}
+              className={` h-[${height}] flex flex-col justify-between w-44 lg:w-72 duration-500 text-[16px] text-[#444444] px-6`}
+            >
+              <div>
+                <div className="mt-4 flex flex-col justify-between gap-4 relative">
+                  <div className="lg:pl-[13%] pt-1">
+                    <Link href={"/"}>
+                      {" "}
+                      <img src="/assets/logo.png" alt="" />
+                    </Link>
+                  </div>
+                  <div className="w-full">
+                    {menus?.map((menu, i) => (
+                      <Link
+                        href={menu?.link}
+                        key={i}
+                        className={` ${
+                          menu?.margin && "mt-6"
+                        } group flex items-center text-sm  gap-3.5 font-[400] p-2 hover:bg-[#FFFFFF] hover:text-[#FF693B] rounded-md`}
+                      >
+                        <div>
+                          {React.createElement(menu?.icon, { size: "20" })}
+                        </div>
+                        <h2
+                          className={`whitespace-pre  text-[16px] hover:bg-[#FFFFFF] hover:text-[#FF693B] py-[2%] `}
+                        >
+                          {menu?.name}
+                        </h2>
+                        <h2
+                          className={` bg-white font-semibold whitespace-pre  rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden hover:bg-[#FFFFFF] hover:text-[#FF693B]`}
+                        >
+                          {menu?.name}
+                        </h2>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+              <div>
+                <button className="flex justify-left items-center mb-10 gap-3 text-[16px] text-[#444444] hover:bg-[#FFFFFF] hover:text-[#FF693B] w-full py-2 px-2 ">
+                  <span>
+                    <LuLogOut />
+                  </span>{" "}
+                  Logout
+                </button>
+              </div>
+            </div>
+          </section>
+        </div>
+        <div className=" lg:hidden">
+          <section className="flex gap-6  ">
+            <div
+              style={{ height: height }}
+              className={` h-[${height}] flex flex-col justify-between ${
+                open ? "w-44 lg:w-72 block" : "hidden"
+              } duration-500 text-[16px] text-[#444444] px-6 `}
             >
               <div>
                 <div className="mt-4 flex flex-col justify-between gap-4 relative">
@@ -76,7 +128,7 @@ const DashBoardSideNav = ({ height }) => {
                 </div>
               </div>
               <div>
-                <button className="absolute bottom-10 left-[100px] flex items-center mb-10 gap-3 text-[16px] text-[#444444] hover:bg-[#FFFFFF] hover:text-[#FF693B] w-full py-2 px-2 ">
+                <button className="flex justify-left items-center mb-10 gap-3 text-[16px] text-[#444444] hover:bg-[#FFFFFF] hover:text-[#FF693B] w-full py-2 px-2 ">
                   <span>
                     <LuLogOut />
                   </span>{" "}
