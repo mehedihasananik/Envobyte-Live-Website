@@ -76,7 +76,7 @@ const DashBoardSideNav = ({ height }) => {
                 </div>
               </div>
               <div>
-                <button className="absolute bottom-10 left-[105px] flex items-center mb-10 gap-3 text-[16px] text-[#444444] hover:bg-[#FFFFFF] hover:text-[#FF693B] w-full py-2 px-2 ">
+                <button className="absolute bottom-10 left-[100px] flex items-center mb-10 gap-3 text-[16px] text-[#444444] hover:bg-[#FFFFFF] hover:text-[#FF693B] w-full py-2 px-2 ">
                   <span>
                     <LuLogOut />
                   </span>{" "}
