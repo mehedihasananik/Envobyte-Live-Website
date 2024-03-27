@@ -32,9 +32,9 @@ const DashBoardSideNav = ({ height }) => {
           <section className="flex gap-6  ">
             <div
               style={{ height: height }}
-              className={` h-[${height}] flex flex-col justify-between ${
-                open ? "w-44 lg:w-72" : "hidden"
-              } duration-500 text-[16px] text-[#444444] px-6 `}
+              className={` h-[${height}] flex flex-col justify-between items-center ${
+                open ? "w-44 lg:w-96" : "hidden"
+              } duration-500 text-[16px] text-[#444444] px-6 relative`}
             >
               <div>
                 <div className="mt-4 flex flex-col justify-between gap-4 relative">
@@ -76,7 +76,7 @@ const DashBoardSideNav = ({ height }) => {
                 </div>
               </div>
               <div>
-                <button className="flex justify-left items-center mb-10 gap-3 text-[16px] text-[#444444] hover:bg-[#FFFFFF] hover:text-[#FF693B] w-full py-2 px-2 ">
+                <button className="absolute bottom-10 left-[105px] flex items-center mb-10 gap-3 text-[16px] text-[#444444] hover:bg-[#FFFFFF] hover:text-[#FF693B] w-full py-2 px-2 ">
                   <span>
                     <LuLogOut />
                   </span>{" "}
