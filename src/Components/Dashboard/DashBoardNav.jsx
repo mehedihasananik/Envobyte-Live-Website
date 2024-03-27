@@ -6,7 +6,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 
 const DashBoardNav = ({ title }) => {
   return (
-    <nav className="flex flex-col justify-center items-center md:flex-row md:justify-between w-[100%] py-4 px-2">
+    <nav className="flex flex-col justify-center items-center md:flex-row md:justify-between w-[100%] py-4 px-5 lg:pr-12">
       <div>
         <h3 className="text-[#333] text-[28px] md:text-[30px] font-[600] capitalize px-5 py-3">
           {title}

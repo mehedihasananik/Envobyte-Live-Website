@@ -4,7 +4,7 @@ import React from "react";
 
 const DashBoardOrder = () => {
   return (
-    <div>
+    <div className="bg-[#FCFCFC]">
       <div>
         <div className="pt-7">
           <div className="w-[100%] flex flex-col md:flex-row justify-center gap-x-10 gap-y-4 lg:gap-y-0">
