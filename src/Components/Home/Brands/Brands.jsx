@@ -23,7 +23,6 @@ const Brands = () => {
 
     fetchData();
   }, []);
-  console.log(brands);
 
   return (
     <div className="bg-[#F8FAFC]  ">

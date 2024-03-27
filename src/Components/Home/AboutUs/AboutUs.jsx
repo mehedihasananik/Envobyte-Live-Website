@@ -26,7 +26,6 @@ const AboutUs = () => {
 
     fetchData();
   }, []);
-  console.log(about);
 
   return (
     <div className="py-10 overflow-hidden">
