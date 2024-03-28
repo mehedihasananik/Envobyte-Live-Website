@@ -5,11 +5,11 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { HiArrowLeft } from "react-icons/hi";
 import { HiArrowRight } from "react-icons/hi";
-
 import Image from "next/image";
 import API_ROUTES from "@/app/api/confiq";
 
 const Services = () => {
+  // states
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -31,17 +31,21 @@ const Services = () => {
 
   const swiperRef = useRef(null);
 
+  // next function
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideNext();
     }
   };
 
+  // prev function
   const goPrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slidePrev();
     }
   };
+
+  // slider breakpoints
 
   const breakpoints = {
     // when window width is >= 1024px (lg)
@@ -78,12 +82,12 @@ const Services = () => {
   };
 
   return (
-    <div className=" overflow-hidden ">
+    <div className="overflow-hidden">
       <div className="max-w-[1680px] mx-auto px-[4%] md:px[8%] 4xl:px-[0] 4xl:max-w-[1920px] 4xl:pl-[10%]">
         {/* services */}
         <div className="py-6 xl:pt-10 ">
           <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 lg:py-8">
-            {/* left heading & description*/}
+            {/* left heading & description starts*/}
             <div className="w-full lg:w-[35%]">
               <div className="w-full lg:w-[400px]">
                 <h3 className="text-center lg:text-left text-[30px] md:text-[48px] font-bold font-Raleway text-[#0F172A]">

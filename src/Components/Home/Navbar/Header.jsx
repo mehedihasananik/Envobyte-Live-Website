@@ -9,6 +9,7 @@ import { usePathname } from "next/navigation";
 const Header = () => {
   const pathname = usePathname();
 
+  // demo nav menus
   const menus = [
     { name: "Home", link: "/", activeClassName: "active" },
     { name: "Services", link: "/services", activeClassName: "active" },
@@ -19,8 +20,7 @@ const Header = () => {
   return (
     <div>
       <Container>
-        {/* navbar started */}
-        {/* for large devices */}
+        {/* navbar for large devices */}
         <div>
           <nav className="hidden  lg:flex justify-between items-center pt-5 ">
             {/* logo */}
@@ -64,10 +64,10 @@ const Header = () => {
         </div>
       </Container>
 
-      {/* for small devices */}
+      {/*navbar for small devices */}
       <div className=" lg:hidden">
         <Navbar>
-          <Navbar.Brand as={Link} href="https://flowbite-react.com">
+          <Navbar.Brand as={Link} href="/">
             <Image
               src="/assets/logo.png"
               width={100}
@@ -86,9 +86,10 @@ const Header = () => {
                 {item.name}
               </Navbar.Link>
             ))}
+            {/* login button */}
             <Link
               href={"/login"}
-              className=" bg-[#FF693B] border border-[#FF693B] text-white font-medium px-10 py-2 rounded-lg hover:bg-white hover:text-[#FF693B] transition-all duration-300"
+              className=" flex items-center justify-center bg-[#FF693B] border border-[#FF693B] text-white font-medium px-4 py-2 rounded-lg hover:bg-white hover:text-[#FF693B] transition-all duration-300"
             >
               Login
             </Link>
