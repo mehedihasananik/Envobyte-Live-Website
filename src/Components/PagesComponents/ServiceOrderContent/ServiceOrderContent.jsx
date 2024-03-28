@@ -3,8 +3,6 @@ import { IoCheckmarkSharp } from "react-icons/io5";
 import { FaRegClock } from "react-icons/fa6";
 import { BiRevision } from "react-icons/bi";
 import OrderSlider from "@/Components/Utilites/OrderSlider/OrderSlider";
-import { HiArrowSmallRight } from "react-icons/hi2";
-import Image from "next/image";
 import RelevantServices from "@/Components/Utilites/RelevantServices/RelevantServices";
 import Questions from "@/Components/Home/Questions/Questions";
 import Container from "@/Components/Container/Container";

@@ -50,8 +50,12 @@ const DashBoardNav = ({ title }) => {
                 </span>
               )}
             >
-              <Dropdown.Item>Dashboard</Dropdown.Item>
-              <Dropdown.Item>Settings</Dropdown.Item>
+              <Dropdown.Item>
+                <Link href={"/dashboard"}>Dashboard</Link>
+              </Dropdown.Item>
+              <Dropdown.Item>
+                <Link href={"/profile"}>Profile</Link>
+              </Dropdown.Item>
               <Dropdown.Item>Earnings</Dropdown.Item>
               <Dropdown.Item>Sign out</Dropdown.Item>
             </Dropdown>

@@ -1,9 +1,36 @@
+"use client";
 import Container from "@/Components/Container/Container";
+import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const ServicesPageContent = () => {
+  const [categories, setCategories] = useState([]);
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${API_ROUTES.route}/category`);
+        const response2 = await fetch(`${API_ROUTES.route}/sevice_items`);
+        const data = await response.json();
+        const data2 = await response2.json();
+        setCategories(data);
+        setServices(data2);
+        setLoading(false); // Set loading to false after data is fetched
+      } catch (error) {
+        console.error("Error fetching banner data:", error);
+        setLoading(false); // Set loading to false even if there's an error
+      }
+    };
+
+    fetchData();
+  }, []);
+  console.log(categories);
+  console.log(services);
+
   return (
     <div className="service_section">
       <Container>
@@ -26,24 +53,16 @@ const ServicesPageContent = () => {
                     className="cursor-pointer border border-gray-300  text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option defaultValue>Select Category</option>
-                    <option className="text-[#434348] text-[16px] ">
-                      Logo Design
-                    </option>
-                    <option className="text-[#434348] text-[16px] pt-2">
-                      Brochure Design
-                    </option>
-                    <option className="text-[#434348] text-[16px] pt-2">
-                      Business Card
-                    </option>
-                    <option className="text-[#434348] text-[16px] pt-2">
-                      Billboard and Banner Design
-                    </option>
-                    <option className="text-[#434348] text-[16px] pt-2">
-                      Banner Ads Design
-                    </option>
-                    <option className="text-[#434348] text-[16px] pt-2">
-                      UI/UX Design
-                    </option>
+                    {categories.map((category) => {
+                      return (
+                        <option
+                          key={category.id}
+                          className="text-[#434348] text-[16px] "
+                        >
+                          {category.category_name}
+                        </option>
+                      );
+                    })}
                   </select>
                 </form>
               </div>
@@ -88,404 +107,55 @@ const ServicesPageContent = () => {
           </div>
           {/* services */}
           <div className="grid grid-cols-1 md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 justify-items-center place-items-center gap-8 pb-8 md:gap-16 mt-5 md:mt-10 ">
-            {/* one */}
+            {services.map((service) => {
+              return (
+                <Link key={service.id} href={"/service-order"}>
+                  <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
+                    <div className="flex flex-col">
+                      <div className="bg-[#E2E8F0]">
+                        <div>
+                          <Image
+                            width={700}
+                            height={700}
+                            className="w-full h-[270px]"
+                            src={service.image || "/assets/portRelevant.png"}
+                            alt=""
+                          />
+                        </div>
+                      </div>
 
-        <Link href={"/service-order"}>
-        <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-              <div className="flex flex-col">
-                <div className="bg-[#E2E8F0]">
-                  <div>
-                    <Image
-                      width={700}
-                      height={700}
-                      className="w-full h-[270px]"
-                      src="/assets/portRelevant.png"
-                      alt=""
-                    />
+                      {/* title & description */}
+
+                      <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
+                        <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
+                          {service.details}
+                        </p>
+                      </div>
+                      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
+                        <div className="font-Raleway">
+                          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
+                            Start From
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
+                            20$
+                          </span>
+                        </div>
+                        <div>
+                          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
+                            View
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
-
-                {/* title & description */}
-
-                <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-                  <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-                    Logo Design
-                  </h3>
-                  <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-                    Lorem ipsum dolor sit amet consectetur. Sodales malesuada
-                    nulla sodales eget vitae turpis. Ac quis mauris vel arcu
-                    lectus maecenas. Quis tellus risus senectus suscipit
-                    accum...
-                  </p>
-                </div>
-                <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-                  <div className="font-Raleway">
-                    <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-                      Start From
-                    </span>
-                  </div>
-                  <div>
-                    <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-                      20$
-                    </span>
-                  </div>
-                  <div>
-                    <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-                      View
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </Link>
-             {/* two */}
-        <Link href={"/service-order"}>
-        <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-            <div className="flex flex-col">
-              <div className="bg-[#E2E8F0]">
-                <div>
-                  <Image
-                    width={700}
-                    height={700}
-                    className="w-full h-[270px]"
-                    src="/assets/portRelevant2.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              {/* title & description */}
-
-              <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-                <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-                  Logo Design
-                </h3>
-                <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-                  Lorem ipsum dolor sit amet consectetur. Sodales malesuada
-                  nulla sodales eget vitae turpis. Ac quis mauris vel arcu
-                  lectus maecenas. Quis tellus risus senectus suscipit
-                  accum...
-                </p>
-              </div>
-              <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-                <div className="font-Raleway">
-                  <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-                    Start From
-                  </span>
-                </div>
-                <div>
-                  <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-                    20$
-                  </span>
-                </div>
-                <div>
-                  <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-                    View
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Link>
-    {/* one */}
-
-    <Link href={"/service-order"}>
-        <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-              <div className="flex flex-col">
-                <div className="bg-[#E2E8F0]">
-                  <div>
-                    <Image
-                      width={700}
-                      height={700}
-                      className="w-full h-[270px]"
-                      src="/assets/portRelevant.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-
-                {/* title & description */}
-
-                <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-                  <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-                    Logo Design
-                  </h3>
-                  <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-                    Lorem ipsum dolor sit amet consectetur. Sodales malesuada
-                    nulla sodales eget vitae turpis. Ac quis mauris vel arcu
-                    lectus maecenas. Quis tellus risus senectus suscipit
-                    accum...
-                  </p>
-                </div>
-                <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-                  <div className="font-Raleway">
-                    <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-                      Start From
-                    </span>
-                  </div>
-                  <div>
-                    <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-                      20$
-                    </span>
-                  </div>
-                  <div>
-                    <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-                      View
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-        </Link>
-             {/* two */}
-        <Link href={"/service-order"}>
-        <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-            <div className="flex flex-col">
-              <div className="bg-[#E2E8F0]">
-                <div>
-                  <Image
-                    width={700}
-                    height={700}
-                    className="w-full h-[270px]"
-                    src="/assets/portRelevant2.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-
-              {/* title & description */}
-
-              <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-                <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-                  Logo Design
-                </h3>
-                <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-                  Lorem ipsum dolor sit amet consectetur. Sodales malesuada
-                  nulla sodales eget vitae turpis. Ac quis mauris vel arcu
-                  lectus maecenas. Quis tellus risus senectus suscipit
-                  accum...
-                </p>
-              </div>
-              <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-                <div className="font-Raleway">
-                  <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-                    Start From
-                  </span>
-                </div>
-                <div>
-                  <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-                    20$
-                  </span>
-                </div>
-                <div>
-                  <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-                    View
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Link>    {/* one */}
-
-<Link href={"/service-order"}>
-<div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-      <div className="flex flex-col">
-        <div className="bg-[#E2E8F0]">
-          <div>
-            <Image
-              width={700}
-              height={700}
-              className="w-full h-[270px]"
-              src="/assets/portRelevant.png"
-              alt=""
-            />
-          </div>
-        </div>
-
-        {/* title & description */}
-
-        <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-          <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-            Logo Design
-          </h3>
-          <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-            Lorem ipsum dolor sit amet consectetur. Sodales malesuada
-            nulla sodales eget vitae turpis. Ac quis mauris vel arcu
-            lectus maecenas. Quis tellus risus senectus suscipit
-            accum...
-          </p>
-        </div>
-        <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-          <div className="font-Raleway">
-            <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-              Start From
-            </span>
-          </div>
-          <div>
-            <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-              20$
-            </span>
-          </div>
-          <div>
-            <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-              View
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-</Link>
-     {/* two */}
-<Link href={"/service-order"}>
-<div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-    <div className="flex flex-col">
-      <div className="bg-[#E2E8F0]">
-        <div>
-          <Image
-            width={700}
-            height={700}
-            className="w-full h-[270px]"
-            src="/assets/portRelevant2.png"
-            alt=""
-          />
-        </div>
-      </div>
-
-      {/* title & description */}
-
-      <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-        <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-          Logo Design
-        </h3>
-        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-          Lorem ipsum dolor sit amet consectetur. Sodales malesuada
-          nulla sodales eget vitae turpis. Ac quis mauris vel arcu
-          lectus maecenas. Quis tellus risus senectus suscipit
-          accum...
-        </p>
-      </div>
-      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-        <div className="font-Raleway">
-          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-            Start From
-          </span>
-        </div>
-        <div>
-          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-            20$
-          </span>
-        </div>
-        <div>
-          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-            View
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</Link>    {/* one */}
-
-<Link href={"/service-order"}>
-<div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-      <div className="flex flex-col">
-        <div className="bg-[#E2E8F0]">
-          <div>
-            <Image
-              width={700}
-              height={700}
-              className="w-full h-[270px]"
-              src="/assets/portRelevant.png"
-              alt=""
-            />
-          </div>
-        </div>
-
-        {/* title & description */}
-
-        <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-          <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-            Logo Design
-          </h3>
-          <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-            Lorem ipsum dolor sit amet consectetur. Sodales malesuada
-            nulla sodales eget vitae turpis. Ac quis mauris vel arcu
-            lectus maecenas. Quis tellus risus senectus suscipit
-            accum...
-          </p>
-        </div>
-        <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-          <div className="font-Raleway">
-            <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-              Start From
-            </span>
-          </div>
-          <div>
-            <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-              20$
-            </span>
-          </div>
-          <div>
-            <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-              View
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-</Link>
-     {/* two */}
-<Link href={"/service-order"}>
-<div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-    <div className="flex flex-col">
-      <div className="bg-[#E2E8F0]">
-        <div>
-          <Image
-            width={700}
-            height={700}
-            className="w-full h-[270px]"
-            src="/assets/portRelevant2.png"
-            alt=""
-          />
-        </div>
-      </div>
-
-      {/* title & description */}
-
-      <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-        <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-          Logo Design
-        </h3>
-        <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-          Lorem ipsum dolor sit amet consectetur. Sodales malesuada
-          nulla sodales eget vitae turpis. Ac quis mauris vel arcu
-          lectus maecenas. Quis tellus risus senectus suscipit
-          accum...
-        </p>
-      </div>
-      <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-        <div className="font-Raleway">
-          <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-            Start From
-          </span>
-        </div>
-        <div>
-          <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-            20$
-          </span>
-        </div>
-        <div>
-          <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-            View
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</Link>
-           
-       
-       
-           
+                </Link>
+              );
+            })}
           </div>
         </div>
       </Container>

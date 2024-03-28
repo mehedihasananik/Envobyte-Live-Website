@@ -3,6 +3,7 @@ import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import ContentLoader from "react-content-loader";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);
@@ -33,21 +34,35 @@ const Brands = () => {
             TRUSTED BY GLOBAL BRANDS
           </div>
           {/* right side */}
-          <div className=" w-full lg:w-[60%] ">
-            <div className="w-[100%] flex gap-x-10 items-center lg:justify-end">
-              {brands.map((brand) => {
-                return (
-                  <Image
-                    key={brand.id}
-                    width={1000}
-                    height={1000}
-                    className="w-[101px] h-[70px] "
-                    src={brand.logo}
-                    alt=""
-                  />
-                );
-              })}
-            </div>
+          <div className=" w-full lg:w-[60%] lg:flex lg:justify-end ">
+            {loading ? (
+              <>
+                <div
+                  role="status"
+                  className="py-[5%]  animate-pulse space-y-0 md:space-x-8 w-[50%] flex gap-x-10 items-center lg:justify-end"
+                >
+                  <div className="w-full ">
+                    <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-4"></div>
+                    <div className="h-3 bg-gray-200 rounded-full dark:bg-gray-700 max-w-[480px] mb-4"></div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <div className="w-[100%] flex gap-x-10 items-center lg:justify-end">
+                {brands.map((brand) => {
+                  return (
+                    <Image
+                      key={brand.id}
+                      width={1000}
+                      height={1000}
+                      className="w-[101px] h-[70px] "
+                      src={brand.logo}
+                      alt=""
+                    />
+                  );
+                })}
+              </div>
+            )}
           </div>
         </div>
       </Container>
