@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import { useEffect } from "react";
+import ContentLoader from "react-content-loader";
 
 import { HiArrowSmallRight } from "react-icons/hi2";
 
@@ -32,8 +33,6 @@ const Portfolio = () => {
 
     fetchData();
   }, []);
-  console.log(portfolios);
-  console.log(services);
 
   return (
     <div className=" md:py-5 lg:pt-20 ">
@@ -70,53 +69,96 @@ const Portfolio = () => {
           {/* 1st row */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2   gap-10 justify-between pt-10 pb-5 ">
             {/* 1st row 1st column card */}
-            {portfolios
-              .filter(
-                (portfolio) =>
-                  selectedServiceId === 0 ||
-                  portfolio.service_id === selectedServiceId
-              ) // Include condition for service_id === 0
-              .map((portfolio) => {
-                return (
-                  <Link key={portfolio.id} href="/portfolio-details">
-                    <div className="group">
-                      <div className=" portfolio-bgHover cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
-                        <div>
-                          <Image
-                            width={800}
-                            height={262}
-                            className="w-full lg:w-[400px] h-[420px] object-cover"
-                            src={portfolio.image}
-                            alt=""
-                          />
-                        </div>
-                        <div className="flex flex-col justify-center items-center p-3 md:py-0 2xl:px-10 ">
-                          <div className="text-center">
-                            <h4 className="text-[14px] text-[#999999] pt-3 pb-3 md:pt-0 md:pb-6 portfolio-textHover">
-                              {portfolio.heading}
-                            </h4>
-                            <h3 className="text-[16px] font-bold font-Raleway text-[#333333] portfolio-textHover">
-                              Visuel Agency <br /> Photo Brand
-                            </h3>
-                            <p className="w-[250px] text-[14px] text-[#666666] py-3 portfolio-textHover">
-                              {portfolio.text}
-                            </p>
+            {loading ? (
+              <>
+                <ContentLoader
+                  speed={2}
+                  width={1000}
+                  height={500}
+                  viewBox="0 0 700 300"
+                  backgroundColor="#f5f5f5"
+                  foregroundColor="#dbdbdb"
+                >
+                  <rect x="12" y="35" rx="0" ry="0" width="6" height="246" />
+                  <rect x="14" y="34" rx="0" ry="0" width="408" height="6" />
+                  <rect x="416" y="34" rx="0" ry="0" width="6" height="246" />
+                  <rect x="12" y="276" rx="0" ry="0" width="408" height="6" />
+                  <rect x="150" y="53" rx="6" ry="6" width="127" height="15" />
+                  <rect x="37" y="77" rx="7" ry="7" width="361" height="139" />
+                  <rect x="58" y="225" rx="0" ry="0" width="316" height="8" />
+                  <rect x="86" y="238" rx="0" ry="0" width="267" height="8" />
+                  <rect x="58" y="252" rx="0" ry="0" width="316" height="8" />
+                </ContentLoader>
+                <ContentLoader
+                  speed={2}
+                  width={1000}
+                  height={500}
+                  viewBox="0 0 700 300"
+                  backgroundColor="#f5f5f5"
+                  foregroundColor="#dbdbdb"
+                >
+                  <rect x="12" y="35" rx="0" ry="0" width="6" height="246" />
+                  <rect x="14" y="34" rx="0" ry="0" width="408" height="6" />
+                  <rect x="416" y="34" rx="0" ry="0" width="6" height="246" />
+                  <rect x="12" y="276" rx="0" ry="0" width="408" height="6" />
+                  <rect x="150" y="53" rx="6" ry="6" width="127" height="15" />
+                  <rect x="37" y="77" rx="7" ry="7" width="361" height="139" />
+                  <rect x="58" y="225" rx="0" ry="0" width="316" height="8" />
+                  <rect x="86" y="238" rx="0" ry="0" width="267" height="8" />
+                  <rect x="58" y="252" rx="0" ry="0" width="316" height="8" />
+                </ContentLoader>
+              </>
+            ) : (
+              <>
+                {portfolios
+                  .filter(
+                    (portfolio) =>
+                      selectedServiceId === 0 ||
+                      portfolio.service_id === selectedServiceId
+                  ) // Include condition for service_id === 0
+                  .map((portfolio) => {
+                    return (
+                      <Link key={portfolio.id} href="/portfolio-details">
+                        <div className="group">
+                          <div className=" portfolio-bgHover cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
+                            <div>
+                              <Image
+                                width={800}
+                                height={262}
+                                className="w-full lg:w-[400px] h-[420px] object-cover"
+                                src={portfolio.image}
+                                alt=""
+                              />
+                            </div>
+                            <div className="flex flex-col justify-center items-center p-3 md:py-0 2xl:px-10 ">
+                              <div className="text-center">
+                                <h4 className="text-[14px] text-[#999999] pt-3 pb-3 md:pt-0 md:pb-6 portfolio-textHover">
+                                  {portfolio.heading}
+                                </h4>
+                                <h3 className="text-[16px] font-bold font-Raleway text-[#333333] portfolio-textHover">
+                                  Visuel Agency <br /> Photo Brand
+                                </h3>
+                                <p className="w-[250px] text-[14px] text-[#666666] py-3 portfolio-textHover">
+                                  {portfolio.text}
+                                </p>
+                              </div>
+                              <div className="group flex justify-center items-center gap-2 text-[#FF693B] font-bold mt-5 portfolio-textHover pb-6 lg:pb-0">
+                                {" "}
+                                <button className=" text-[14px]  ">
+                                  Read More{" "}
+                                </button>
+                                <span className="w-[19px] font-bold">
+                                  <HiArrowSmallRight className="text-xl " />
+                                </span>{" "}
+                              </div>
+                            </div>
                           </div>
-                          <div className="group flex justify-center items-center gap-2 text-[#FF693B] font-bold mt-5 portfolio-textHover pb-6 lg:pb-0">
-                            {" "}
-                            <button className=" text-[14px]  ">
-                              Read More{" "}
-                            </button>
-                            <span className="w-[19px] font-bold">
-                              <HiArrowSmallRight className="text-xl " />
-                            </span>{" "}
-                          </div>
                         </div>
-                      </div>
-                    </div>
-                  </Link>
-                );
-              })}
+                      </Link>
+                    );
+                  })}
+              </>
+            )}
           </div>
         </div>
 

@@ -10,7 +10,7 @@ const DashboardPage = () => {
       <div>
         <div className="w-full flex">
           <DashBoardSideNav height="100vh" />
-          <div className="w-full">
+          <div className="w-full ">
             <DashBoardNav title="dashboard" />
             <DashBoardContent />
           </div>
