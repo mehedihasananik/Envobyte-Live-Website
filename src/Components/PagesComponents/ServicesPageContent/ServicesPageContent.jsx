@@ -4,30 +4,31 @@ import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
+import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
 
 const ServicesPageContent = () => {
-  const [categories, setCategories] = useState([]);
+  const [serviceCategories, setServiceCategories] = useState([]);
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedServiceId, setSelectedServiceId] = useState("");
   const [serviceItems, setServiceItems] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${API_ROUTES.route}/service`);
-        const response2 = await fetch(`${API_ROUTES.route}/sevice_items`);
-        const data = await response.json();
-        const data2 = await response2.json();
-        setCategories(data);
-        setServices(data2);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setLoading(false);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${API_ROUTES.route}/service`);
+      const response2 = await fetch(`${API_ROUTES.route}/sevice_items`);
+      const data = await response.json();
+      const data2 = await response2.json();
+      setServiceCategories(data);
+      setServices(data2);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
 
+  useEffect(() => {
     fetchData();
   }, []);
 
@@ -67,7 +68,7 @@ const ServicesPageContent = () => {
                     className="cursor-pointer border border-gray-300  text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                   >
                     <option value="">Select Category</option>
-                    {categories.slice(1, 6).map((category) => (
+                    {serviceCategories.slice(1, 6).map((category) => (
                       <option
                         key={category.service_id}
                         value={category.service_id}
@@ -117,50 +118,61 @@ const ServicesPageContent = () => {
             </div>
           </div>
           <div className="grid grid-cols-1 md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 justify-items-center place-items-center gap-8 pb-8 md:gap-16 mt-5 md:mt-10 ">
-            {serviceItems.map((service) => (
-              <Link key={service.id} href={"/service-order"}>
-                <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-                  <div className="flex flex-col">
-                    <div className="bg-[#E2E8F0]">
-                      <div>
-                        <Image
-                          width={700}
-                          height={700}
-                          className="w-full h-[270px]"
-                          src={service.image || "/assets/portRelevant.png"}
-                          alt=""
-                        />
+            {loading ? (
+              <>
+                <ServiceLoading />
+                <ServiceLoading />
+                <ServiceLoading />
+                <ServiceLoading />
+              </>
+            ) : (
+              <>
+                {serviceItems.map((service) => (
+                  <Link key={service.id} href={"/service-order"}>
+                    <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
+                      <div className="flex flex-col">
+                        <div className="bg-[#E2E8F0]">
+                          <div>
+                            <Image
+                              width={700}
+                              height={700}
+                              className="w-full h-[270px]"
+                              src={service.image || "/assets/portRelevant.png"}
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
+                          <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
+                            {service.title}
+                          </h3>
+                          <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
+                            {service.details}
+                          </p>
+                        </div>
+                        <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
+                          <div className="font-Raleway">
+                            <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
+                              Start From
+                            </span>
+                          </div>
+                          <div>
+                            <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
+                              20$
+                            </span>
+                          </div>
+                          <div>
+                            <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
+                              View
+                            </button>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-                      <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-                        {service.title}
-                      </h3>
-                      <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-                        {service.details}
-                      </p>
-                    </div>
-                    <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-                      <div className="font-Raleway">
-                        <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-                          Start From
-                        </span>
-                      </div>
-                      <div>
-                        <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-                          20$
-                        </span>
-                      </div>
-                      <div>
-                        <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
-                          View
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
+                  </Link>
+                ))}
+              </>
+            )}
           </div>
         </div>
       </Container>
