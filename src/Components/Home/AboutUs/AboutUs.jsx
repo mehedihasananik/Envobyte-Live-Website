@@ -3,7 +3,7 @@ import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import ContentLoader from "react-content-loader";
+
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 

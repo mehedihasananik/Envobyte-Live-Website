@@ -3,7 +3,6 @@ import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import ContentLoader from "react-content-loader";
 
 const Brands = () => {
   const [brands, setBrands] = useState([]);

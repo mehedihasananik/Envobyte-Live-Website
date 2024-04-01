@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FaRegClock } from "react-icons/fa6";
@@ -8,7 +9,7 @@ import Questions from "@/Components/Home/Questions/Questions";
 import Container from "@/Components/Container/Container";
 import ServicePortolio from "@/Components/Utilites/ServicePortfolio/ServicePortolio";
 
-const ServiceOrderContent = () => {
+const ServiceDetails = ({ singleService }) => {
   return (
     <>
       <Container>
@@ -16,7 +17,7 @@ const ServiceOrderContent = () => {
           {/* title */}
           <div className="text-center font-Raleway pb-10">
             <h1 className="text-[#10F172A] text-[32px] md:text-[48px] font-bold ">
-              UI/UX Design
+              {singleService[0].sevice_items_name}
             </h1>
             <h3 className="text-[18px] font-medium">
               Discover <span className="text-[#FF693B]">The Perfect Plan</span>
@@ -311,4 +312,4 @@ const ServiceOrderContent = () => {
   );
 };
 
-export default ServiceOrderContent;
+export default ServiceDetails;

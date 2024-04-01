@@ -5,6 +5,7 @@ import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
+import ServiceButton from "@/Components/Utilites/ServiceButton/ServiceButton";
 
 const ServicesPageContent = () => {
   const [serviceCategories, setServiceCategories] = useState([]);
@@ -128,7 +129,7 @@ const ServicesPageContent = () => {
             ) : (
               <>
                 {serviceItems.map((service) => (
-                  <Link key={service.id} href={"/service-order"}>
+                  <>
                     <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
                       <div className="flex flex-col">
                         <div className="bg-[#E2E8F0]">
@@ -162,14 +163,17 @@ const ServicesPageContent = () => {
                             </span>
                           </div>
                           <div>
-                            <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
+                            <ServiceButton
+                              service={service}
+                              className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200"
+                            >
                               View
-                            </button>
+                            </ServiceButton>
                           </div>
                         </div>
                       </div>
                     </div>
-                  </Link>
+                  </>
                 ))}
               </>
             )}

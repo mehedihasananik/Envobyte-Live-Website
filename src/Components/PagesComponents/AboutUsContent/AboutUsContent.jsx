@@ -2,7 +2,15 @@ import Container from "@/Components/Container/Container";
 import Image from "next/image";
 import React from "react";
 
-const AboutUsContent = () => {
+async function fetchData() {
+  const res = await fetch("http://192.168.10.14:8000/api/service");
+  if (!res.ok) return undefined;
+  return res.json();
+}
+
+const AboutUsContent = async () => {
+  const data = await fetchData();
+  console.log(data);
   return (
     <Container>
       <div>

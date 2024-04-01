@@ -4,7 +4,6 @@ import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-import ContentLoader from "react-content-loader";
 
 import { HiArrowSmallRight } from "react-icons/hi2";
 
@@ -19,10 +18,16 @@ const PortfolioPage = () => {
     try {
       const response = await fetch(`${API_ROUTES.route}/sevice_portfolio`);
       const response2 = await fetch(`${API_ROUTES.route}/service`);
+      const serviceCategoriesResponse = await fetch(
+        `${API_ROUTES.route}/category`
+      );
       const data = await response.json();
       const data2 = await response2.json();
+      const serviceCategoriesResponseData =
+        await serviceCategoriesResponse.json();
       setPortfolioCategories(data);
       setServices(data2);
+      setServiceCategories(serviceCategoriesResponseData);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -41,6 +46,7 @@ const PortfolioPage = () => {
   const filteredPortfolio = portfolioCategories.filter(
     (item) => selectedServiceId === 0 || item.service_id === selectedServiceId
   );
+  console.log(serviceCategories);
 
   return (
     <div className="pt-8 lg:pt-20">

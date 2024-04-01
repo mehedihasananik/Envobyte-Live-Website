@@ -1,13 +1,14 @@
-import Container from '@/Components/Container/Container'
-import ServiceOrderContent from '@/Components/PagesComponents/ServiceOrderContent/ServiceOrderContent'
-import React from 'react'
+import Container from "@/Components/Container/Container";
+import ServiceDetails from "@/Components/PagesComponents/ServiceDetails/ServiceDetails";
+import ServiceOrderContent from "@/Components/PagesComponents/ServiceDetails/ServiceDetails";
+import React from "react";
 
 const ServiceOrder = () => {
   return (
     <>
-        <ServiceOrderContent/>
+      <ServiceDetails />
     </>
-  )
-}
+  );
+};
 
-export default ServiceOrder
+export default ServiceOrder;
