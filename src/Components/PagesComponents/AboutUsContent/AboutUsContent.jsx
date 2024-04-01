@@ -3,8 +3,19 @@ import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import React from "react";
 
-async function getData() {
+async function getAboutPage() {
   const res = await fetch(`${API_ROUTES.route}/aboutus_page`, {
+    next: { revalidate: 10 },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+async function getAbout_item() {
+  const res = await fetch(`${API_ROUTES.route}/aboutus_page_item`, {
     next: { revalidate: 10 },
   });
 
@@ -25,7 +36,9 @@ const AboutUsContent = async () => {
     details3,
     title4,
     details4,
-  } = await getData();
+  } = await getAboutPage();
+  const data = await getAbout_item();
+  console.log(data[0].title);
 
   return (
     <Container>
@@ -103,22 +116,11 @@ const AboutUsContent = async () => {
           {/* left side */}
           <div className="lg:w-[50%]  flex flex-col justify-center">
             <h2 className="text-[#0F172A] text-[32px] font-bold font-Raleway text-center lg:text-left">
-              Transparency
+              {data[0].title}
             </h2>
             <div className="text-[#334155] text-center lg:text-left text-[18px] space-y-5 pt-5">
-              <p>
-                Your project&apos;s status, budget spend, and progress are
-                always visible and trackable by you… even at 3am on a Sunday. We
-                believe complete transparency forms healthy communication, and
-                healthy communication builds perfect products. <br />
-              </p>
-              <p>
-                consectetur nunc enim Lorem ipsum dolor sit amet consectetur.
-                Nulla sed eu quam congue orci consectetur nunc enim. Scelerisque
-                molestie aliquam ac maurnatis egestas. Sed Lorem ipsum dolor sit
-                amet consectetur. Nulla sed eu quam congue orci consectetur nunc
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
+              <p>{data[0].details.slice(0, 294)}</p>
+              <p>{data[0].details.slice(294, 600)}</p>
             </div>
           </div>
           {/* right side */}
@@ -127,14 +129,7 @@ const AboutUsContent = async () => {
               className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src="/assets/aboutusB.jpg"
-              alt=""
-            />
-            <Image
-              className="w-[100%] h-[450px] rounded-lg"
-              width={1000}
-              height={1000}
-              src="/assets/aboutusB2.jpg"
+              src={data[0].image}
               alt=""
             />
           </div>
@@ -144,22 +139,11 @@ const AboutUsContent = async () => {
           {/* left side */}
           <div className="lg:w-[50%] text-center lg:text-left flex flex-col justify-center">
             <h2 className="text-[#0F172A] text-[32px] font-bold font-Raleway text-center lg:text-left">
-              Communication
+              {data[1].title}
             </h2>
             <div className="text-[#334155] text-[18px] space-y-5 pt-5">
-              <p>
-                Your project&apos;s status, budget spend, and progress are
-                always visible and trackable by you… even at 3am on a Sunday. We
-                believe complete transparency forms healthy communication, and
-                healthy communication builds perfect products. <br />
-              </p>
-              <p>
-                consectetur nunc enim Lorem ipsum dolor sit amet consectetur.
-                Nulla sed eu quam congue orci consectetur nunc enim. Scelerisque
-                molestie aliquam ac maurnatis egestas. Sed Lorem ipsum dolor sit
-                amet consectetur. Nulla sed eu quam congue orci consectetur nunc
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
+              <p>{data[1].details.slice(0, 292)}</p>
+              <p>{data[1].details.slice(292, 600)}</p>
             </div>
           </div>
           {/* right side */}
@@ -168,14 +152,7 @@ const AboutUsContent = async () => {
               className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src="/assets/aboutusB3.jpg"
-              alt=""
-            />
-            <Image
-              className="w-[100%] h-[450px] rounded-lg"
-              width={1000}
-              height={1000}
-              src="/assets/aboutusB4.jpg"
+              src={data[1].image}
               alt=""
             />
           </div>
@@ -185,22 +162,11 @@ const AboutUsContent = async () => {
           {/* left side */}
           <div className="lg:w-[50%] flex flex-col justify-center">
             <h2 className="text-[#0F172A] text-[32px] font-bold font-Raleway text-center lg:text-left">
-              Project Management
+              {data[2].title}
             </h2>
             <div className="text-[#334155] text-center lg:text-left text-[18px] space-y-5 pt-5">
-              <p>
-                Your project&apos;s status, budget spend, and progress are
-                always visible and trackable by you… even at 3am on a Sunday. We
-                believe complete transparency forms healthy communication, and
-                healthy communication builds perfect products. <br />
-              </p>
-              <p>
-                consectetur nunc enim Lorem ipsum dolor sit amet consectetur.
-                Nulla sed eu quam congue orci consectetur nunc enim. Scelerisque
-                molestie aliquam ac maurnatis egestas. Sed Lorem ipsum dolor sit
-                amet consectetur. Nulla sed eu quam congue orci consectetur nunc
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
+              <p>{data[2].details.slice(0, 294)}</p>
+              <p>{data[2].details.slice(294, 600)}</p>
             </div>
           </div>
           {/* right side */}
@@ -209,15 +175,7 @@ const AboutUsContent = async () => {
               className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src="/assets/aboutusB5.jpg"
-              alt=""
-            />
-            <Image
-              c
-              className="w-[100%] h-[450px] rounded-lg"
-              width={1000}
-              height={1000}
-              src="/assets/aboutusB6.jpg"
+              src={data[2].image}
               alt=""
             />
           </div>
@@ -227,22 +185,11 @@ const AboutUsContent = async () => {
           {/* left side */}
           <div className="lg:w-[50%] flex flex-col justify-center text-center lg:text-left">
             <h2 className="text-[#0F172A] text-[32px] font-bold font-Raleway text-center lg:text-left">
-              Attention To Details
+              {data[3].title}
             </h2>
             <div className="text-[#334155] text-[18px] space-y-5 pt-5">
-              <p>
-                Your project&apos;s status, budget spend, and progress are
-                always visible and trackable by you… even at 3am on a Sunday. We
-                believe complete transparency forms healthy communication, and
-                healthy communication builds perfect products. <br />
-              </p>
-              <p>
-                consectetur nunc enim Lorem ipsum dolor sit amet consectetur.
-                Nulla sed eu quam congue orci consectetur nunc enim. Scelerisque
-                molestie aliquam ac maurnatis egestas. Sed Lorem ipsum dolor sit
-                amet consectetur. Nulla sed eu quam congue orci consectetur nunc
-                Lorem ipsum dolor sit amet consectetur.
-              </p>
+              <p>{data[3].details.slice(0, 294)}</p>
+              <p>{data[3].details.slice(294, 600)}</p>
             </div>
           </div>
           {/* right side */}
@@ -251,14 +198,7 @@ const AboutUsContent = async () => {
               className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src="/assets/aboutusB7.jpg"
-              alt=""
-            />
-            <Image
-              className="w-[100%] h-[450px] rounded-lg"
-              width={1000}
-              height={1000}
-              src="/assets/aboutusB8.jpg"
+              src={data[3].image}
               alt=""
             />
           </div>
