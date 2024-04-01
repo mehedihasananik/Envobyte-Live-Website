@@ -1,77 +1,53 @@
 import Container from "@/Components/Container/Container";
+import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import React from "react";
 
-async function fetchData() {
-  const res = await fetch("http://192.168.10.14:8000/api/service");
-  if (!res.ok) return undefined;
+async function getData() {
+  const res = await fetch(`${API_ROUTES.route}/aboutus_page`, {
+    next: { revalidate: 10 },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
   return res.json();
 }
 
 const AboutUsContent = async () => {
-  const data = await fetchData();
-  console.log(data);
+  const {
+    title1,
+    details1,
+    image,
+    title2,
+    details2,
+    title3,
+    details3,
+    title4,
+    details4,
+  } = await getData();
+
   return (
     <Container>
       <div>
         {/* titles & description */}
         <div className="pt-5 md:pt-10 lg:pt-20 space-y-4">
           <h2 className="text-[32px] lg:text-[48px] text-[#0F172A] font-bold font-Raleway text-center lg:text-left">
-            About Company
+            {title1}
           </h2>
-          <p className="text-[18px] text-justify">
-            Your project&apos;s status, budget spend, and progress are always
-            visible and trackable by you… even at 3am on a Sunday. We believe
-            complete transparency forms healthy communication, and healthy
-            communication builds perfect products. consectetur nunc enim Lorem
-            ipsum dolor sit amet consectetur. Nulla sed eu quam congue orci
-            consectetur nunc enim. Scelerisque molestie aliquam ac maurnati
-            egestas. Sed Lorem ipsum dolor sit amet consectetur. Nulla sed eu
-            quam congue orci consectetur nunc Lorem ipsum dolor sit amet
-            consectetur. c enim Lorem ipsum dolor sit amet consectetur. Nulla
-            sed eu quam congue orci consectetur nunc enim. Scelerisque molestie
-            aliquam ac maurnatis egestas. Sed Lorem ipsum dolor sit amet
-            consectetur. Nulla sed eu quam congue orci consectetur nunc Lorem
-            ipsum dolor sit amet consectetur.c enim Lorem ipsum dolor sit amet
-            consectetur. Nulla sed eu quam congue orci consectetur nunc enim.
-            Scelerisque molestie aliquam ac maurnatis egestas. Sed Lorem ipsum
-            dolor sit amet consectetur. Nulla sed eu quam congue orci
-            consectetur nunc Lorem ipsum dolor sit amet consectetur.
-          </p>
+          <p className="text-[18px] text-justify">{details1}</p>
         </div>
         {/* mission & vision */}
         <div className="grid grid-cols-1 justify-items-center lg:justify-items-start gap-y-10 lg:gap-y-0 lg:grid-cols-3 pt-10 lg:pt-16 lg:gap-x-10  ">
           {/* 1st col */}
-          <div className="flex items-center gap-3">
-            <div>
-              <Image
-                className="w-[220px]"
-                width={500}
-                height={500}
-                src="/assets/mission1.png"
-                alt=""
-              />
-            </div>
-            <div className="space-y-3">
-              <div>
-                <Image
-                  className="w-[220px]"
-                  width={500}
-                  height={500}
-                  src="/assets/mission2.png"
-                  alt=""
-                />
-              </div>
-              <div>
-                <Image
-                  className="w-[220px]"
-                  width={500}
-                  height={500}
-                  src="/assets/mission3.png"
-                  alt=""
-                />
-              </div>
-            </div>
+          <div>
+            <Image
+              className="w-[450px]"
+              width={500}
+              height={500}
+              src={image}
+              alt=""
+            />
           </div>
           {/* 2nd col */}
           <div className="space-y-3 text-center lg:text-left lg:pt-[8%]">
@@ -82,17 +58,12 @@ const AboutUsContent = async () => {
             {/* title */}
             <div>
               <h1 className="text-[18px] md:text-[32px] font-semibold ">
-                Mission{" "}
+                {title2}
               </h1>
             </div>
             {/* description */}
             <div>
-              <p className="text-[16px]">
-                Lorem ipsum dolor sit amet consectetur. Nulla sed eu quam congue
-                orci consectetur nunc enim. Scelerisque molestie aliquam ac
-                maurnatis egestas. Sed Lorem ipsum dolor sit amet consectetur.
-                Nulla sed eu quam congue orci consectetur nunc
-              </p>
+              <p className="text-[16px]">{details2}</p>
             </div>
           </div>
           <div>
@@ -100,22 +71,17 @@ const AboutUsContent = async () => {
             <div className="space-y-3  text-center lg:text-left lg:pt-[8%]">
               {/* logo */}
               <div className="flex justify-center lg:justify-start">
-                <img src="/assets/missionLogo.png" alt="" />
+                <img src="/assets/missionLogo2.png" alt="" />
               </div>
               {/* title */}
               <div>
                 <h1 className="text-[18px] md:text-[32px] font-semibold ">
-                  Mission{" "}
+                  {title3}
                 </h1>
               </div>
               {/* description */}
               <div>
-                <p className="text-[16px]">
-                  Lorem ipsum dolor sit amet consectetur. Nulla sed eu quam
-                  congue orci consectetur nunc enim. Scelerisque molestie
-                  aliquam ac maurnatis egestas. Sed Lorem ipsum dolor sit amet
-                  consectetur. Nulla sed eu quam congue orci consectetur nunc
-                </p>
+                <p className="text-[16px]">{details3}</p>
               </div>
             </div>
           </div>
@@ -127,15 +93,9 @@ const AboutUsContent = async () => {
           </h3>
           <div className="w-full lg:w-[70%] text-center lg:text-left space-y-3">
             <h1 className="text-[#0F172A] text-[32px] lg:text-[48px] font-bold font-Raleway leading-tight">
-              When all the parts come together, extraordinary things can happen
+              {title4}
             </h1>
-            <p className="text-[#334155] text-[16px]">
-              To us, world-class digital products take more than intelligent
-              code or creative design. It requires true partnership between the
-              ideators and the innovators. Our collaborations are built on a
-              bedrock of transparency, communication, expert project management,
-              and attention to detail.
-            </p>
+            <p className="text-[#334155] text-[16px]">{details4}</p>
           </div>
         </div>
         {/* Transparency */}

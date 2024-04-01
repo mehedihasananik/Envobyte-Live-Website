@@ -17,7 +17,7 @@ const ServiceDetails = ({ singleService }) => {
           {/* title */}
           <div className="text-center font-Raleway pb-10">
             <h1 className="text-[#10F172A] text-[32px] md:text-[48px] font-bold ">
-              {singleService[0].sevice_items_name}
+              {singleService.sevice_items_name}
             </h1>
             <h3 className="text-[18px] font-medium">
               Discover <span className="text-[#FF693B]">The Perfect Plan</span>
