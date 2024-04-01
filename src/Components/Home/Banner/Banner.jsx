@@ -80,14 +80,14 @@ const Banner = () => {
             <div className="flex gap-6 py-6">
               {/* quote button */}
               <Link
-                href={"#"}
+                href={"#projectDetails"}
                 className="text-[16px] whitespace-nowrap text-white bg-[#FF693B]  border border-[#FF693B] px-10 py-4 font-[600] rounded-lg  hover:bg-[#fff] hover:text-[#FF693B] transition-all duration-300"
               >
                 Get a Quote
               </Link>
               {/* our services */}
               <Link
-                href={"#"}
+                href={"/services"}
                 className="text-[16px]  whitespace-nowrap text-[#FF693B] border border-[#FF693B] px-10 py-4 font-[600] rounded-lg  hover:bg-[#FF693B] hover:text-white transition-all duration-300"
               >
                 Our Services

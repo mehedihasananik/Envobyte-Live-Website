@@ -3,7 +3,10 @@ import React from "react";
 
 const ProjectDetails = () => {
   return (
-    <div className="bg-[#F8FAFC] py-5 pb-8 md:py-10 md:pb-14 lg:py-10">
+    <div
+      id="projectDetails"
+      className="bg-[#F8FAFC] py-5 pb-8 md:py-10 md:pb-14 lg:py-10"
+    >
       <Container>
         {/* project details */}
         {/* title & decription */}
@@ -13,7 +16,8 @@ const ProjectDetails = () => {
           </div>
           <div>
             <h3 className="text-[26px] md:text-[32px] lg:text-[48px] font-Raleway font-bold">
-              Let&apos;s discuss <span className="project_title"></span> your project
+              Let&apos;s discuss <span className="project_title"></span> your
+              project
             </h3>
           </div>
         </div>
@@ -27,14 +31,19 @@ const ProjectDetails = () => {
         {/* our details */}
         <div className="w-[100%] flex flex-col justify-center items-center  lg:flex-row lg:items-start lg:justify-between gap-10 pt-14">
           <div className="w-full lg:w-[40%] flex flex-col gap-10 md:pl-10 2xl:pl-0">
-           
             <div className="flex  items-center gap-6 bg-[#FFFFFF] py-8  rounded-lg pl-5 lg:pl-5 lg:pr-14">
               <div className="bg-[#FFF5F1] p-4 rounded-lg">
                 <img src="/assets/mail.svg" alt="" />
               </div>
               <div>
                 <h3 className="text-[16px] text-[#94A3B8]">Email us</h3>
-                <a target="_blank" href="mailto:support@envobyte.com" className="text-[#475569] text-[16px] pt-1">support@envobyte.com</a>
+                <a
+                  target="_blank"
+                  href="mailto:support@envobyte.com"
+                  className="text-[#475569] text-[16px] pt-1"
+                >
+                  support@envobyte.com
+                </a>
               </div>
             </div>
 
@@ -44,8 +53,13 @@ const ProjectDetails = () => {
               </div>
               <div>
                 <h3 className="text-[16px] text-[#94A3B8]">Whatsapp</h3>
-                <a target="_blank" href="https://wa.me/8801711377731" className="text-[#475569] text-[16px] pt-1">+880 1711-377731</a>
-
+                <a
+                  target="_blank"
+                  href="https://wa.me/8801711377731"
+                  className="text-[#475569] text-[16px] pt-1"
+                >
+                  +880 1711-377731
+                </a>
               </div>
             </div>
           </div>
@@ -72,7 +86,10 @@ const ProjectDetails = () => {
                   </div>
                   <div className="w-full lg:w-[50%]">
                     <div className="flex flex-col gap-3">
-                      <label className="text-[16px] mt-3 lg:mt-0" htmlFor="lastname">
+                      <label
+                        className="text-[16px] mt-3 lg:mt-0"
+                        htmlFor="lastname"
+                      >
                         Your Last Name:
                       </label>
                       <input
@@ -105,7 +122,10 @@ const ProjectDetails = () => {
                   </div>
                   <div className="w-full lg:w-[50%]">
                     <div className="flex flex-col gap-3">
-                      <label className="text-[16px] mt-3 lg:mt-0" htmlFor="lastname">
+                      <label
+                        className="text-[16px] mt-3 lg:mt-0"
+                        htmlFor="lastname"
+                      >
                         Your Phone Number:
                       </label>
                       <input

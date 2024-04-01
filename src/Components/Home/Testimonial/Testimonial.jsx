@@ -80,7 +80,7 @@ const Testimonial = () => {
   };
 
   return (
-    <div className=" overflow-hidden ">
+    <div id="testimonial" className=" overflow-hidden ">
       <div className="max-w-[1680px] mx-auto px-[4%] md:px[8%] 4xl:px-[0] 4xl:max-w-[1920px] 4xl:pl-[10%]">
         {/* services */}
         <div className="py-5 xl:pt-10 ">
@@ -248,7 +248,7 @@ const Testimonial = () => {
                   {testimonials.map((testimonial) => {
                     return (
                       <SwiperSlide key={testimonial.id} className="">
-                        <div className="pl-4 mt-10 bg-[#F8FAFC] hover:bg-[#1E293B] group  rounded-md transition-all duration-300 cursor-pointer">
+                        <div className="pl-4 mt-10 bg-[#F8FAFC] hover:bg-[#1E293B] group  rounded-md transition-all duration-300 ">
                           <div className=" relative ">
                             <div className="absolute top-[-25px] left-[140px] md:left-[120px] lg:left-0">
                               <img src={testimonial.image} alt="" />

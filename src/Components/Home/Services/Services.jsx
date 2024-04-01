@@ -8,6 +8,7 @@ import { HiArrowRight } from "react-icons/hi";
 import Image from "next/image";
 import API_ROUTES from "@/app/api/confiq";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
+import Link from "next/link";
 
 const Services = () => {
   // states
@@ -123,9 +124,12 @@ const Services = () => {
                 </div>
               </div>
               <div className="py-8 lg:py-5 text-center lg:text-left  lg:mt-8">
-                <button className="bg-[#FF693B] text-white text-[16px]  font-semibold py-4 px-14 rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
+                <Link
+                  href={"/services"}
+                  className="bg-[#FF693B] text-white text-[16px]  font-semibold py-4 px-14 rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300"
+                >
                   View all
-                </button>
+                </Link>
               </div>
             </div>
             {/* right swiper */}

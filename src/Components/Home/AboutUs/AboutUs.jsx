@@ -2,6 +2,7 @@
 import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 import CountUp from "react-countup";
@@ -165,9 +166,12 @@ const AboutUs = () => {
               </ScrollTrigger>
 
               <div className="py-8 text-center lg:text-left">
-                <button className=" text-[16px] bg-[#FF693B] px-10 py-3 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
+                <Link
+                  href={"#testimonial"}
+                  className=" text-[16px] bg-[#FF693B] px-10 py-3 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300"
+                >
                   Learn more
-                </button>
+                </Link>
               </div>
             </div>
           </div>

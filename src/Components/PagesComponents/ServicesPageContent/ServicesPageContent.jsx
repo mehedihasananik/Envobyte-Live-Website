@@ -163,12 +163,12 @@ const ServicesPageContent = () => {
                             </span>
                           </div>
                           <div>
-                            <ServiceButton
-                              service={service}
+                            <Link
                               className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200"
+                              href={`/services/${service.id}`}
                             >
                               View
-                            </ServiceButton>
+                            </Link>
                           </div>
                         </div>
                       </div>
