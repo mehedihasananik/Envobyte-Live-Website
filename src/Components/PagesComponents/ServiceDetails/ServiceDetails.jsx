@@ -10,7 +10,7 @@ import Container from "@/Components/Container/Container";
 import ServicePortolio from "@/Components/Utilites/ServicePortfolio/ServicePortolio";
 import API_ROUTES from "@/app/api/confiq";
 
-const ServiceDetails = ({ service, sliders }) => {
+const ServiceDetails = ({ service, sliders, packages }) => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -29,6 +29,7 @@ const ServiceDetails = ({ service, sliders }) => {
   useEffect(() => {
     fetchData();
   }, []);
+  console.log(packages.service_package);
 
   return (
     <>
@@ -46,221 +47,89 @@ const ServiceDetails = ({ service, sliders }) => {
           {/* packages */}
           <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-3 gap-x-5 lg:gap-y-0 4xl:px-[10%]">
             {/* 1st package */}
-            <div className="border border-[#CBD5E1] cursor-pointer transition-all duration-300  hover:border-[#FF693B] px-8 py-10 rounded-3xl">
-              {/* title */}
-              <div className="space-y-5">
-                <h3 className="font-Raleway text-[16px] text-[#1E293B] font-bold">
-                  Basic Package
-                </h3>
-                <p className="text-[15px] text-[#334155] font-normal">
-                  Single web page or Homepage design up to 7 sections.
-                </p>
-              </div>
-              {/* price */}
-              <div className="py-2">
-                <h2 className="text-[32px] font-semibold font-Raleway">$100</h2>
-              </div>
-              {/* order button */}
-              <div className="py-4 md:pb-8">
-                <button className="text-[16px] font-medium text-[#FF693B] border border-[#FF693B] px-6 py-2 w-full rounded-md hover:text-white hover:bg-[#FF693B] transition-all duration-300">
-                  Place Order Now
-                </button>
-              </div>
-              {/* order details */}
-              <div className="space-y-5">
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-              </div>
-              {/* delivery date */}
-              <div className="flex pt-14 lg:pt-28 items-center justify-between">
-                {/* 1st */}
-                <div className="flex items-center gap-1.5 font-Raleway  font-semibold">
-                  <span>
-                    <FaRegClock className="w-[24px] h-[24px]" />
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[16px]">3 Days Delivery </span>{" "}
-                    <img
-                      className="w-[14px] h-[14px]"
-                      src="/assets/mark.png"
-                      alt=""
-                    />
+
+            {packages.service_package.map((item) => {
+              return (
+                <div
+                  key={item.id}
+                  className=" border border-[#CBD5E1] cursor-pointer transition-all duration-300  hover:border-[#FF693B] px-8 py-10 rounded-3xl"
+                >
+                  {/* title */}
+                  <div className="h-[150px]">
+                    <div className="space-y-5">
+                      <h3 className="font-Raleway text-[16px] text-[#1E293B] font-bold">
+                        {item.package_name}
+                      </h3>
+                      <p className="text-[15px] text-[#334155] font-normal">
+                        {item.package_text.substring(0, 80)}
+                      </p>
+                    </div>
+                    {/* price */}
+                    <div className="py-2">
+                      <h2 className="text-[32px] font-semibold font-Raleway">
+                        {item.package_price}
+                      </h2>
+                    </div>
+                  </div>
+                  {/* order button */}
+                  <div className="py-4 md:pb-8">
+                    <button className="text-[16px] font-medium text-[#FF693B] border border-[#FF693B] px-6 py-2 w-full rounded-md hover:text-white hover:bg-[#FF693B] transition-all duration-300">
+                      Place Order Now
+                    </button>
+                  </div>
+                  {/* order details */}
+                  <div className="space-y-5">
+                    <div className="flex justify-start items-center gap-5">
+                      <span>
+                        <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
+                      </span>
+                      <span className="text-[#646464] text-[16px] font-Roboto">
+                        1 Page Web UI Design
+                      </span>
+                    </div>
+                    <div className="flex justify-start items-center gap-5">
+                      <span>
+                        <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
+                      </span>
+                      <span className="text-[#646464] text-[16px] font-Roboto">
+                        1 Page Web UI Design
+                      </span>
+                    </div>
+                    <div className="flex justify-start items-center gap-5">
+                      <span>
+                        <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
+                      </span>
+                      <span className="text-[#646464] text-[16px] font-Roboto">
+                        1 Page Web UI Design
+                      </span>
+                    </div>
+                  </div>
+                  {/* delivery date */}
+                  <div className="flex pt-14 lg:pt-28 items-center justify-between">
+                    {/* 1st */}
+                    <div className="flex items-center gap-1.5 font-Raleway  font-semibold">
+                      <span>
+                        <FaRegClock className="w-[24px] h-[24px]" />
+                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[16px]">3 Days Delivery </span>{" "}
+                        <img
+                          className="w-[14px] h-[14px]"
+                          src="/assets/mark.png"
+                          alt=""
+                        />
+                      </div>
+                    </div>
+                    <div className="flex gap-1 items-center justify-center font-Raleway  font-semibold">
+                      <span>
+                        <BiRevision className="w-[24px] h-[24px]" />
+                      </span>
+                      <span className="text-[16px]"> 1 Revisions</span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex gap-1 items-center justify-center font-Raleway  font-semibold">
-                  <span>
-                    <BiRevision className="w-[24px] h-[24px]" />
-                  </span>
-                  <span className="text-[16px]"> 1 Revisions</span>
-                </div>
-              </div>
-            </div>
-            {/* 2nd package */}
-            <div className="border border-[#CBD5E1] cursor-pointer transition-all duration-300  hover:border-[#FF693B] px-8 py-10 rounded-3xl">
-              {/* title */}
-              <div className="space-y-5">
-                <h3 className="font-Raleway text-[16px] text-[#1E293B] font-bold">
-                  Basic Package
-                </h3>
-                <p className="text-[15px] text-[#334155] font-normal">
-                  Single web page or Homepage design up to 7 sections.
-                </p>
-              </div>
-              {/* price */}
-              <div className="py-2">
-                <h2 className="text-[32px] font-semibold font-Raleway">$100</h2>
-              </div>
-              {/* order button */}
-              <div className="py-4 md:pb-8">
-                <button className="text-[16px] font-medium text-[#FF693B] border border-[#FF693B] px-6 py-2 w-full rounded-md hover:text-white hover:bg-[#FF693B] transition-all duration-300">
-                  Place Order Now
-                </button>
-              </div>
-              {/* order details */}
-              <div className="space-y-5">
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-              </div>
-              {/* delivery date */}
-              <div className="flex pt-14 lg:pt-28 items-center justify-between">
-                {/* 1st */}
-                <div className="flex items-center gap-1.5 font-Raleway  font-semibold">
-                  <span>
-                    <FaRegClock className="w-[24px] h-[24px]" />
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[16px]">3 Days Delivery </span>{" "}
-                    <img
-                      className="w-[14px] h-[14px]"
-                      src="/assets/mark.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-1 items-center justify-center font-Raleway  font-semibold">
-                  <span>
-                    <BiRevision className="w-[24px] h-[24px]" />
-                  </span>
-                  <span className="text-[16px]"> 1 Revisions</span>
-                </div>
-              </div>
-            </div>
-            {/* 3rd package */}
-            <div className="border border-[#CBD5E1] cursor-pointer transition-all duration-300  hover:border-[#FF693B] px-8 py-10 rounded-3xl">
-              {/* title */}
-              <div className="space-y-5">
-                <h3 className="font-Raleway text-[16px] text-[#1E293B] font-bold">
-                  Basic Package
-                </h3>
-                <p className="text-[15px] text-[#334155] font-normal">
-                  Single web page or Homepage design up to 7 sections.
-                </p>
-              </div>
-              {/* price */}
-              <div className="py-2">
-                <h2 className="text-[32px] font-semibold font-Raleway">$100</h2>
-              </div>
-              {/* order button */}
-              <div className="py-4 md:pb-8">
-                <button className="text-[16px] font-medium text-[#FF693B] border border-[#FF693B] px-6 py-2 w-full rounded-md hover:text-white hover:bg-[#FF693B] transition-all duration-300">
-                  Place Order Now
-                </button>
-              </div>
-              {/* order details */}
-              <div className="space-y-5">
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-                <div className="flex justify-start items-center gap-5">
-                  <span>
-                    <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                  </span>
-                  <span className="text-[#646464] text-[16px] font-Roboto">
-                    1 Page Web UI Design
-                  </span>
-                </div>
-              </div>
-              {/* delivery date */}
-              <div className="flex pt-14 lg:pt-28 items-center justify-between">
-                {/* 1st */}
-                <div className="flex items-center gap-1.5 font-Raleway  font-semibold">
-                  <span>
-                    <FaRegClock className="w-[24px] h-[24px]" />
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <span className="text-[16px]">3 Days Delivery </span>{" "}
-                    <img
-                      className="w-[14px] h-[14px]"
-                      src="/assets/mark.png"
-                      alt=""
-                    />
-                  </div>
-                </div>
-                <div className="flex gap-1 items-center justify-center font-Raleway  font-semibold">
-                  <span>
-                    <BiRevision className="w-[24px] h-[24px]" />
-                  </span>
-                  <span className="text-[16px]"> 1 Revisions</span>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
           {/* custom projects */}
           <div className="flex flex-col lg:flex-row justify-center items-center py-14 gap-5 text-center">

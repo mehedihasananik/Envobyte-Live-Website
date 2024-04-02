@@ -1,41 +1,51 @@
-"use client";
 import ServiceDetails from "@/Components/PagesComponents/ServiceDetails/ServiceDetails";
 import API_ROUTES from "@/app/api/confiq";
-import { useEffect, useState } from "react";
 
-const SinglePage = ({ params }) => {
-  const [service, setService] = useState([]);
-  const [sliders, setSliders] = useState([]);
-  const [loading, setLoading] = useState(true);
+async function serviceData(id) {
+  const res = await fetch(`${API_ROUTES.route}/sevice_items_details/${id}`, {
+    next: { revalidate: 10 },
+  });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const serviceResponse = await fetch(
-          `${API_ROUTES.route}/sevice_items_details/${params.id}`
-        );
-        const sliderResponse = await fetch(
-          `${API_ROUTES.route}/service_items_slider/${params.id}`
-        );
-        const serviceData = await serviceResponse.json();
-        const sliderData = await sliderResponse.json();
-        setService(serviceData);
-        setSliders(sliderData);
-        setLoading(false); // Set loading to false after data is fetched
-      } catch (error) {
-        console.error("Error fetching banner data:", error);
-        setLoading(false); // Set loading to false even if there's an error
-      }
-    };
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+async function slidersData(id) {
+  const res = await fetch(`${API_ROUTES.route}/service_items_slider/${id}`, {
+    next: { revalidate: 10 },
+  });
 
-    fetchData();
-  }, []);
-  console.log(sliders);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+async function packageData(id) {
+  const res = await fetch(`${API_ROUTES.route}/service_package/${id}`, {
+    next: { revalidate: 10 },
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+const SinglePage = async ({ params }) => {
+  const service = await serviceData(params.id);
+  const sliders = await slidersData(params.id);
+  const packages = await packageData(params.id);
+  console.log(packages);
 
   return (
     <div>
       {" "}
-      <ServiceDetails service={service} sliders={sliders} />{" "}
+      <ServiceDetails
+        service={service}
+        sliders={sliders}
+        packages={packages}
+      />{" "}
     </div>
   );
 };

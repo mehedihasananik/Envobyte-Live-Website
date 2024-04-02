@@ -1,50 +1,63 @@
-import Container from '@/Components/Container/Container'
-import Image from 'next/image'
-import React from 'react'
+import Container from "@/Components/Container/Container";
+import Image from "next/image";
+import React from "react";
 
-const PortfolioDetails = () => {
+const PortfolioDetails = ({ singlePortfolio }) => {
+  console.log(singlePortfolio);
   return (
     <div>
-      <Container>
-        <div>
-          {/* title */}
-          <div className='text-center pt-7 md:pt-16'>
-            <h1 className=' text-[20px] md:text-[30px] lg:text-[54px] font-Raleway font-bold lg:leading-[63.4px] text-[#000000] '>Smart Corporate Website
-              <span className=" md:block">For A Global Leader In Air Quality Monitoring</span> </h1>
-          </div>
-          <div>
-            <p className='text-[18px] font-Poppins text-[#333333] md:leading-[27px] text-left py-3 lg:py-7'>Our Smart Corporate Website is a cutting-edge digital platform that embodies the essence of modern business and seamlessly integrates technological advancements with the core values of your company. Designed to captivate and engage both clients and stakeholders, this innovative online presence establishes a powerful brand identity and fosters meaningful connections in the digital landscape. With its sleek and intuitive interface, our Smart Corporate Website offers a seamless user experience, ensuring visitors can effortlessly navigate and access the information they seek.</p>
-          </div>
-          <div className='w-[100%]'>
-            <Image className='w-full h-[75vh] rounded-md' width={1000} height={1000} src={"/assets/portDetails.png"} alt='image' />
-          </div>
-          <div className='text-center py-4 md:py-7 md:pb-8'>
-            <h3 className='text-gray-500 text-[18px] md:text-[20px]  font-Raleway font-semibold'>Put The Image Caption Here Lorem Ipsum </h3>
-          </div>
-          <div className='w-[100%]'>
-            <Image className='w-full h-[75vh] rounded-md' width={1000} height={1000} src={"/assets/portDetails2.png"} alt='image' />
-          </div>
-          <div className='text-center py-4 md:py-7 md:pb-8'>
-            <h3 className='text-gray-500 text-[18px] md:text-[24px] font-Raleway font-semibold'>Put The Image Caption Here Lorem Ipsum </h3>
-          </div>
-          <div className='w-[100%]'>
-            <Image className='w-full h-full' width={1000} height={1000} src={"/assets/portDetails3.png"} alt='image' />
-          </div>
-          <div className='text-center py-4 md:py-7 md:pb-8'>
-            <h3 className='text-gray-500 text-[18px] md:text-[24px] font-Raleway font-semibold'>Put The Image Caption Here Lorem Ipsum </h3>
-          </div>
-        </div>
-      </Container>
-      <div className='text-center bg-[#FF693B08] py-8 md:py-14 md:pb-16'>
-        <h3 className='text-[20px] md:text-[32px] lg:text-[54px] text-[#111111] lg:leading-[101px] font-semibold'>Let&apos;s Choose Us for Your Next Project</h3>
-        <button className='bg-[#FF693B] text-[18px] font-Poppins text-white px-5 py-2 md:px-10 md:py-3 rounded-lg mt-3'>Contact Us</button>
+      <div className="md:py-10 md:pb-14 ">
+        <Container>
+          {singlePortfolio.map((portfolio) => {
+            const { title, details, image, caption_text } = portfolio;
+            return (
+              <div key={portfolio.id}>
+                {/* title */}
+                <div className="text-center pt-7 md:pt-0">
+                  <h1 className=" text-[20px] md:text-[30px] lg:text-[54px] font-Raleway font-bold lg:leading-[63.4px] text-[#000000] ">
+                    {portfolio?.title}
+                  </h1>
+                </div>
+                <div>
+                  <p className="text-[18px] font-Roboto text-[#333333] md:leading-[27px] text-left py-5">
+                    {portfolio?.details}
+                  </p>
+                </div>
+                <div className="w-[100%]">
+                  <Image
+                    className="w-full h-[75vh] rounded-md"
+                    width={1000}
+                    height={1000}
+                    src={portfolio?.image}
+                    alt="image"
+                  />
+                </div>
+                <div className="text-center py-4 md:pt-5 md:py-0">
+                  <h3 className="text-gray-500 text-[18px] md:text-[20px]  font-Raleway font-semibold">
+                    {portfolio?.caption_text}
+                  </h3>
+                </div>
+              </div>
+            );
+          })}
+        </Container>
       </div>
-      <div className='bg-[#F8FAFC] py-5 md:py-10'>
-        <div className='text-center'>
-          <h3 className='text-[20px] lg:text-[48px] font-Raleway font-bold md:leading-[63px]'>Relevant Services </h3>
+      <div className="text-center bg-[#FF693B08] py-8 md:py-14 md:pb-16">
+        <h3 className="text-[20px] md:text-[32px] lg:text-[54px] text-[#111111] lg:leading-[101px] font-semibold">
+          Let&apos;s Choose Us for Your Next Project
+        </h3>
+        <button className="bg-[#FF693B] text-[18px] font-Poppins text-white px-5 py-2 md:px-10 md:py-3 rounded-lg mt-3">
+          Contact Us
+        </button>
+      </div>
+      <div className="bg-[#F8FAFC] py-5 md:py-10">
+        <div className="text-center">
+          <h3 className="text-[20px] lg:text-[48px] font-Raleway font-bold md:leading-[63px]">
+            Relevant Services{" "}
+          </h3>
         </div>
         <Container>
-          <div className='flex flex-col md:flex-row justify-center items-center gap-8 pb-8 md:gap-16 mt-5 md:mt-10 '>
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 pb-8 md:gap-16 mt-5 md:mt-10 ">
             {/* one */}
             <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
               <div className="flex flex-col">
@@ -143,7 +156,7 @@ const PortfolioDetails = () => {
         </Container>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default PortfolioDetails
+export default PortfolioDetails;

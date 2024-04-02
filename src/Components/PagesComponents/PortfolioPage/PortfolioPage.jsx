@@ -14,6 +14,7 @@ const PortfolioPage = () => {
   const [serviceCategories, setServiceCategories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedServiceId, setSelectedServiceId] = useState(0);
+  const [selectedCategoryId, setSelectedCategoryId] = useState(0);
 
   const fetchData = async () => {
     try {
@@ -41,13 +42,23 @@ const PortfolioPage = () => {
   }, []);
 
   const handleServiceChange = (e) => {
-    setSelectedServiceId(parseInt(e.target.value));
+    const selectedValue = parseInt(e.target.value);
+
+    // Set selectedServiceId to the chosen value, or 0 if "Select Category" is chosen
+    setSelectedServiceId(selectedValue);
   };
 
+  const handleCategoryChange = (e) => {
+    const selectedCategoryId = parseInt(e.target.value);
+    setSelectedCategoryId(selectedCategoryId);
+  };
+
+  // Filter portfolio based on selected service and category
   const filteredPortfolio = portfolioCategories.filter(
-    (item) => selectedServiceId === 0 || item.service_id === selectedServiceId
+    (item) =>
+      (selectedServiceId === 0 || item.service_id === selectedServiceId) &&
+      (selectedCategoryId === 0 || item.category_id === selectedCategoryId)
   );
-  console.log(serviceCategories);
 
   return (
     <div className="pt-8 lg:pt-20">
@@ -62,14 +73,16 @@ const PortfolioPage = () => {
             <select
               onChange={handleServiceChange}
               id="logo"
-              className="cursor-pointer border border-gray-300  text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="cursor-pointer border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              defaultValue={0} // Set the default value to 0
             >
-              <option defaultValue>Select Category</option>
+              <option value={0}>Select Category</option>{" "}
+              {/* Specify value attribute */}
               {services.slice(1, 6).map((category) => (
                 <option
                   key={category.service_id}
                   value={category.service_id}
-                  className="text-[#434348] text-[16px] "
+                  className="text-[#434348] text-[16px]"
                 >
                   {category.service_name}
                 </option>
@@ -78,17 +91,18 @@ const PortfolioPage = () => {
           </form>
         </div>
         <div>
-          <form className="max-w-sm  ">
+          <form className="max-w-sm">
             <select
-              id="countries"
-              className="cursor-pointer  border border-gray-300  text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              onChange={handleCategoryChange}
+              id="categories"
+              className="cursor-pointer border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option defaultValue>Select Service</option>
+              <option value={0}>Select Category</option>
               {serviceCategories.map((category) => (
                 <option
-                  key={category.service_id}
-                  value={category.service_id}
-                  className="text-[#434348] text-[16px] "
+                  key={category.category_id}
+                  value={category.category_id}
+                  className="text-[#434348] text-[16px]"
                 >
                   {category.category_name}
                 </option>
@@ -143,7 +157,7 @@ const PortfolioPage = () => {
           ) : (
             <>
               {filteredPortfolio.map((portfolio) => (
-                <Link key={portfolio.id} href="/portfolio-details">
+                <Link key={portfolio.id} href={`/portfolio/${portfolio.slug}`}>
                   <div className="group">
                     <div className="portfolio-bgHover cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1]">
                       <div>

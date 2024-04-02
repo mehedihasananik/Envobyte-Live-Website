@@ -38,7 +38,9 @@ const AboutUsContent = async () => {
     details4,
   } = await getAboutPage();
   const data = await getAbout_item();
-  console.log(data[0].title);
+  if (!getAboutPage || !getAbout_item) {
+    return <div>Loading...</div>; // You can customize your loading indicator here
+  }
 
   return (
     <Container>

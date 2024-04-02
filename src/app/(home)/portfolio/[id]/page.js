@@ -9,11 +9,11 @@ async function getProduct(id) {
 }
 
 const SinglePage = async ({ params }) => {
-  const singleService = await getProduct(params.id);
+  const singlePortfolio = await getProduct(params.id);
 
   return (
     <div>
-      <PortfolioDetails />
+      <PortfolioDetails singlePortfolio={singlePortfolio} />
     </div>
   );
 };
