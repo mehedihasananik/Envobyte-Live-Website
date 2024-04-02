@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FaRegClock } from "react-icons/fa6";
 import { BiRevision } from "react-icons/bi";
@@ -8,16 +8,36 @@ import RelevantServices from "@/Components/Utilites/RelevantServices/RelevantSer
 import Questions from "@/Components/Home/Questions/Questions";
 import Container from "@/Components/Container/Container";
 import ServicePortolio from "@/Components/Utilites/ServicePortfolio/ServicePortolio";
+import API_ROUTES from "@/app/api/confiq";
 
-const ServiceDetails = ({ singleService }) => {
+const ServiceDetails = ({ service, sliders }) => {
+  const [services, setServices] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchData = async () => {
+    try {
+      const response = await fetch(`${API_ROUTES.route}/sevice_items`);
+      const data = await response.json();
+      setServices(data);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
   return (
     <>
       <Container>
         <div className="py-8">
           {/* title */}
           <div className="text-center font-Raleway pb-10">
-            <h1 className="text-[#10F172A] text-[32px] md:text-[48px] font-bold ">
-              {singleService.sevice_items_name}
+            <h1 className="text-[#10F172A] text-[32px] md:text-[48px] font-bold capitalize">
+              {service.sevice_items_name}
             </h1>
             <h3 className="text-[18px] font-medium">
               Discover <span className="text-[#FF693B]">The Perfect Plan</span>
@@ -255,7 +275,7 @@ const ServiceDetails = ({ singleService }) => {
             </button>
           </div>
           {/* order Slider */}
-          <OrderSlider />
+          <OrderSlider sliders={sliders} />
           {/* description */}
           <div className="bg-[#FCFCFC] mt-4 p-4 md:p-7 rounded-lg text-justify">
             <h2 className="text-[24px] font-bold font-Raleway text-[#333333]">

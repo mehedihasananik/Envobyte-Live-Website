@@ -5,7 +5,6 @@ import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
-import ServiceButton from "@/Components/Utilites/ServiceButton/ServiceButton";
 
 const ServicesPageContent = () => {
   const [serviceCategories, setServiceCategories] = useState([]);
@@ -165,7 +164,10 @@ const ServicesPageContent = () => {
                           <div>
                             <Link
                               className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200"
-                              href={`/services/${service.id}`}
+                              href={`/services/${service.slug.replace(
+                                /\s+/g,
+                                ""
+                              )}`}
                             >
                               View
                             </Link>

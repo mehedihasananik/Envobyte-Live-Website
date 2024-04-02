@@ -2,7 +2,7 @@
 
 import { Button, Checkbox, Label, TextInput } from "flowbite-react";
 import Container from "@/Components/Container/Container";
-import React from "react";
+import React, { useState } from "react";
 import { FaFacebook } from "react-icons/fa6";
 import { FiArrowRight } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
@@ -10,9 +10,21 @@ import { IoMdLock } from "react-icons/io";
 import Link from "next/link";
 
 const Login = () => {
+  const [loading, setLoading] = useState(false); // State to track loading status
+
+  // Function to simulate loading, replace this with actual login logic
+  const handleLogin = (e) => {
+    e.preventDefault();
+    setLoading(true); // Set loading to true when login is initiated
+    setTimeout(() => {
+      setLoading(false); // Set loading to false after a delay (simulating login completion)
+    }, 2000); // Change the delay as per your requirement
+  };
+
   return (
     <div className="login_singUp">
       <Container>
+        {loading && <div className="loader">Loading...</div>}
         {/* login */}
         <div className="w-full h-fit flex justify-center pt-5">
           <div className="shadow-md  border rounded-lg py-10 px-10  md:py-10 md:px-12">
