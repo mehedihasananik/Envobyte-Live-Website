@@ -1,5 +1,4 @@
 "use client";
-import React, { useEffect, useState } from "react";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { FaRegClock } from "react-icons/fa6";
 import { BiRevision } from "react-icons/bi";
@@ -8,28 +7,12 @@ import RelevantServices from "@/Components/Utilites/RelevantServices/RelevantSer
 import Questions from "@/Components/Home/Questions/Questions";
 import Container from "@/Components/Container/Container";
 import ServicePortolio from "@/Components/Utilites/ServicePortfolio/ServicePortolio";
-import API_ROUTES from "@/app/api/confiq";
+import { useState } from "react";
+import { Button, Modal, Tooltip } from "flowbite-react";
+import ServiceModal from "@/Components/Utilites/ServiceModal/ServiceModal";
 
 const ServiceDetails = ({ service, sliders, packages }) => {
-  const [services, setServices] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${API_ROUTES.route}/sevice_items`);
-      const data = await response.json();
-      setServices(data);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-  console.log(packages.service_package);
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <>
@@ -48,11 +31,11 @@ const ServiceDetails = ({ service, sliders, packages }) => {
           <div className="grid grid-cols-1 gap-y-10 lg:grid-cols-3 gap-x-5 lg:gap-y-0 4xl:px-[10%]">
             {/* 1st package */}
 
-            {packages.service_package.map((item) => {
+            {packages.map((item) => {
               return (
                 <div
                   key={item.id}
-                  className=" border border-[#CBD5E1] cursor-pointer transition-all duration-300  hover:border-[#FF693B] px-8 py-10 rounded-3xl"
+                  className=" border border-[#CBD5E1]  transition-all duration-300  hover:border-[#FF693B] px-8 py-10 rounded-3xl"
                 >
                   {/* title */}
                   <div className="h-[150px]">
@@ -73,36 +56,30 @@ const ServiceDetails = ({ service, sliders, packages }) => {
                   </div>
                   {/* order button */}
                   <div className="py-4 md:pb-8">
-                    <button className="text-[16px] font-medium text-[#FF693B] border border-[#FF693B] px-6 py-2 w-full rounded-md hover:text-white hover:bg-[#FF693B] transition-all duration-300">
+                    <button
+                      onClick={() => setOpenModal(true)}
+                      className="text-[16px] font-medium text-[#FF693B] border border-[#FF693B] px-6 py-2 w-full rounded-md hover:text-white hover:bg-[#FF693B] transition-all duration-300"
+                    >
                       Place Order Now
                     </button>
                   </div>
                   {/* order details */}
-                  <div className="space-y-5">
-                    <div className="flex justify-start items-center gap-5">
-                      <span>
-                        <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                      </span>
-                      <span className="text-[#646464] text-[16px] font-Roboto">
-                        1 Page Web UI Design
-                      </span>
-                    </div>
-                    <div className="flex justify-start items-center gap-5">
-                      <span>
-                        <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                      </span>
-                      <span className="text-[#646464] text-[16px] font-Roboto">
-                        1 Page Web UI Design
-                      </span>
-                    </div>
-                    <div className="flex justify-start items-center gap-5">
-                      <span>
-                        <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
-                      </span>
-                      <span className="text-[#646464] text-[16px] font-Roboto">
-                        1 Page Web UI Design
-                      </span>
-                    </div>
+                  <div className="space-y-5 h-[150px]">
+                    {item?.package_details.map((item) => {
+                      return (
+                        <div
+                          key={item.sevice_package_id}
+                          className="flex justify-start items-center gap-5"
+                        >
+                          <span>
+                            <IoCheckmarkSharp className="text-[#FF8F5A] w-[16px] h-[16px]" />
+                          </span>
+                          <span className="text-[#646464] text-[16px] font-Roboto">
+                            {item.package_item}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                   {/* delivery date */}
                   <div className="flex pt-14 lg:pt-28 items-center justify-between">
@@ -112,19 +89,25 @@ const ServiceDetails = ({ service, sliders, packages }) => {
                         <FaRegClock className="w-[24px] h-[24px]" />
                       </span>
                       <div className="flex items-center gap-2">
-                        <span className="text-[16px]">3 Days Delivery </span>{" "}
-                        <img
-                          className="w-[14px] h-[14px]"
-                          src="/assets/mark.png"
-                          alt=""
-                        />
+                        <span className="text-[16px]">
+                          {item.delivery_time}
+                        </span>{" "}
+                        <Tooltip content="Tooltip content">
+                          <div className="cursor-pointer">
+                            <img
+                              className="w-[14px] h-[14px]"
+                              src="/assets/mark.png"
+                              alt=""
+                            />
+                          </div>
+                        </Tooltip>
                       </div>
                     </div>
                     <div className="flex gap-1 items-center justify-center font-Raleway  font-semibold">
                       <span>
                         <BiRevision className="w-[24px] h-[24px]" />
                       </span>
-                      <span className="text-[16px]"> 1 Revisions</span>
+                      <span className="text-[16px]"> {item.revision}</span>
                     </div>
                   </div>
                 </div>
@@ -197,6 +180,7 @@ const ServiceDetails = ({ service, sliders, packages }) => {
           className="bg-[#F8FAFC]"
         />
       </div>
+      <ServiceModal openModal={openModal} setOpenModal={setOpenModal} />
     </>
   );
 };

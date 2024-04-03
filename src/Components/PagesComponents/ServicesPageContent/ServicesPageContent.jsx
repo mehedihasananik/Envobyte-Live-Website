@@ -129,52 +129,52 @@ const ServicesPageContent = () => {
               <>
                 {serviceItems.map((service) => (
                   <>
-                    <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
-                      <div className="flex flex-col">
-                        <div className="bg-[#E2E8F0]">
-                          <div>
-                            <Image
-                              width={700}
-                              height={700}
-                              className="w-full h-[270px]"
-                              src={service.image || "/assets/portRelevant.png"}
-                              alt=""
-                            />
+                    <Link
+                      href={`/services/${service.slug.replace(/\s+/g, "")}`}
+                    >
+                      <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
+                        <div className="flex flex-col">
+                          <div className="bg-[#E2E8F0]">
+                            <div>
+                              <Image
+                                width={700}
+                                height={700}
+                                className="w-full h-[270px]"
+                                src={
+                                  service.image || "/assets/portRelevant.png"
+                                }
+                                alt=""
+                              />
+                            </div>
                           </div>
-                        </div>
-                        <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-                          <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
-                            {service.title}
-                          </h3>
-                          <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
-                            {service.details}
-                          </p>
-                        </div>
-                        <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
-                          <div className="font-Raleway">
-                            <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
-                              Start From
-                            </span>
+                          <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
+                            <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
+                              {service.title}
+                            </h3>
+                            <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">
+                              {service.details}
+                            </p>
                           </div>
-                          <div>
-                            <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-                              20$
-                            </span>
-                          </div>
-                          <div>
-                            <Link
-                              className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200"
-                              href={`/services/${service.slug.replace(
-                                /\s+/g,
-                                ""
-                              )}`}
-                            >
-                              View
-                            </Link>
+                          <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-200">
+                            <div className="font-Raleway">
+                              <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-white transition-all duration-200">
+                                Start From
+                              </span>
+                            </div>
+                            <div>
+                              <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
+                                20$
+                              </span>
+                            </div>
+                            <div>
+                              <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-200">
+                                View
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   </>
                 ))}
               </>

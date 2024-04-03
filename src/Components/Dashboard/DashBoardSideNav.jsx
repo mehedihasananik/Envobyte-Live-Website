@@ -60,8 +60,7 @@ const DashBoardSideNav = ({ height }) => {
                   </div>
                   <div className="w-full">
                     {menus?.map((menu, i) => (
-                      <Link
-                        href={menu?.link}
+                      <div
                         key={i}
                         className={` ${
                           menu?.margin && "mt-6"
@@ -70,17 +69,13 @@ const DashBoardSideNav = ({ height }) => {
                         <div>
                           {React.createElement(menu?.icon, { size: "20" })}
                         </div>
-                        <h2
+                        <Link
+                          href={menu?.link}
                           className={`whitespace-pre  text-[16px] hover:bg-[#FFFFFF] hover:text-[#FF693B] py-[2%] `}
                         >
                           {menu?.name}
-                        </h2>
-                        <h2
-                          className={` bg-white font-semibold whitespace-pre  rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden hover:bg-[#FFFFFF] hover:text-[#FF693B]`}
-                        >
-                          {menu?.name}
-                        </h2>
-                      </Link>
+                        </Link>
+                      </div>
                     ))}
                   </div>
                 </div>

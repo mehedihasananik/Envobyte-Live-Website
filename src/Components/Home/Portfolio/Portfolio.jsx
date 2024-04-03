@@ -118,7 +118,10 @@ const Portfolio = () => {
                   ) // Include condition for service_id === 0
                   .map((portfolio) => {
                     return (
-                      <Link key={portfolio.id} href="/portfolio-details">
+                      <Link
+                        key={portfolio.id}
+                        href={`/portfolio/${portfolio.slug}`}
+                      >
                         <div className="group">
                           <div className=" portfolio-bgHover cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
                             <div>

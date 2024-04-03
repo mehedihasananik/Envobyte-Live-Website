@@ -154,49 +154,55 @@ const Services = () => {
                   {services.map((service) => {
                     return (
                       <SwiperSlide key={service.id} className="">
-                        <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
-                          <div className="flex flex-col">
-                            <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
-                              <div>
-                                <Image
-                                  width={700}
-                                  height={700}
-                                  className="w-full h-[270px]"
-                                  src={service.image || "/assets/service1.jpeg"}
-                                  alt=""
-                                />
+                        <Link
+                          href={`/services/${service.slug.replace(/\s+/g, "")}`}
+                        >
+                          <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                            <div className="flex flex-col">
+                              <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
+                                <div>
+                                  <Image
+                                    width={700}
+                                    height={700}
+                                    className="w-full h-[270px]"
+                                    src={
+                                      service.image || "/assets/service1.jpeg"
+                                    }
+                                    alt=""
+                                  />
+                                </div>
                               </div>
-                            </div>
 
-                            {/* title & description */}
+                              {/* title & description */}
 
-                            <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
-                              <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
-                                {service.title}
-                              </h3>
-                              <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
-                                {service.details}
-                              </p>
-                            </div>
-                            <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
-                              <div className="font-Raleway">
-                                <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
-                                  Start From
-                                </span>
+                              <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
+                                <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
+                                  {service.title}
+                                </h3>
+                                <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-300">
+                                  {service.details}
+                                </p>
                               </div>
-                              <div>
-                                <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
-                                  {service.start_price}
-                                </span>
-                              </div>
-                              <div>
-                                <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
-                                  View
-                                </button>
+                              <div className="flex items-center justify-between px-5 py-5 group-hover:bg-[#FF693B] transition-all duration-300">
+                                <div className="font-Raleway">
+                                  <span className=" font-bold text-[16px] text-[#1E293B] group-hover:text-[#fff] ">
+                                    Start From
+                                  </span>
+                                </div>
+                                <div>
+                                  <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-[#fff]">
+                                    {service.start_price}
+                                  </span>
+                                </div>
+                                <div>
+                                  <button className="text-[14px] bg-[#FF693B] rounded-md px-8 py-[5px] text-white border border-[#ff693B]  group-hover:bg-white group-hover:text-[#FF693B] transition-all duration-300">
+                                    View
+                                  </button>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
+                        </Link>
                       </SwiperSlide>
                     );
                   })}

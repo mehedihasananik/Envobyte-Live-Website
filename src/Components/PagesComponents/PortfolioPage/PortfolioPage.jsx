@@ -97,7 +97,7 @@ const PortfolioPage = () => {
               id="categories"
               className="cursor-pointer border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value={0}>Select Category</option>
+              <option value={0}>Select Service</option>
               {serviceCategories.map((category) => (
                 <option
                   key={category.category_id}
@@ -164,7 +164,7 @@ const PortfolioPage = () => {
                         <Image
                           width={800}
                           height={262}
-                          className="w-full lg:w-[400px] h-[420px] object-cover"
+                          className="w-full lg:w-[400px] h-[420px] object-cover rounded-l"
                           src={portfolio.image}
                           alt=""
                         />
@@ -193,11 +193,6 @@ const PortfolioPage = () => {
             </>
           )}
         </div>
-      </div>
-      <div className="flex justify-center pt-8 lg:pt-16">
-        <button className="text-[16px] bg-[#FF693B] px-10 py-3 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
-          See more
-        </button>
       </div>
     </div>
   );
