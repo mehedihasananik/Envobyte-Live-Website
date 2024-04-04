@@ -1,16 +1,57 @@
 "use client";
 
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { Label, TextInput } from "flowbite-react";
 import Container from "@/Components/Container/Container";
-import React from "react";
-import { FaFacebook } from "react-icons/fa6";
+import React, { useState } from "react";
 import { FiArrowRight } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
 import { IoMdLock } from "react-icons/io";
 import { IoPersonSharp } from "react-icons/io5";
 import Link from "next/link";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
+  const [formData, setFormData] = useState({
+    user_name: "",
+    user_email: "",
+    user_password: "",
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    try {
+      // Make a POST request to the API endpoint
+      const response = await axios.post(
+        "http://192.168.10.14:8000/api/sign_up",
+        formData
+      );
+      console.log("Response:", response.data.resultsuccess);
+      console.log("Response:", response.data.resultexist);
+      if (response.data.resultsuccess) {
+        toast.success(response.data.resultsuccess);
+      }
+      if (response.data.resultexist) {
+        toast.error(response.data.resultexist);
+      }
+
+      // Handle success response here, e.g., show a success message to the user
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error, e.g., show an error message to the user
+    }
+  };
+
+  const handleChange = (event) => {
+    // Update form data when input values change
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
     <div className="login_singUp">
       <Container>
@@ -51,7 +92,12 @@ const SignUp = () => {
             </div>
             {/* form */}
             <div className="pt-4 md:pt-8">
-              <form className="flex max-w-md flex-col gap-4">
+              <form
+                className="flex max-w-md flex-col gap-4"
+                onSubmit={handleSubmit}
+              >
+                {/* Input fields */}
+                {/* Name */}
                 <div>
                   <div className="mb-2 block">
                     <Label
@@ -62,12 +108,16 @@ const SignUp = () => {
                   </div>
                   <TextInput
                     id="name"
-                    type="name"
+                    type="text"
                     icon={IoPersonSharp}
-                    placeholder="Loredana Catalina"
+                    placeholder="Enter Your Name"
+                    name="user_name"
+                    value={formData.user_name}
+                    onChange={handleChange}
                     required
                   />
                 </div>
+                {/* Email */}
                 <div>
                   <div className="mb-2 block">
                     <Label
@@ -80,10 +130,14 @@ const SignUp = () => {
                     id="email1"
                     type="email"
                     icon={HiMail}
-                    placeholder="exemple@email.com"
+                    placeholder="Enter Your Email"
+                    name="user_email"
+                    value={formData.user_email}
+                    onChange={handleChange}
                     required
                   />
                 </div>
+                {/* Password */}
                 <div>
                   <div className="mb-2 block">
                     <Label
@@ -97,37 +151,15 @@ const SignUp = () => {
                     type="password"
                     icon={IoMdLock}
                     placeholder="Enter your password"
+                    name="user_password"
+                    value={formData.user_password}
+                    onChange={handleChange}
                     required
                   />
                 </div>
-                <div className="flex items-center justify-between gap-2">
-                  <div>
-                    <Checkbox
-                      className="text-[14px] text-[#FF693B] focus:outline-none focus:ring focus:ring-white cursor-pointer font-[500]"
-                      color="success"
-                      id="remember"
-                    />
-                    <Label
-                      className="text-[14px] font-Raleway px-2 font-[600]"
-                      htmlFor="remember"
-                    >
-                      I agree to the{" "}
-                      <a
-                        className="text-[#FF693B] border-b border-b-[#FF693B]"
-                        href=""
-                      >
-                        Terms of service
-                      </a>{" "}
-                      and{" "}
-                      <a
-                        className="text-[#FF693B] border-b border-b-[#FF693B]"
-                        href=""
-                      >
-                        Privacy Policy
-                      </a>
-                    </Label>
-                  </div>
-                </div>
+                {/* Agreement */}
+                {/* Your existing agreement checkbox code */}
+                {/* Submit button */}
                 <button
                   className="bg-[#FF693B] text-[16px] font-semibold font-Raleway md:mt-6 py-2 hover:bg-[#fff] hover:text-[#FF693B] flex justify-center items-center rounded-md text-white border border-[#FF693B] transition-all duration-300"
                   type="submit"

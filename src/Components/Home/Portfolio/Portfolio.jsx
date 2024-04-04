@@ -131,6 +131,7 @@ const Portfolio = () => {
                                 className="w-full lg:w-[400px] h-[420px] object-cover"
                                 src={portfolio.image}
                                 alt=""
+                                onContextMenu={(e) => e.preventDefault()}
                               />
                             </div>
                             <div className="flex flex-col justify-center items-center p-3 md:py-0 2xl:px-10 ">

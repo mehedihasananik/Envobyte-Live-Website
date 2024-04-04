@@ -105,6 +105,7 @@ const Banner = () => {
                 src={banner.banner}
                 quality={100}
                 alt="banner image"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
           </div>

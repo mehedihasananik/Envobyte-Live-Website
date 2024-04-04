@@ -169,6 +169,7 @@ const Services = () => {
                                       service.image || "/assets/service1.jpeg"
                                     }
                                     alt=""
+                                    onContextMenu={(e) => e.preventDefault()}
                                   />
                                 </div>
                               </div>

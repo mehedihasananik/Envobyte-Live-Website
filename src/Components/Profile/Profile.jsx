@@ -7,12 +7,12 @@ const Profile = () => {
         <div className="lg:w-[80%] md:w-[90%] xs:w-[96%] mx-auto flex gap-4">
           <div className="lg:w-[88%] md:w-[80%] sm:w-[88%] xs:w-full mx-auto shadow-2xl px-[5%] py-[5%] rounded-xl h-fit self-center dark:bg-gray-800/40">
             <div className="">
-              <h1 className="lg:text-3xl md:text-2xl sm:text-xl xs:text-xl font-serif font-extrabold mb-2 dark:text-white">
+              <h1 className="text-center lg:text-3xl md:text-2xl sm:text-xl xs:text-xl font-serif font-extrabold mb-2 dark:text-white">
                 Profile
               </h1>
 
               <form>
-                <div className="w-full  bg-gray-600 py-4 items-center rounded-md">
+                <div className="w-full   py-4 items-center rounded-md">
                   <div className="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full bg-[url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw4fHxwcm9maWxlfGVufDB8MHx8fDE3MTEwMDM0MjN8MA&ixlib=rb-4.0.3&q=80&w=1080')] bg-cover bg-center bg-no-repeat">
                     <div className="bg-white/90 rounded-full w-6 h-6 text-center ml-28 mt-4">
                       <input
@@ -50,7 +50,7 @@ const Profile = () => {
                   </div>
                 </div>
                 <h2 className="text-center mt-3 font-semibold dark:text-gray-300">
-                  Upload Profile and Cover Image
+                  Upload Profile and Name.
                 </h2>
                 <div className="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
                   <div className="w-full  mb-4 mt-6">
@@ -60,7 +60,7 @@ const Profile = () => {
                     <input
                       type="text"
                       className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
-                      placeholder="First Name"
+                      placeholder="Enter Your First Name"
                     />
                   </div>
                   <div className="w-full  mb-4 lg:mt-6">
@@ -70,17 +70,39 @@ const Profile = () => {
                     <input
                       type="text"
                       className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
-                      placeholder="Last Name"
+                      placeholder="Enter Your Last Name"
+                    />
+                  </div>
+                </div>
+                <div className="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+                  <div className="w-full  mb-4 mt-6">
+                    <label for="" className="mb-2 dark:text-gray-300">
+                      Email
+                    </label>
+                    <input
+                      type="text"
+                      className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                      placeholder="Enter Your Email"
+                    />
+                  </div>
+                  <div className="w-full  mb-4 lg:mt-6">
+                    <label for="" className=" dark:text-gray-300">
+                      Phone Number
+                    </label>
+                    <input
+                      type="text"
+                      className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                      placeholder="Enter Phone Number"
                     />
                   </div>
                 </div>
 
                 <div className="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
                   <div className="w-full">
-                    <h3 className="dark:text-gray-300 mb-2">Sex</h3>
+                    <h3 className="dark:text-gray-300 mb-2">Gender</h3>
                     <select className="w-full text-grey border-2 rounded-lg p-4 pl-2 pr-2 cursor-pointer dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800">
                       <option disabled value="">
-                        Select Sex
+                        Select Gender
                       </option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
@@ -94,6 +116,29 @@ const Profile = () => {
                     />
                   </div>
                 </div>
+                <div className="flex lg:flex-row md:flex-col sm:flex-col xs:flex-col gap-2 justify-center w-full">
+                  <div className="w-full  mb-4 mt-6">
+                    <label for="" className="mb-2 dark:text-gray-300">
+                      Country
+                    </label>
+                    <input
+                      type="text"
+                      className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                      placeholder="Enter Your Phone Country"
+                    />
+                  </div>
+                  <div className="w-full  mb-4 lg:mt-6">
+                    <label for="" className=" dark:text-gray-300">
+                      Address
+                    </label>
+                    <input
+                      type="text"
+                      className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
+                      placeholder="Enter Your Address"
+                    />
+                  </div>
+                </div>
+
                 <div className="w-full rounded-lg bg-blue-500 hover:bg-[#FF693B] transition-all duration-300 lg:mt-8 text-white text-lg font-semibold ">
                   <button type="submit" className="w-full py-3">
                     Submit

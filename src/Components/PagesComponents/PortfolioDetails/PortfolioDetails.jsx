@@ -46,7 +46,7 @@ const PortfolioDetails = ({ singlePortfolio }) => {
         <h3 className="text-[20px] md:text-[32px] lg:text-[54px] text-[#111111] lg:leading-[101px] font-semibold">
           Let&apos;s Choose Us for Your Next Project
         </h3>
-        <button className="bg-[#FF693B] text-[18px] font-Poppins text-white px-5 py-2 md:px-10 md:py-3 rounded-lg mt-3">
+        <button className="bg-[#FF693B] border border-[#FF693B] text-[18px] font-Poppins text-white px-5 py-2 md:px-10 md:py-3 rounded-lg mt-3 transition-all duration-300 hover:bg-[#fff] hover:text-[#FF693B]">
           Contact Us
         </button>
       </div>

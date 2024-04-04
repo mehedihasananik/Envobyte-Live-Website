@@ -74,6 +74,7 @@ const AboutUs = () => {
                 className="w-[650px]"
                 src={about.image || "/about.png"}
                 alt="about-img"
+                onContextMenu={(e) => e.preventDefault()}
               />
             </div>
             <div className="pt-10">
@@ -167,7 +168,7 @@ const AboutUs = () => {
 
               <div className="py-8 text-center lg:text-left">
                 <Link
-                  href={"#testimonial"}
+                  href={"/about-us"}
                   className=" text-[16px] bg-[#FF693B] px-10 py-3 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300"
                 >
                   Learn more

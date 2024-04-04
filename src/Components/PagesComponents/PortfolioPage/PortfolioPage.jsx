@@ -1,11 +1,10 @@
 "use client";
 import Loading from "@/Components/Utilites/Loading/Loading";
 import API_ROUTES from "@/app/api/confiq";
+import { Pagination } from "flowbite-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-
 import { HiArrowSmallRight } from "react-icons/hi2";
 
 const PortfolioPage = () => {
@@ -15,6 +14,12 @@ const PortfolioPage = () => {
   const [loading, setLoading] = useState(true);
   const [selectedServiceId, setSelectedServiceId] = useState(0);
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
+  console.log(searchQuery);
+
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const onPageChange = (page) => setCurrentPage(page);
 
   const fetchData = async () => {
     try {
@@ -43,8 +48,6 @@ const PortfolioPage = () => {
 
   const handleServiceChange = (e) => {
     const selectedValue = parseInt(e.target.value);
-
-    // Set selectedServiceId to the chosen value, or 0 if "Select Category" is chosen
     setSelectedServiceId(selectedValue);
   };
 
@@ -53,31 +56,37 @@ const PortfolioPage = () => {
     setSelectedCategoryId(selectedCategoryId);
   };
 
-  // Filter portfolio based on selected service and category
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    // You can implement search logic here
+    console.log("Search Query:", searchQuery);
+  };
+
+  const handleSearchInputChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   const filteredPortfolio = portfolioCategories.filter(
     (item) =>
-      (selectedServiceId === 0 || item.service_id === selectedServiceId) &&
-      (selectedCategoryId === 0 || item.category_id === selectedCategoryId)
+      item.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.heading.toLowerCase().includes(searchQuery.toLowerCase())
   );
-
+  console.log(filteredPortfolio);
   return (
     <div className="pt-8 lg:pt-20">
-      {/* title */}
       <div className="text-center lg:text-left text-[#0F172A] text-[32px] lg:text-[48px] font-Raleway font-semibold">
         <h3>Our Amazing Portfolio</h3>
       </div>
-      {/* service slection*/}
-      <div className="grid grid-cols-1 md:space-x-3 lg:space-x-20 space-y-5 md:space-y-0 md:grid-cols-3    mt-10">
+      <div className="grid grid-cols-1 md:space-x-3 lg:space-x-20 space-y-5 md:space-y-0 md:grid-cols-3 mt-10">
         <div>
-          <form className="max-w-sm ">
+          <form className="max-w-sm">
             <select
               onChange={handleServiceChange}
               id="logo"
               className="cursor-pointer border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              defaultValue={0} // Set the default value to 0
+              defaultValue={0}
             >
-              <option value={0}>Select Category</option>{" "}
-              {/* Specify value attribute */}
+              <option value={0}>Select Category</option>
               {services.slice(1, 6).map((category) => (
                 <option
                   key={category.service_id}
@@ -110,21 +119,21 @@ const PortfolioPage = () => {
             </select>
           </form>
         </div>
-
-        {/* search */}
         <div>
-          <form className="max-w-sm">
+          <form className="max-w-sm" onSubmit={handleSearchSubmit}>
             <div className="relative w-full">
               <input
                 type="search"
                 placeholder="What are you looking for?"
                 id="search"
-                className=" text-[#C1C1C1] py-[13px] px-[10px] border border-gray-300  text-sm rounded-lg focus:ring-blue-500  block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                value={searchQuery}
+                onChange={handleSearchInputChange}
+                className="text-[#C1C1C1] py-[13px] px-[10px] border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 required
               />
               <button
                 type="submit"
-                className="absolute top-0 end-0 h-full p-2.5 text-sm font-medium text-[#64748B]   "
+                className="absolute top-0 end-0 h-full p-2.5 text-sm font-medium text-[#64748B]"
               >
                 <svg
                   className="w-4 h-4"
@@ -147,9 +156,8 @@ const PortfolioPage = () => {
           </form>
         </div>
       </div>
-      {/* portfolio */}
       <div>
-        <div className=" grid grid-cols-1 md:grid-cols-2  gap-10 justify-between pt-10 pb-5 ">
+        <div className="grid grid-cols-1 md:grid-cols-2  gap-10 justify-between pt-10 pb-5 ">
           {loading ? (
             <div>
               <Loading />
@@ -179,7 +187,6 @@ const PortfolioPage = () => {
                           </p>
                         </div>
                         <div className="group flex justify-center items-center gap-2 text-[#FF693B] font-bold mt-5 portfolio-textHover pb-6 lg:pb-0">
-                          {" "}
                           <button className="text-[14px]">Read More</button>
                           <span className="w-[19px] font-bold">
                             <HiArrowSmallRight className="text-xl" />
@@ -193,6 +200,14 @@ const PortfolioPage = () => {
             </>
           )}
         </div>
+      </div>
+      <div className="flex justify-center py-10 md:mt-12">
+        <Link
+          href={"/portfolio"}
+          className="text-[16px] bg-[#FF693B] px-10 py-3 text-white rounded-xl border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300"
+        >
+          See More
+        </Link>
       </div>
     </div>
   );

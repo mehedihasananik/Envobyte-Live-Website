@@ -251,7 +251,11 @@ const Testimonial = () => {
                         <div className="pl-4 mt-10 bg-[#F8FAFC] hover:bg-[#1E293B] group  rounded-md transition-all duration-300 ">
                           <div className=" relative ">
                             <div className="absolute top-[-25px] left-[140px] md:left-[120px] lg:left-0">
-                              <img src={testimonial.image} alt="" />
+                              <img
+                                onContextMenu={(e) => e.preventDefault()}
+                                src={testimonial.image}
+                                alt=""
+                              />
                             </div>
                             <div className="pt-14   pb-4">
                               {" "}

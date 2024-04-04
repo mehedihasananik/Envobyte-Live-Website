@@ -29,18 +29,21 @@ const DashBoardNav = ({ title }) => {
           <Link href={"/"}>
             <img src="/assets/Active-Notification.png" alt="" />
           </Link>
+
           <button className="flex gap-3 items-center">
+            <Link href={"/profile"}>
+              <div className="flex items-center justify-center">
+                {" "}
+                <img src="/assets/dashperson.png" alt="" />
+              </div>
+            </Link>
             <Dropdown
               label="Ryan Milan"
               dismissOnClick={false}
               renderTrigger={() => (
                 <span>
                   {
-                    <div className="flex gap-x-4 items-center">
-                      <span>
-                        {" "}
-                        <img src="/assets/dashperson.png" alt="" />
-                      </span>
+                    <div className="flex gap-x-2 items-center">
                       <span className="flex items-center gap-x-4 text-[16px] hover:text-[#FF693B] transition-all duration-200">
                         Ryan Milan{" "}
                       </span>
@@ -51,12 +54,11 @@ const DashBoardNav = ({ title }) => {
               )}
             >
               <Dropdown.Item>
-                <Link href={"/dashboard"}>Dashboard</Link>
-              </Dropdown.Item>
-              <Dropdown.Item>
                 <Link href={"/profile"}>Profile</Link>
               </Dropdown.Item>
-              <Dropdown.Item>Earnings</Dropdown.Item>
+              <Dropdown.Item>
+                <Link href={"/history"}>History</Link>
+              </Dropdown.Item>
               <Dropdown.Item>Sign out</Dropdown.Item>
             </Dropdown>
           </button>

@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -25,6 +26,7 @@ const DashBoardContent = () => {
                       className="w-full h-[270px]"
                       src="/assets/service1.jpeg"
                       alt=""
+                      onContextMenu={(e) => e.preventDefault()}
                     />
                   </div>
                 </div>
@@ -88,6 +90,7 @@ const DashBoardContent = () => {
                       className="w-full h-[270px]"
                       src="/assets/service2.png"
                       alt=""
+                      onContextMenu={(e) => e.preventDefault()}
                     />
                   </div>
                 </div>
@@ -152,6 +155,7 @@ const DashBoardContent = () => {
                       className="w-full h-[270px]"
                       src="/assets/service3.png"
                       alt=""
+                      onContextMenu={(e) => e.preventDefault()}
                     />
                   </div>
                 </div>
@@ -214,6 +218,7 @@ const DashBoardContent = () => {
                       className="w-full h-[270px]"
                       src="/assets/service4.png"
                       alt=""
+                      onContextMenu={(e) => e.preventDefault()}
                     />
                   </div>
                 </div>

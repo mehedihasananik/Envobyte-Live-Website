@@ -60,6 +60,7 @@ const Brands = () => {
                         className="w-[60px] h-[50px] md:w-[101px] md:h-[70px] "
                         src={brand.logo}
                         alt=""
+                        onContextMenu={(e) => e.preventDefault()}
                       />
                     );
                   })}

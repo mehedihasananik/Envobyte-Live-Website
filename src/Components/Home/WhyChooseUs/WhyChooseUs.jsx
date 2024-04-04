@@ -1,3 +1,4 @@
+"use client";
 import Container from "@/Components/Container/Container";
 import Image from "next/image";
 import React from "react";
@@ -15,7 +16,11 @@ function WhyChooseUs() {
           {/* 1st cARD */}
           <div className="bg-[#FFF9EE] xl:h-[300px] 2xl:h-[250px] flex flex-col items-center lg:flex-row gap-4 px-10 py-16 ">
             <div className="w-full flex justify-center lg:w-[550px] mt-4">
-              <img src="/assets/why1.png" alt="" />
+              <img
+                onContextMenu={(e) => e.preventDefault()}
+                src="/assets/why1.png"
+                alt=""
+              />
             </div>
             <div className="text-center lg:text-left space-y-4">
               <h2 className="text-[24px] text-[#333333] font-bold">
@@ -35,7 +40,12 @@ function WhyChooseUs() {
             {/* content */}
             <div className="bg-[#FFF9EE] flex flex-col items-center lg:flex-row gap-4 pt-8 pl-10 pr-10 pb-10 lg:pt-[25px] lg:pb-[30px] lg:pl-[100px] lg:pr-[35px] lg:relative">
               <div className="flex justify-center items-center lg:absolute lg:left-[-72px] lg:top-[50px]">
-                <img className="w-[150px]" src="/assets/why2.png" alt="" />
+                <img
+                  onContextMenu={(e) => e.preventDefault()}
+                  className="w-[150px]"
+                  src="/assets/why2.png"
+                  alt=""
+                />
               </div>
               <div className="text-center lg:text-left space-y-4">
                 <h2 className="text-[24px] text-[#333333] font-bold">
@@ -50,7 +60,10 @@ function WhyChooseUs() {
               </div>
             </div>
             {/* image */}
-            <div className="hidden lg:flex items-center">
+            <div
+              onContextMenu={(e) => e.preventDefault()}
+              className="hidden lg:flex items-center"
+            >
               {" "}
               {/* Use flex to align the image */}
               <img
@@ -84,9 +97,8 @@ function WhyChooseUs() {
             <div className="hidden lg:flex items-center">
               {" "}
               {/* Use flex to align the image */}
-              <Image
-                width={100}
-                height={100}
+              <img
+                onContextMenu={(e) => e.preventDefault()}
                 className="w-[300px] h-full"
                 src="/assets/whyBlue.png"
                 alt=""
@@ -97,7 +109,11 @@ function WhyChooseUs() {
           {/* 4th card */}
           <div className="bg-[#EEF2FF] xl:h-[300px] 2xl:h-[250px] flex flex-col items-center lg:flex-row gap-4 px-10 py-10 lg:py-0 ">
             <div className="w-full flex items-center justify-center lg:w-[550px] mt-4">
-              <img src="/assets/why4.png" alt="" />
+              <img
+                onContextMenu={(e) => e.preventDefault()}
+                src="/assets/why4.png"
+                alt=""
+              />
             </div>
             <div className="text-center lg:text-left space-y-4">
               <h2 className="text-[24px] text-[#333333] font-bold">
