@@ -1,7 +1,46 @@
+"use client";
 import Container from "@/Components/Container/Container";
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import toast from "react-hot-toast";
 
 const ProjectDetails = () => {
+  const [formData, setFormData] = useState({
+    first_name: "",
+    last_name: "",
+    user_email: "",
+    user_phone: "",
+    message: "",
+  });
+
+  const handleSubmit = async (event) => {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    try {
+      // Make a POST request to the API endpoint
+      const response = await axios.post(
+        "http://192.168.10.14:8000/api/user_feedback",
+        formData
+      );
+      console.log("Response:", response.data);
+      toast.success(response.data.resultsuccess);
+
+      // Handle success response here, e.g., show a success message to the user
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle error, e.g., show an error message to the user
+    }
+  };
+
+  const handleChange = (event) => {
+    // Update form data when input values change
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
     <div
       id="projectDetails"
@@ -65,7 +104,7 @@ const ProjectDetails = () => {
           </div>
 
           <div className="w-full md:w-[60%]">
-            <form action="">
+            <form onSubmit={handleSubmit} action="">
               {/* first name & last name */}
               <div className="flex flex-col gap-5">
                 <div className="flex flex-col gap-5  lg:flex-row md:gap-0">
@@ -77,9 +116,11 @@ const ProjectDetails = () => {
                       <input
                         className="w-full lg:w-[80%] py-4 border border-[#CBD5E1] px-4 rounded-md shadow-sm"
                         type="text"
-                        id="firstName"
-                        name="firstName"
+                        id="first_name"
+                        name="first_name"
                         placeholder="Enter your first name"
+                        value={formData.first_name}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -95,9 +136,11 @@ const ProjectDetails = () => {
                       <input
                         className="w-full l lg:w-[80%] py-4 border border-[#CBD5E1] px-4 rounded-md shadow-sm"
                         type="text"
-                        id="firstName"
-                        name="firstName"
+                        id="last_name"
+                        name="last_name"
                         placeholder="Enter your last name"
+                        value={formData.last_name}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -113,9 +156,11 @@ const ProjectDetails = () => {
                       <input
                         className="w-full lg:w-[80%] py-4 border border-[#CBD5E1] px-4 rounded-md shadow-sm"
                         type="text"
-                        id="email"
-                        name="email"
+                        id="user_email"
+                        name="user_email"
                         placeholder="Enter your email"
+                        value={formData.user_email}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -131,9 +176,11 @@ const ProjectDetails = () => {
                       <input
                         className="w-full l lg:w-[80%] py-4 border border-[#CBD5E1] px-4 rounded-md shadow-sm"
                         type="number"
-                        id="number"
-                        name="number"
+                        id="user_phone"
+                        name="user_phone"
                         placeholder="Enter your phone Number"
+                        value={formData.user_phone}
+                        onChange={handleChange}
                         required
                       />
                     </div>
@@ -148,10 +195,12 @@ const ProjectDetails = () => {
                       <textarea
                         className="w-full lg:w-[90%] py-4 border border-[#CBD5E1] px-4 shadow-sm"
                         type="text"
-                        id="email"
-                        name="email"
+                        id="message"
+                        name="message"
                         placeholder="Enter your message"
                         rows={4}
+                        value={formData.message}
+                        onChange={handleChange}
                         required
                       />
                     </div>

@@ -1,11 +1,10 @@
 "use client";
-import Loading from "@/Components/Utilites/Loading/Loading";
-import API_ROUTES from "@/app/api/confiq";
-import { Pagination } from "flowbite-react";
-import Image from "next/image";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { HiArrowSmallRight } from "react-icons/hi2";
+import Loading from "@/Components/Utilites/Loading/Loading";
+import API_ROUTES from "@/app/api/confiq";
+import Image from "next/image";
+import Link from "next/link";
 
 const PortfolioPage = () => {
   const [portfolioCategories, setPortfolioCategories] = useState([]);
@@ -15,26 +14,36 @@ const PortfolioPage = () => {
   const [selectedServiceId, setSelectedServiceId] = useState(0);
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
-  console.log(searchQuery);
 
   const [currentPage, setCurrentPage] = useState(1);
 
   const onPageChange = (page) => setCurrentPage(page);
 
+  const fetchServiceCategories = async (selectedValue) => {
+    try {
+      const response = await fetch(
+        `${API_ROUTES.route}/search_sevice_category/${selectedValue}`
+      );
+      const data = await response.json();
+      setServiceCategories(data);
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
+
   const fetchData = async () => {
     try {
       const response = await fetch(`${API_ROUTES.route}/sevice_portfolio`);
       const response2 = await fetch(`${API_ROUTES.route}/service`);
-      const serviceCategoriesResponse = await fetch(
-        `${API_ROUTES.route}/category`
+      const categoriesResponse = await fetch(
+        `${API_ROUTES.route}/search_sevice_category/all`
       );
       const data = await response.json();
       const data2 = await response2.json();
-      const serviceCategoriesResponseData =
-        await serviceCategoriesResponse.json();
+      const categoriesData = await categoriesResponse.json();
       setPortfolioCategories(data);
       setServices(data2);
-      setServiceCategories(serviceCategoriesResponseData);
+      setServiceCategories(categoriesData);
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -46,9 +55,14 @@ const PortfolioPage = () => {
     fetchData();
   }, []);
 
-  const handleServiceChange = (e) => {
+  const handleServiceChange = async (e) => {
     const selectedValue = parseInt(e.target.value);
     setSelectedServiceId(selectedValue);
+    if (selectedValue !== 0) {
+      await fetchServiceCategories(selectedValue);
+    } else {
+      await fetchServiceCategories("all");
+    }
   };
 
   const handleCategoryChange = (e) => {
@@ -68,10 +82,13 @@ const PortfolioPage = () => {
 
   const filteredPortfolio = portfolioCategories.filter(
     (item) =>
-      item.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.heading.toLowerCase().includes(searchQuery.toLowerCase())
+      (selectedServiceId === 0 || item.service_id === selectedServiceId) &&
+      (selectedCategoryId === 0 || item.category_id === selectedCategoryId) &&
+      (item.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.heading.toLowerCase().includes(searchQuery.toLowerCase()))
   );
   console.log(filteredPortfolio);
+
   return (
     <div className="pt-8 lg:pt-20">
       <div className="text-center lg:text-left text-[#0F172A] text-[32px] lg:text-[48px] font-Raleway font-semibold">
@@ -86,14 +103,14 @@ const PortfolioPage = () => {
               className="cursor-pointer border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               defaultValue={0}
             >
-              <option value={0}>Select Category</option>
-              {services.slice(1, 6).map((category) => (
+              <option value={0}>Select Service</option>
+              {services.slice(1, 100).map((service) => (
                 <option
-                  key={category.service_id}
-                  value={category.service_id}
+                  key={service.service_id}
+                  value={service.service_id}
                   className="text-[#434348] text-[16px]"
                 >
-                  {category.service_name}
+                  {service.service_name}
                 </option>
               ))}
             </select>
@@ -106,7 +123,7 @@ const PortfolioPage = () => {
               id="categories"
               className="cursor-pointer border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value={0}>Select Service</option>
+              <option value={0}>Select Category</option>
               {serviceCategories.map((category) => (
                 <option
                   key={category.category_id}
@@ -120,7 +137,7 @@ const PortfolioPage = () => {
           </form>
         </div>
         <div>
-          <form className="max-w-sm" onSubmit={handleSearchSubmit}>
+          <>
             <div className="relative w-full">
               <input
                 type="search"
@@ -153,11 +170,11 @@ const PortfolioPage = () => {
                 <span className="sr-only">Search</span>
               </button>
             </div>
-          </form>
+          </>
         </div>
       </div>
       <div>
-        <div className="grid grid-cols-1 md:grid-cols-2  gap-10 justify-between pt-10 pb-5 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-between pt-10 pb-5 ">
           {loading ? (
             <div>
               <Loading />
@@ -200,14 +217,6 @@ const PortfolioPage = () => {
             </>
           )}
         </div>
-      </div>
-      <div className="flex justify-center py-10 md:mt-12">
-        <Link
-          href={"/portfolio"}
-          className="text-[16px] bg-[#FF693B] px-10 py-3 text-white rounded-xl border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300"
-        >
-          See More
-        </Link>
       </div>
     </div>
   );
