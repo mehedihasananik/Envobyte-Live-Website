@@ -3,6 +3,7 @@ import { Dropdown } from "flowbite-react";
 import Link from "next/link";
 import React from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
+import Notification from "../Utilites/Notificaiton/Notification";
 
 const DashBoardNav = ({ title }) => {
   return (
@@ -26,9 +27,8 @@ const DashBoardNav = ({ title }) => {
           >
             Portfolio
           </Link>
-          <Link href={"/"}>
-            <img src="/assets/Active-Notification.png" alt="" />
-          </Link>
+
+          <Notification />
 
           <button className="flex gap-3 items-center">
             <Link href={"/profile"}>
