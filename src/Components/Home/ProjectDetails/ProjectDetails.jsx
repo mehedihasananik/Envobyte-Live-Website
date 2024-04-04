@@ -3,6 +3,7 @@ import Container from "@/Components/Container/Container";
 import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import * as Yup from "yup"; // Import Yup for validation
 
 const ProjectDetails = () => {
   const [formData, setFormData] = useState({
@@ -13,27 +14,53 @@ const ProjectDetails = () => {
     message: "",
   });
 
+  const validationSchema = Yup.object().shape({
+    first_name: Yup.string()
+      .required("Name is required")
+      .min(2, "Name must be at least 2 characters")
+      .matches(
+        /^(?![0-9])[^\s=\/-]+$/,
+        "Name cannot contain =, /, - or spaces and cannot start with a number"
+      ),
+    last_name: Yup.string()
+      .required("Name is required")
+      .min(2, "Name must be at least 2 characters"),
+    user_email: Yup.string()
+      .required("Email is required")
+      .email("Invalid email")
+      .matches(/^[^\d].*$/, "Email cannot start with a number"),
+    user_phone: Yup.string()
+      .required("Phone number is required")
+      .matches(/^\+?[0-9]{11}$/, "Phone number must be 11 digits"),
+    message: Yup.string()
+      .required("Message is required")
+      .max(250, "Message must not exceed 250 characters"),
+  });
+
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
 
     try {
-      // Make a POST request to the API endpoint
+      await validationSchema.validate(formData, { abortEarly: false });
       const response = await axios.post(
         "http://192.168.10.14:8000/api/user_feedback",
         formData
       );
-      console.log("Response:", response.data);
-      toast.success(response.data.resultsuccess);
-
-      // Handle success response here, e.g., show a success message to the user
+      console.log("Response:", response.data); // Check the response structure
+      toast.success("Request sent successfully");
     } catch (error) {
       console.error("Error:", error);
-      // Handle error, e.g., show an error message to the user
+      if (error.name === "ValidationError") {
+        error.inner.forEach((err) => {
+          toast.error(err.message);
+        });
+      } else {
+        toast.error("Something went wrong. Please try again later.");
+      }
     }
   };
 
   const handleChange = (event) => {
-    // Update form data when input values change
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,

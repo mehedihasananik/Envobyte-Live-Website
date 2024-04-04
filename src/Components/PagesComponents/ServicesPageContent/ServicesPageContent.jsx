@@ -204,6 +204,16 @@ const ServicesPageContent = () => {
               </>
             )}
           </div>
+          {serviceItems.length === 0 && !loading && (
+            <div className="flex justify-center text-center text-gray-600 mt-0">
+              <Image
+                src={"/assets/data.gif"}
+                width={500}
+                height={500}
+                alt="no data found"
+              />
+            </div>
+          )}
         </div>
       </Container>
     </div>

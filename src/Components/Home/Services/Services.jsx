@@ -9,6 +9,7 @@ import Image from "next/image";
 import API_ROUTES from "@/app/api/confiq";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
 import Link from "next/link";
+import { PiHandGrabbing } from "react-icons/pi";
 
 const Services = () => {
   // states

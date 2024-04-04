@@ -15,10 +15,6 @@ const PortfolioPage = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
 
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const onPageChange = (page) => setCurrentPage(page);
-
   const fetchServiceCategories = async (selectedValue) => {
     try {
       const response = await fetch(
@@ -84,8 +80,7 @@ const PortfolioPage = () => {
     (item) =>
       (selectedServiceId === 0 || item.service_id === selectedServiceId) &&
       (selectedCategoryId === 0 || item.category_id === selectedCategoryId) &&
-      (item.heading.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.heading.toLowerCase().includes(searchQuery.toLowerCase()))
+      item.heading.toLowerCase().startsWith(searchQuery.toLowerCase())
   );
   console.log(filteredPortfolio);
 
@@ -103,7 +98,7 @@ const PortfolioPage = () => {
               className="cursor-pointer border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               defaultValue={0}
             >
-              <option value={0}>Select Service</option>
+              <option value={0}>Select Category</option>
               {services.slice(1, 100).map((service) => (
                 <option
                   key={service.service_id}
@@ -123,7 +118,7 @@ const PortfolioPage = () => {
               id="categories"
               className="cursor-pointer border border-gray-300 text-sm rounded-lg focus:ring-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-              <option value={0}>Select Category</option>
+              <option value={0}>Select Service</option>
               {serviceCategories.map((category) => (
                 <option
                   key={category.category_id}
@@ -150,6 +145,7 @@ const PortfolioPage = () => {
               />
               <button
                 type="submit"
+                onClick={handleSearchSubmit}
                 className="absolute top-0 end-0 h-full p-2.5 text-sm font-medium text-[#64748B]"
               >
                 <svg
@@ -217,6 +213,16 @@ const PortfolioPage = () => {
             </>
           )}
         </div>
+        {filteredPortfolio.length === 0 && !loading && (
+          <div className="flex justify-center text-center text-gray-600 mt-0">
+            <Image
+              src={"/assets/data.gif"}
+              width={500}
+              height={500}
+              alt="no data found"
+            />
+          </div>
+        )}
       </div>
     </div>
   );

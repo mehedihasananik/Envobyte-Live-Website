@@ -10,6 +10,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
+import * as Yup from "yup"; // Import Yup for validation
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -18,10 +19,40 @@ const SignUp = () => {
     user_password: "",
   });
 
+  // Define Yup schema for validation
+  // Define Yup schema for validation
+  // Define Yup schema for validation
+  // Define Yup schema for validation
+  // Define Yup schema for validation
+  // Define Yup schema for validation
+  const validationSchema = Yup.object().shape({
+    user_name: Yup.string()
+      .required("Name is required")
+      .min(2, "Name must be at least 2 characters")
+      .matches(
+        /^(?![0-9])[^\s=\/-]+$/,
+        "Name cannot contain =, /, - or spaces and cannot start with a number"
+      ),
+    user_email: Yup.string()
+      .required("Email is required")
+      .email("Invalid email")
+      .matches(/^[^\d].*$/, "Email cannot start with a number"),
+    user_password: Yup.string()
+      .required("Password is required")
+      .min(6, "Password must be at least 6 characters")
+      .matches(
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/,
+        "Password must contain at least one uppercase letter, one lowercase letter, and one number"
+      ),
+  });
+
   const handleSubmit = async (event) => {
     event.preventDefault(); // Prevent default form submission behavior
 
     try {
+      // Validate form data using Yup schema
+      await validationSchema.validate(formData, { abortEarly: false });
+
       // Make a POST request to the API endpoint
       const response = await axios.post(
         "http://192.168.10.14:8000/api/sign_up",
@@ -39,7 +70,15 @@ const SignUp = () => {
       // Handle success response here, e.g., show a success message to the user
     } catch (error) {
       console.error("Error:", error);
-      // Handle error, e.g., show an error message to the user
+      // Handle Yup validation errors
+      if (error.name === "ValidationError") {
+        error.inner.forEach((err) => {
+          toast.error(err.message);
+        });
+      } else {
+        // Handle other errors, e.g., network error
+        toast.error("Something went wrong. Please try again later.");
+      }
     }
   };
 
