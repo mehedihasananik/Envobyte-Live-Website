@@ -39,13 +39,13 @@ const Login = () => {
             </div>
             {/* social login */}
             <div className="flex flex-col md:flex-row gap-10 pb-8 lg:pb-12">
-              <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md">
+              <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md hover:border-[#FF693B] transition-all duration-200">
                 <img src="/assets/gLogo.png" alt="" />{" "}
                 <span className="text-[14px]text-[#032333]">
                   Continue with Google
                 </span>
               </button>
-              <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md">
+              <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md hover:border-[#FF693B] transition-all duration-200">
                 <img src="/assets/fLogo.png" alt="" />{" "}
                 <span className="text-[14px]text-[#032333]">
                   Continue with Facebook
@@ -134,7 +134,7 @@ const Login = () => {
                   Don&apos;t have an account?{" "}
                 </span>
                 <Link
-                  href={"/signUp"}
+                  href={"/signup"}
                   className=' text-[#FF693B]  border-b border-[#FF693B] border-["1px solid"] font-[500]'
                 >
                   Create account

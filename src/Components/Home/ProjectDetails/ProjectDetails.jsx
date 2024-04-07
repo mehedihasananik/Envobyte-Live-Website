@@ -17,18 +17,25 @@ const ProjectDetails = () => {
   const validationSchema = Yup.object().shape({
     first_name: Yup.string()
       .required("Name is required")
-      .min(2, "Name must be at least 2 characters")
+      .min(2, "First Name must be at least 2 characters")
       .matches(
-        /^(?![0-9])[^\s=\/-]+$/,
-        "Name cannot contain =, /, - or spaces and cannot start with a number"
+        /^[a-zA-Z][a-zA-Z\s]*$/,
+        "First Name cannot start with special characters or numbers"
       ),
     last_name: Yup.string()
-      .required("Name is required")
-      .min(2, "Name must be at least 2 characters"),
+      .required("Last Name is required")
+      .min(2, "Last Name must be at least 2 characters")
+      .matches(
+        /^[a-zA-Z][a-zA-Z\s]*$/,
+        "Last Name cannot start with special characters or numbers"
+      ),
     user_email: Yup.string()
       .required("Email is required")
       .email("Invalid email")
-      .matches(/^[^\d].*$/, "Email cannot start with a number"),
+      .matches(
+        /^[^\d].*\.com$/,
+        "Email can't start with a number & must end with .com"
+      ),
     user_phone: Yup.string()
       .required("Phone number is required")
       .matches(/^\+?[0-9]{11}$/, "Phone number must be 11 digits"),

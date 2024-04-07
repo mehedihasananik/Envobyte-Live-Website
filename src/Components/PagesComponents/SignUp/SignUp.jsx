@@ -30,13 +30,17 @@ const SignUp = () => {
       .required("Name is required")
       .min(2, "Name must be at least 2 characters")
       .matches(
-        /^(?![0-9])[^\s=\/-]+$/,
-        "Name cannot contain =, /, - or spaces and cannot start with a number"
+        /^[a-zA-Z][a-zA-Z\s]*$/,
+        "Name cannot start with special characters or numbers"
       ),
     user_email: Yup.string()
       .required("Email is required")
       .email("Invalid email")
-      .matches(/^[^\d].*$/, "Email cannot start with a number"),
+      .matches(
+        /^[^\d].*\.com$/,
+        "Email can't start with a number & must end with .com"
+      ),
+
     user_password: Yup.string()
       .required("Password is required")
       .min(6, "Password must be at least 6 characters")
@@ -108,13 +112,13 @@ const SignUp = () => {
             </div>
             {/* social login */}
             <div className="flex flex-col md:flex-row gap-10 pb-8 lg:pb-12">
-              <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md">
+              <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md hover:border-[#FF693B] transition-all duration-200">
                 <img src="/assets/gLogo.png" alt="" />{" "}
                 <span className="text-[14px]text-[#032333]">
                   Continue with Google
                 </span>
               </button>
-              <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md">
+              <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md hover:border-[#FF693B] transition-all duration-200">
                 <img src="/assets/fLogo.png" alt="" />{" "}
                 <span className="text-[14px]text-[#032333]">
                   Continue with Facebook

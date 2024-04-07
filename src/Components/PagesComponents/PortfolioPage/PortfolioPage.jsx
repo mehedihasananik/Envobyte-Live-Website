@@ -80,7 +80,7 @@ const PortfolioPage = () => {
     (item) =>
       (selectedServiceId === 0 || item.service_id === selectedServiceId) &&
       (selectedCategoryId === 0 || item.category_id === selectedCategoryId) &&
-      item.heading.toLowerCase().startsWith(searchQuery.toLowerCase())
+      item.heading.toLowerCase().includes(searchQuery.toLowerCase())
   );
   console.log(filteredPortfolio);
 

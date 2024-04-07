@@ -99,7 +99,7 @@ const Banner = () => {
             {/* right side image */}
             <div>
               <Image
-                className="w-full h-full"
+                className="w-[742px] h-[554px]"
                 width={500}
                 height={500}
                 src={banner.banner}

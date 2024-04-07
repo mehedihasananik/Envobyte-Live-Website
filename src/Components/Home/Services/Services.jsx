@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -15,6 +16,8 @@ const Services = () => {
   // states
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [totalSlides, setTotalSlides] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,6 +26,7 @@ const Services = () => {
         const data = await response.json();
         setServices(data);
         setLoading(false); // Set loading to false after data is fetched
+        setTotalSlides(data.length);
       } catch (error) {
         console.error("Error fetching banner data:", error);
         setLoading(false); // Set loading to false even if there's an error
@@ -38,6 +42,7 @@ const Services = () => {
   const goNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideNext();
+      setCurrentSlide((prevSlide) => Math.min(prevSlide + 1, totalSlides - 3));
     }
   };
 
@@ -45,11 +50,11 @@ const Services = () => {
   const goPrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slidePrev();
+      setCurrentSlide((prevSlide) => Math.max(prevSlide - 1, 0));
     }
   };
 
   // slider breakpoints
-
   const breakpoints = {
     // when window width is >= 1024px (lg)
     2500: {
@@ -86,7 +91,7 @@ const Services = () => {
 
   return (
     <div className="overflow-hidden">
-      <div className="max-w-[1680px] mx-auto px-[4%] md:px[8%] 4xl:px-[0] 4xl:max-w-[1920px] 4xl:pl-[10%]">
+      <div className="max-w-[1680px] mx-auto px-[4%] md:px[8%] 4xl:px-[0] 4xl:max-w-[1920px] 4xl:pl-[14%]">
         {/* services */}
         <div className="py-6 xl:pt-10 ">
           <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 lg:py-8">
@@ -106,10 +111,12 @@ const Services = () => {
               </div>
               <div className="text-center lg:text-left">
                 <span className="text-[48px] font-Raleway text-[#0A2C8C] font-bold">
-                  02
+                  {currentSlide === totalSlides
+                    ? totalSlides
+                    : currentSlide + 3}
                 </span>
                 <span className="text-[16px] font-bold text-[#94A3B8] font-Raleway">
-                  /12
+                  /{totalSlides}
                 </span>
               </div>
               <div className="flex justify-center items-center lg:justify-start lg:items-start gap-6 py-4 ">
@@ -151,6 +158,9 @@ const Services = () => {
                   spaceBetween={200}
                   breakpoints={breakpoints}
                   className="mySwiper space-x-4"
+                  onSlideChange={(swiper) =>
+                    setCurrentSlide(swiper.activeIndex)
+                  }
                 >
                   {services.map((service) => {
                     return (
