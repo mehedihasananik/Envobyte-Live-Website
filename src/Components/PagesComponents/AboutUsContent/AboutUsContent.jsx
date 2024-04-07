@@ -46,7 +46,7 @@ const AboutUsContent = async () => {
     <Container>
       <div>
         {/* titles & description */}
-        <div className="pt-5 md:pt-10 lg:pt-20 space-y-4">
+        <div className="pt-5 md:pt-10 lg:pt-10 space-y-4">
           <h2 className="text-[32px] lg:text-[48px] text-[#0F172A] font-bold font-Raleway text-center lg:text-left">
             {title1}
           </h2>

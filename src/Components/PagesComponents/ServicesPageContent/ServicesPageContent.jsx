@@ -78,7 +78,7 @@ const ServicesPageContent = () => {
   return (
     <div className="service_section">
       <Container>
-        <div className="py-5 md:py-16">
+        <div className="py-5 md:py-8">
           <div className="text-center">
             <h2 className="text-[22px] md:text-[30px] lg:text-[48px] font-Raleway font-bold">
               Choose a <span className="text-[#FF693B]">service</span> that you
@@ -159,7 +159,7 @@ const ServicesPageContent = () => {
                     key={service.service_id}
                     href={`/services/${service.slug.replace(/\s+/g, "")}`}
                   >
-                    <div className="group max-w-xs shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
+                    <div className="group w-[330px] shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
                       <div className="flex flex-col">
                         <div className="bg-[#E2E8F0]">
                           <div>

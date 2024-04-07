@@ -10,7 +10,6 @@ import Image from "next/image";
 import API_ROUTES from "@/app/api/confiq";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
 import Link from "next/link";
-import { PiHandGrabbing } from "react-icons/pi";
 
 const Services = () => {
   // states
@@ -18,6 +17,7 @@ const Services = () => {
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
+  const [spaceBetween, setSpaceBetween] = useState(100); // Initial value for spaceBetween
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,11 +40,26 @@ const Services = () => {
 
   // next function
   const goNext = () => {
+    console.log("Current slide:", currentSlide); // Log current slide
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideNext();
       setCurrentSlide((prevSlide) => Math.min(prevSlide + 1, totalSlides - 3));
+
+      // Toggle between two different values for spaceBetween
+      if (currentSlide === 0) {
+        console.log("Setting spaceBetween to 100");
+        setSpaceBetween(50);
+      } else if (currentSlide === 3) {
+        console.log("Setting spaceBetween to 310");
+        setSpaceBetween(10);
+      }
     }
   };
+
+  useEffect(() => {
+    console.log("Space between:", spaceBetween); // Log spaceBetween
+  }, [spaceBetween]);
+  console.log(spaceBetween);
 
   // prev function
   const goPrev = () => {
@@ -62,8 +77,8 @@ const Services = () => {
       spaceBetween: 200,
     },
     1920: {
-      slidesPerView: 4,
-      spaceBetween: 200,
+      slidesPerView: 3,
+      spaceBetween: 50, // Use dynamic value for spaceBetween
     },
     1336: {
       slidesPerView: 4,
@@ -149,11 +164,11 @@ const Services = () => {
                 <ServiceLoading />
               </>
             ) : (
-              <div className="w-full lg:w-[65%]  ">
+              <div className="w-full flex justify-center items-center  lg:w-[65%]  ">
                 {/* cards */}
                 <Swiper
                   ref={swiperRef}
-                  slidesPerView={4}
+                  slidesPerView={3}
                   slidesPerGroup={3}
                   spaceBetween={200}
                   breakpoints={breakpoints}
@@ -168,7 +183,7 @@ const Services = () => {
                         <Link
                           href={`/services/${service.slug.replace(/\s+/g, "")}`}
                         >
-                          <div className="w-[300px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                          <div className="w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
                             <div className="flex flex-col">
                               <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
                                 <div>

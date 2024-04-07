@@ -61,7 +61,7 @@ const ServicePortolio = () => {
     },
   };
   return (
-    <div className="xl:pl-[10%]">
+    <div className="">
       <Swiper
         ref={swiperRef}
         slidesPerView={3}

@@ -257,7 +257,6 @@ const Testimonial = () => {
                   }
                 >
                   {testimonials.map((testimonial) => {
-                    console.log(testimonial);
                     return (
                       <SwiperSlide key={testimonial.id} className="">
                         <div className="pl-4 mt-10 bg-[#F8FAFC] hover:bg-[#1E293B] group  rounded-md transition-all duration-300 ">

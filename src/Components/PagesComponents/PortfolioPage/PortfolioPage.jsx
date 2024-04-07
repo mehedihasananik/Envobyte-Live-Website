@@ -85,7 +85,7 @@ const PortfolioPage = () => {
   console.log(filteredPortfolio);
 
   return (
-    <div className="pt-8 lg:pt-20">
+    <div className="pt-8 lg:pt-10">
       <div className="text-center lg:text-left text-[#0F172A] text-[32px] lg:text-[48px] font-Raleway font-semibold">
         <h3>Our Amazing Portfolio</h3>
       </div>

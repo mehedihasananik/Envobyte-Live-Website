@@ -17,7 +17,7 @@ const ServiceDetails = ({ service, sliders, packages }) => {
   return (
     <>
       <Container>
-        <div className="py-8">
+        <div className="pt-3 pb-8">
           {/* title */}
           <div className="text-center font-Raleway pb-10">
             <h1 className="text-[#10F172A] text-[32px] md:text-[48px] font-bold capitalize">

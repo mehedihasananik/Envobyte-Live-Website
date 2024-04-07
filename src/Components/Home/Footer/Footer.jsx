@@ -151,9 +151,9 @@ const Footer = () => {
                   target="_blank"
                 >
                   <img
-                    className="cursor-pointer"
+                    className="transform hover:scale-125 transition-all duration-300"
                     src="assets/insta.svg"
-                    alt=""
+                    alt="Instagram Logo"
                   />
                 </Link>
 
@@ -162,13 +162,13 @@ const Footer = () => {
                   target="_blank"
                 >
                   <img
-                    className="cursor-pointer"
+                    className="cursor-pointer transform hover:scale-125 transition-all duration-300"
                     src="assets/facebook.svg"
                     alt=""
                   />
                 </Link>
                 <img
-                  className="cursor-pointer"
+                  className="cursor-pointer transform hover:scale-125 transition-all duration-300"
                   src="/assets/twitter-color-svgrepo-com 1.svg"
                   alt=""
                 />
@@ -177,7 +177,7 @@ const Footer = () => {
                   href={"https://www.linkedin.com/company/envobyte"}
                 >
                   <img
-                    className="cursor-pointer"
+                    className="cursor-pointer transform hover:scale-125 transition-all duration-300"
                     src="/assets/linkedin.svg"
                     alt=""
                   />
