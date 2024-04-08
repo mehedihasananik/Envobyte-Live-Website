@@ -40,26 +40,26 @@ const Services = () => {
 
   // next function
   const goNext = () => {
-    console.log("Current slide:", currentSlide); // Log current slide
+    // console.log("Current slide:", currentSlide); // Log current slide
     if (swiperRef.current && swiperRef.current.swiper) {
       swiperRef.current.swiper.slideNext();
       setCurrentSlide((prevSlide) => Math.min(prevSlide + 1, totalSlides - 3));
 
       // Toggle between two different values for spaceBetween
       if (currentSlide === 0) {
-        console.log("Setting spaceBetween to 100");
+        // console.log("Setting spaceBetween to 100");
         setSpaceBetween(50);
       } else if (currentSlide === 3) {
-        console.log("Setting spaceBetween to 310");
+        // console.log("Setting spaceBetween to 310");
         setSpaceBetween(10);
       }
     }
   };
 
   useEffect(() => {
-    console.log("Space between:", spaceBetween); // Log spaceBetween
+    // console.log("Space between:", spaceBetween); // Log spaceBetween
   }, [spaceBetween]);
-  console.log(spaceBetween);
+  // console.log(spaceBetween);
 
   // prev function
   const goPrev = () => {
@@ -81,8 +81,8 @@ const Services = () => {
       spaceBetween: 50, // Use dynamic value for spaceBetween
     },
     1336: {
-      slidesPerView: 4,
-      spaceBetween: 200,
+      slidesPerView: 3,
+      spaceBetween: 50,
     },
     1280: {
       slidesPerView: 2,

@@ -3,7 +3,7 @@
 import Accordion from "@/Components/Accordion/Accordion";
 import API_ROUTES from "@/app/api/confiq";
 import { useEffect, useState } from "react";
-import ContentLoader, { Facebook, List } from "react-content-loader";
+import { List } from "react-content-loader";
 
 const Questions = ({ className, title }) => {
   const [counterOn, setCounterOn] = useState(false);
@@ -26,7 +26,6 @@ const Questions = ({ className, title }) => {
     fetchData();
   }, []);
 
-  const MyLoader = () => <ContentLoader />;
   const MyListLoader = () => <List />;
 
   return (

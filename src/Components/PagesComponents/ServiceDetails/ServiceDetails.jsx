@@ -8,7 +8,7 @@ import Questions from "@/Components/Home/Questions/Questions";
 import Container from "@/Components/Container/Container";
 import ServicePortolio from "@/Components/Utilites/ServicePortfolio/ServicePortolio";
 import { useState } from "react";
-import { Button, Modal, Tooltip } from "flowbite-react";
+import { Tooltip } from "flowbite-react";
 import ServiceModal from "@/Components/Utilites/ServiceModal/ServiceModal";
 
 const ServiceDetails = ({ service, sliders, packages }) => {

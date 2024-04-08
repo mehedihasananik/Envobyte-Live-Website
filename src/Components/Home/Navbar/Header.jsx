@@ -81,7 +81,9 @@ const Header = () => {
               <Navbar.Link
                 key={index}
                 href={item.link}
-                className={pathname === item.link ? "text-[#FF0000]" : ""}
+                className={
+                  pathname === item.link ? "text-[#FF0000] my-2" : "my-2"
+                }
               >
                 {item.name}
               </Navbar.Link>
@@ -89,7 +91,7 @@ const Header = () => {
             {/* login button */}
             <Link
               href={"/login"}
-              className=" flex items-center justify-center bg-[#FF693B] border border-[#FF693B] text-white font-medium px-4 py-2 rounded-lg hover:bg-white hover:text-[#FF693B] transition-all duration-300"
+              className=" flex items-center justify-center px-4 py-2 md:py-1 bg-[#FF693B] border border-[#FF693B]  text-white font-medium  rounded-lg hover:bg-white hover:text-[#FF693B] transition-all duration-300"
             >
               Login
             </Link>
