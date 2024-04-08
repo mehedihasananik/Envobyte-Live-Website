@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import Container from "@/Components/Container/Container";
@@ -8,8 +8,68 @@ import { FiArrowRight } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
 import { IoMdLock } from "react-icons/io";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import toast from "react-hot-toast";
 
 const ServiceModal = ({ openModal, setOpenModal }) => {
+  const [loading, setLoading] = useState(false); // State to track loading status
+  const router = useRouter();
+
+  // Function to handle login submission
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true); // Set loading to true when login is initiated
+
+    const formData = new FormData(e.target);
+    const user_email = formData.get("user_email");
+    const user_password = formData.get("user_password");
+
+    const requestData = {
+      user_email,
+      user_password,
+    };
+
+    try {
+      const response = await fetch("http://192.168.10.14:8000/api/user_login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // Assuming data contains the response from the server
+        console.log(data);
+        if (data.success) {
+          // Save user data to sessionStorage
+          toast.success("Logged in successfully");
+          sessionStorage.setItem("userData", JSON.stringify(data));
+          // Navigate to the dashboard
+          router.push("/dashboard");
+        }
+        if (data.ErrorMessage) {
+          // Save user data to sessionStorage
+          toast.error(data.ErrorMessage);
+        }
+        console.log(data);
+        // Here you can handle the successful login response, e.g., redirect the user or store user data in the state
+      } else {
+        // Handle error response
+        // toast.error(data.success);
+        console.log(data);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle network or other errors
+      toast.error("Login failed. Please try again later.");
+    }
+
+    setLoading(false); // Set loading to false after login attempt
+  };
+
   return (
     <div>
       <Modal dismissible show={openModal} onClose={() => setOpenModal(false)}>
@@ -50,7 +110,10 @@ const ServiceModal = ({ openModal, setOpenModal }) => {
               </div>
               {/* form */}
               <div className="pt-4 md:pt-8">
-                <form className="flex max-w-md flex-col gap-4">
+                <form
+                  onSubmit={handleLogin}
+                  className="flex max-w-md flex-col gap-4"
+                >
                   <div>
                     <div className="mb-2 block">
                       <Label
@@ -60,10 +123,11 @@ const ServiceModal = ({ openModal, setOpenModal }) => {
                       />
                     </div>
                     <TextInput
+                      name="user_email"
                       id="email1"
                       type="email"
                       icon={HiMail}
-                      placeholder="exemple@email.com"
+                      placeholder="Enter Your Email"
                       required
                     />
                   </div>
@@ -77,6 +141,7 @@ const ServiceModal = ({ openModal, setOpenModal }) => {
                     </div>
                     <TextInput
                       id="password1"
+                      name="user_password"
                       type="password"
                       icon={IoMdLock}
                       placeholder="Enter your password"
@@ -122,7 +187,7 @@ const ServiceModal = ({ openModal, setOpenModal }) => {
                     Don&apos;t have an account?{" "}
                   </span>
                   <Link
-                    href={"/signUp"}
+                    href={"/signup"}
                     className=' text-[#FF693B]  border-b border-[#FF693B] border-["1px solid"] font-[500]'
                   >
                     Create account
