@@ -20,7 +20,7 @@ const Accordion = ({ title, answer }) => {
             <RiEdit2Fill className="hidden md:block  text-white" />
           </span>
 
-          <span className="text-[#334155] text-[14px] md:text-[20px]">
+          <span className="text-[#334155] text-[14px] md:text-[20px] md:w-[500px] lg:w-full">
             {title}
           </span>
         </div>

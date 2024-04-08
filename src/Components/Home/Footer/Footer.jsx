@@ -43,20 +43,23 @@ const Footer = () => {
             </h3>
             <ul className="flex flex-col gap-2 pt-5 text-[16px] text-[#444444]  ">
               <Link
-                href={"/about-us"}
+                href={"/privacy-policy"}
                 className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
               >
-                About Us
+                Privacy Policy
               </Link>
               <Link
-                href={"/services"}
+                href={"/terms-and-conditions"}
                 className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
               >
-                Services
+                Terms And Conditions
               </Link>
-              <li className="cursor-pointer hover:text-[#FF693B] transition-all duration-200">
-                Terms & Conditions
-              </li>
+              <Link
+                href={"/refund-policy"}
+                className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
+              >
+                Refund Policy
+              </Link>
             </ul>
           </div>
           {/* 2nd col */}
@@ -66,10 +69,10 @@ const Footer = () => {
             </h3>
             <ul className="flex flex-col gap-2 pt-5 text-[16px] text-[#444444]  ">
               <Link
-                href={"/dashboard"}
+                href={"#"}
                 className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
               >
-                Dashboard
+                Faq
               </Link>
               <Link
                 href={"/order-delivery"}

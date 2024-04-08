@@ -1,11 +1,24 @@
 "use client";
 import { Dropdown } from "flowbite-react";
 import Link from "next/link";
-import React from "react";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import Notification from "../Utilites/Notificaiton/Notification";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const DashBoardNav = ({ title }) => {
+  const router = useRouter();
+  const [cleared, setCleared] = useState(false);
+
+  const clearSession = () => {
+    // Remove the userData from sessionStorage
+    sessionStorage.removeItem("userData");
+    // Set the state to indicate that session has been cleared
+    setCleared(true);
+    router.push("/");
+  };
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
+
   return (
     <nav className="flex flex-col justify-center items-center md:flex-row md:justify-between w-[100%] py-4 px-5 lg:pr-12">
       <div>
@@ -34,18 +47,22 @@ const DashBoardNav = ({ title }) => {
             <Link href={"/profile"}>
               <div className="flex items-center justify-center">
                 {" "}
-                <img src="/assets/dashperson.png" alt="" />
+                <img
+                  className="w-[40px] h-[40px] rounded-lg"
+                  src={userData?.image}
+                  alt=""
+                />
               </div>
             </Link>
             <Dropdown
-              label="Ryan Milan"
+              label={userData?.name}
               dismissOnClick={false}
               renderTrigger={() => (
                 <span>
                   {
                     <div className="flex gap-x-2 items-center">
                       <span className="flex items-center gap-x-4 text-[16px] hover:text-[#FF693B] transition-all duration-200">
-                        Ryan Milan{" "}
+                        {userData ? `${userData?.name}` : "No User"}
                       </span>
                       <MdKeyboardArrowDown className="text-[24px] cursor-pointer" />
                     </div>
@@ -59,7 +76,7 @@ const DashBoardNav = ({ title }) => {
               <Dropdown.Item>
                 <Link href={"/history"}>History</Link>
               </Dropdown.Item>
-              <Dropdown.Item>Sign out</Dropdown.Item>
+              <Dropdown.Item onClick={clearSession}>Sign out</Dropdown.Item>
             </Dropdown>
           </button>
         </ul>

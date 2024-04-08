@@ -62,9 +62,13 @@ const SignUp = () => {
         "http://192.168.10.14:8000/api/sign_up",
         formData
       );
-      console.log("Response:", response.data.resultsuccess);
-      console.log("Response:", response.data.resultexist);
+
       if (response.data.resultsuccess) {
+        setFormData({
+          user_name: "",
+          user_email: "",
+          user_password: "",
+        });
         toast.success(response.data.resultsuccess);
       }
       if (response.data.resultexist) {
@@ -96,7 +100,7 @@ const SignUp = () => {
   };
 
   return (
-    <div className="login_singUp">
+    <div className="login_singUp pt-5">
       <Container>
         {/* login */}
         <div className="w-full h-fit flex justify-center pt-5 ">

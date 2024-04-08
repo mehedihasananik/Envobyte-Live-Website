@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { List } from "react-content-loader";
 
 const Questions = ({ className, title }) => {
-  const [counterOn, setCounterOn] = useState(false);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(true);
 

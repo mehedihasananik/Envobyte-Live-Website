@@ -50,7 +50,7 @@ const Brands = () => {
             ) : (
               <>
                 {/* brands logo */}
-                <div className="w-[100%] flex gap-x-5 lg:gap-x-10 items-center lg:justify-end">
+                <div className="w-[100%] flex gap-x-5 lg:gap-x-10 justify-center items-center lg:justify-end">
                   {brands.map((brand) => {
                     return (
                       <Image

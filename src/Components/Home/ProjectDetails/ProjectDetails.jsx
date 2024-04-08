@@ -53,8 +53,19 @@ const ProjectDetails = () => {
         "http://192.168.10.14:8000/api/user_feedback",
         formData
       );
-      console.log("Response:", response.data); // Check the response structure
-      toast.success("Request sent successfully");
+      console.log("Response:", response.data);
+
+      // Check the response structure
+      if (response.data) {
+        toast.success("Request sent successfully");
+        setFormData({
+          first_name: "",
+          last_name: "",
+          user_email: "",
+          user_phone: "",
+          message: "",
+        });
+      }
     } catch (error) {
       console.error("Error:", error);
       if (error.name === "ValidationError") {
@@ -103,7 +114,7 @@ const ProjectDetails = () => {
         </div>
         {/* our details */}
         <div className="w-[100%] flex flex-col justify-center items-center  lg:flex-row lg:items-start lg:justify-between gap-10 pt-14">
-          <div className="w-full lg:w-[40%] flex flex-col gap-10 md:pl-10 2xl:pl-0">
+          <div className="w-full md:w-[80%] lg:w-[40%] flex flex-col gap-10 md:pl-10 2xl:pl-0">
             <div className="flex  items-center gap-6 bg-[#FFFFFF] py-8  rounded-lg pl-5 lg:pl-5 lg:pr-14">
               <div className="bg-[#FFF5F1] p-4 rounded-lg">
                 <img src="/assets/mail.svg" alt="" />
@@ -137,7 +148,7 @@ const ProjectDetails = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-[60%]">
+          <div className="w-full md:w-[68%] lg:w-[60%]">
             <form onSubmit={handleSubmit} action="">
               {/* first name & last name */}
               <div className="flex flex-col gap-5">
@@ -148,7 +159,7 @@ const ProjectDetails = () => {
                         Your First Name:
                       </label>
                       <input
-                        className="w-full lg:w-[80%] py-4 border border-[#CBD5E1] px-4 rounded-md shadow-sm"
+                        className="w-full  lg:w-[80%] py-4 border border-[#CBD5E1] px-4 rounded-md shadow-sm"
                         type="text"
                         id="first_name"
                         name="first_name"

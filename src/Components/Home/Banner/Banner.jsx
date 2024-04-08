@@ -77,7 +77,7 @@ const Banner = () => {
             </div>
             {/* description ends */}
             {/* buttons starts */}
-            <div className="flex gap-6 py-6">
+            <div className="flex gap-6 py-6 justify-center lg:justify-start">
               {/* quote button */}
               <Link
                 href={"#projectDetails"}

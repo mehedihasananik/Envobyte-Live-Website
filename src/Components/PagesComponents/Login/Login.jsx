@@ -1,28 +1,75 @@
 "use client";
-
-import { Button, Checkbox, Label, TextInput } from "flowbite-react";
+import { useState } from "react";
+import { Checkbox, Label, TextInput } from "flowbite-react";
 import Container from "@/Components/Container/Container";
-import React, { useState } from "react";
-import { FaFacebook } from "react-icons/fa6";
 import { FiArrowRight } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
 import { IoMdLock } from "react-icons/io";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import toast from "react-hot-toast";
+import { data } from "autoprefixer";
 
 const Login = () => {
   const [loading, setLoading] = useState(false); // State to track loading status
+  const router = useRouter();
 
-  // Function to simulate loading, replace this with actual login logic
-  const handleLogin = (e) => {
+  // Function to handle login submission
+  const handleLogin = async (e) => {
     e.preventDefault();
     setLoading(true); // Set loading to true when login is initiated
-    setTimeout(() => {
-      setLoading(false); // Set loading to false after a delay (simulating login completion)
-    }, 2000); // Change the delay as per your requirement
+
+    const formData = new FormData(e.target);
+    const user_email = formData.get("user_email");
+    const user_password = formData.get("user_password");
+
+    const requestData = {
+      user_email,
+      user_password,
+    };
+
+    try {
+      const response = await fetch("http://192.168.10.14:8000/api/user_login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(requestData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // Assuming data contains the response from the server
+        console.log(data);
+        if (data.success) {
+          // Save user data to sessionStorage
+          toast.success("Logged in successfully");
+          sessionStorage.setItem("userData", JSON.stringify(data));
+          // Navigate to the dashboard
+          router.push("/dashboard");
+        }
+        if (data.ErrorMessage) {
+          // Save user data to sessionStorage
+          toast.error(data.ErrorMessage);
+        }
+        console.log(data);
+        // Here you can handle the successful login response, e.g., redirect the user or store user data in the state
+      } else {
+        // Handle error response
+        // toast.error(data.success);
+        console.log(data);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      // Handle network or other errors
+      toast.error("Login failed. Please try again later.");
+    }
+
+    setLoading(false); // Set loading to false after login attempt
   };
 
   return (
-    <div className="login_singUp">
+    <div className="login_singUp pt-5">
       <Container>
         {loading && <div className="loader">Loading...</div>}
         {/* login */}
@@ -39,6 +86,7 @@ const Login = () => {
             </div>
             {/* social login */}
             <div className="flex flex-col md:flex-row gap-10 pb-8 lg:pb-12">
+              {/* Social login buttons */}
               <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md hover:border-[#FF693B] transition-all duration-200">
                 <img src="/assets/gLogo.png" alt="" />{" "}
                 <span className="text-[14px]text-[#032333]">
@@ -62,7 +110,10 @@ const Login = () => {
             </div>
             {/* form */}
             <div className="pt-4 md:pt-8">
-              <form className="flex max-w-md flex-col gap-4">
+              <form
+                className="flex max-w-md flex-col gap-4"
+                onSubmit={handleLogin}
+              >
                 <div>
                   <div className="mb-2 block">
                     <Label
@@ -72,10 +123,11 @@ const Login = () => {
                     />
                   </div>
                   <TextInput
+                    name="user_email"
                     id="email1"
                     type="email"
                     icon={HiMail}
-                    placeholder="exemple@email.com"
+                    placeholder="example@email.com"
                     required
                   />
                 </div>
@@ -89,6 +141,7 @@ const Login = () => {
                   </div>
                   <TextInput
                     id="password1"
+                    name="user_password"
                     type="password"
                     icon={IoMdLock}
                     placeholder="Enter your password"

@@ -24,7 +24,7 @@ const RelevantServices = () => {
 
     fetchData();
   }, []);
-  console.log(services);
+
   return (
     <div className="pt-5 md:pt-3 md:pb-8">
       <div className="text-center font-Raleway ">
