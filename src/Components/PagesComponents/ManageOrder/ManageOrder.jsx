@@ -1,10 +1,35 @@
 "use client";
 
+import API_ROUTES from "@/app/api/confiq";
 import { Pagination, Table } from "flowbite-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ManageOrder = () => {
   const [currentPage, setCurrentPage] = useState(1);
+
+  const [orders, setOrder] = useState(null);
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${API_ROUTES.route}/manage_order`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user_id: userData.id }),
+        });
+        const data = await response.json();
+        setOrder(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  console.log(orders);
 
   const onPageChange = (page) => setCurrentPage(page);
 
@@ -21,161 +46,46 @@ const ManageOrder = () => {
             <Table.HeadCell className="order_title">Status</Table.HeadCell>
           </Table.Head>
           <Table.Body className="divide-y">
-            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[600]"
-              >
-                JUN120322
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                Logo Design
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                June 13, 2023
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#3371F2] text-[16px] font-Roboto 
-              font-[600] "
-              >
-                $760
-              </Table.Cell>
-              <Table.Cell>
-                <button className="bg-[#FF8F5A] text-[14px] text-[#fff] font-[600] px-4 py-2 rounded-md">
-                  In Progress
-                </button>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[600]"
-              >
-                JUN120322
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                Logo Design
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                June 13, 2023
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#3371F2] text-[16px] font-Roboto 
-              font-[600] "
-              >
-                $760
-              </Table.Cell>
-              <Table.Cell>
-                <button className="bg-[#00C1C1] text-[14px] text-[#fff] font-[600] px-4 py-2 rounded-md">
-                  DELIVERED
-                </button>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[600]"
-              >
-                JUN120322
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                Logo Design
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                June 13, 2023
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#3371F2] text-[16px] font-Roboto 
-              font-[600] "
-              >
-                $760
-              </Table.Cell>
-              <Table.Cell>
-                <button className="bg-[#FED500] text-[14px] text-[#fff] font-[600] px-4 py-2 rounded-md">
-                  REVISION
-                </button>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[600]"
-              >
-                JUN120322
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                Logo Design
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                June 13, 2023
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#3371F2] text-[16px] font-Roboto 
-              font-[600] "
-              >
-                $760
-              </Table.Cell>
-              <Table.Cell>
-                <button className="bg-[#1DBF73] text-[14px] text-[#fff] font-[600] px-4 py-2 rounded-md">
-                  COMPLETED
-                </button>
-              </Table.Cell>
-            </Table.Row>
-            <Table.Row className="bg-white dark:border-gray-700 dark:bg-gray-800">
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[600]"
-              >
-                JUN120322
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                Logo Design
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#555] text-[14px] font-Raleway 
-              font-[500]"
-              >
-                June 13, 2023
-              </Table.Cell>
-              <Table.Cell
-                className="text-[#3371F2] text-[16px] font-Roboto 
-              font-[600] "
-              >
-                $760
-              </Table.Cell>
-              <Table.Cell>
-                <button className="bg-[#FF213C] text-[14px] text-[#fff] font-[600] px-4 py-2 rounded-md">
-                  CANCELLED
-                </button>
-              </Table.Cell>
-            </Table.Row>
+            {orders?.map((order) => {
+              const { sevice_items } = order;
+
+              return (
+                <Table.Row
+                  key={order.id}
+                  className="bg-white dark:border-gray-700 dark:bg-gray-800"
+                >
+                  <Table.Cell
+                    className="text-[#555] text-[14px] font-Raleway 
+                font-[600]"
+                  >
+                    {order.order_id}
+                  </Table.Cell>
+                  <Table.Cell
+                    className="text-[#555] text-[14px] font-Raleway 
+                font-[500]"
+                  >
+                    {sevice_items[0].title}
+                  </Table.Cell>
+                  <Table.Cell
+                    className="text-[#555] text-[14px] font-Raleway 
+                font-[500]"
+                  >
+                    {order.order_date}
+                  </Table.Cell>
+                  <Table.Cell
+                    className="text-[#3371F2] text-[16px] font-Roboto 
+                font-[600] "
+                  >
+                    {order.order_price}
+                  </Table.Cell>
+                  <Table.Cell>
+                    <button className="bg-[#FF8F5A] text-[14px] text-[#fff] font-[600] px-4 py-2 rounded-md">
+                      {order.order_status}
+                    </button>
+                  </Table.Cell>
+                </Table.Row>
+              );
+            })}
           </Table.Body>
         </Table>
       </div>

@@ -73,7 +73,7 @@ const RelevantServices = () => {
                       </div>
                       <div>
                         <span className="font-Raleway text-[20px] font-bold text-[#0A2C8C] group-hover:text-white transition-all duration-200">
-                          {service.start_price}
+                          {service.start_price} $
                         </span>
                       </div>
                       <div>

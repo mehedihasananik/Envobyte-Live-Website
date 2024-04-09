@@ -1,6 +1,34 @@
-import React from "react";
+"use client";
+
+import API_ROUTES from "@/app/api/confiq";
+import React, { useEffect, useState } from "react";
 
 const Profile = () => {
+  const [profile, setProfile] = useState(null);
+  const userData = JSON.parse(sessionStorage.getItem("userData"));
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(`${API_ROUTES.route}/user_profile`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user_id: userData.id }),
+        });
+        const data = await response.json();
+        setProfile(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  console.log(profile);
+  const backgroundImage = profile?.image ? `url(${profile.image})` : "";
+  console.log(backgroundImage);
   return (
     <div>
       <section className="py-10 my-auto dark:bg-gray-900 p-20">
@@ -13,7 +41,10 @@ const Profile = () => {
 
               <form>
                 <div className="w-full   py-4 items-center rounded-md">
-                  <div className="mx-auto flex justify-center w-[141px] h-[141px] bg-blue-300/20 rounded-full bg-[url('https://images.unsplash.com/photo-1438761681033-6461ffad8d80?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw4fHxwcm9maWxlfGVufDB8MHx8fDE3MTEwMDM0MjN8MA&ixlib=rb-4.0.3&q=80&w=1080')] bg-cover bg-center bg-no-repeat">
+                  <div
+                    style={{ backgroundImage }}
+                    className={`mx-auto flex justify-center w-[141px] h-[141px] rounded-full  bg-cover bg-center bg-no-repeat`}
+                  >
                     <div className="bg-white/90 rounded-full w-6 h-6 text-center ml-28 mt-4">
                       <input
                         type="file"
@@ -49,6 +80,9 @@ const Profile = () => {
                     </div>
                   </div>
                 </div>
+                <h3 className="text-center mt-3 font-semibold dark:text-gray-300 capitalize">
+                  {profile?.name}
+                </h3>
                 <h2 className="text-center mt-3 font-semibold dark:text-gray-300">
                   Upload Profile and Name.
                 </h2>
@@ -60,7 +94,7 @@ const Profile = () => {
                     <input
                       type="text"
                       className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
-                      placeholder="Enter Your First Name"
+                      placeholder={profile?.first_name}
                     />
                   </div>
                   <div className="w-full  mb-4 lg:mt-6">
@@ -70,7 +104,7 @@ const Profile = () => {
                     <input
                       type="text"
                       className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
-                      placeholder="Enter Your Last Name"
+                      placeholder={profile?.last_name}
                     />
                   </div>
                 </div>
@@ -82,7 +116,8 @@ const Profile = () => {
                     <input
                       type="text"
                       className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
-                      placeholder="Enter Your Email"
+                      placeholder={profile?.email}
+                      readOnly
                     />
                   </div>
                   <div className="w-full  mb-4 lg:mt-6">
@@ -92,7 +127,7 @@ const Profile = () => {
                     <input
                       type="text"
                       className="mt-2 p-4 w-full border-2 rounded-lg dark:text-gray-200 dark:border-gray-600 dark:bg-gray-800"
-                      placeholder="Enter Phone Number"
+                      placeholder={profile?.phone_number}
                     />
                   </div>
                 </div>

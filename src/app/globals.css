@@ -226,3 +226,13 @@
     right: -3vw !important;
   } */
 }
+
+.custom-margin {
+  margin-left: 0% !important;
+}
+.no-margin {
+  margin-left: 10% !important;
+}
+.no-margin2 {
+  margin-left: 5% !important;
+}

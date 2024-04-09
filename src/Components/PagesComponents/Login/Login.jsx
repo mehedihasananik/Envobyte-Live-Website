@@ -2,22 +2,21 @@
 import { useState } from "react";
 import { Checkbox, Label, TextInput } from "flowbite-react";
 import Container from "@/Components/Container/Container";
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowRight, FiEye, FiEyeOff } from "react-icons/fi"; // Import eye icons
 import { HiMail } from "react-icons/hi";
 import { IoMdLock } from "react-icons/io";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
-import { data } from "autoprefixer";
 
 const Login = () => {
-  const [loading, setLoading] = useState(false); // State to track loading status
+  const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
   const router = useRouter();
 
-  // Function to handle login submission
   const handleLogin = async (e) => {
     e.preventDefault();
-    setLoading(true); // Set loading to true when login is initiated
+    setLoading(true);
 
     const formData = new FormData(e.target);
     const user_email = formData.get("user_email");
@@ -39,43 +38,32 @@ const Login = () => {
 
       if (response.ok) {
         const data = await response.json();
-        // Assuming data contains the response from the server
         console.log(data);
         if (data.success) {
-          // Save user data to sessionStorage
           toast.success("Logged in successfully");
           sessionStorage.setItem("userData", JSON.stringify(data));
-          // Navigate to the dashboard
           router.push("/dashboard");
         }
         if (data.ErrorMessage) {
-          // Save user data to sessionStorage
           toast.error(data.ErrorMessage);
         }
-        console.log(data);
-        // Here you can handle the successful login response, e.g., redirect the user or store user data in the state
       } else {
-        // Handle error response
-        // toast.error(data.success);
         console.log(data);
       }
     } catch (error) {
       console.error("Error:", error);
-      // Handle network or other errors
       toast.error("Login failed. Please try again later.");
     }
 
-    setLoading(false); // Set loading to false after login attempt
+    setLoading(false);
   };
 
   return (
     <div className="login_singUp pt-5">
       <Container>
         {loading && <div className="loader">Loading...</div>}
-        {/* login */}
         <div className="w-full h-fit flex justify-center pt-5">
           <div className="shadow-md  border rounded-lg py-10 px-10  md:py-10 md:px-12">
-            {/* title */}
             <div className="text-center pb-10 md:pb-14">
               <h3 className="text-[32px] md:text-[40px] text-[#333333] font-Raleway font-bold">
                 Welcome back!
@@ -84,9 +72,7 @@ const Login = () => {
                 Please log in to your account
               </p>
             </div>
-            {/* social login */}
             <div className="flex flex-col md:flex-row gap-10 pb-8 lg:pb-12">
-              {/* Social login buttons */}
               <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md hover:border-[#FF693B] transition-all duration-200">
                 <img src="/assets/gLogo.png" alt="" />{" "}
                 <span className="text-[14px]text-[#032333]">
@@ -100,7 +86,6 @@ const Login = () => {
                 </span>
               </button>
             </div>
-            {/* or break */}
             <div className="flex items-center gap-x-5  md:pt-0">
               <span className="w-[50%] h-[1px] border"></span>{" "}
               <span className="text-[14px] font-Raleway text-[#032333] font-medium">
@@ -108,7 +93,6 @@ const Login = () => {
               </span>{" "}
               <span className="w-[50%] h-[1px] border"></span>
             </div>
-            {/* form */}
             <div className="pt-4 md:pt-8">
               <form
                 className="flex max-w-md flex-col gap-4"
@@ -132,21 +116,27 @@ const Login = () => {
                   />
                 </div>
                 <div>
-                  <div className="mb-2 block">
+                  <div className="mb-2 block relative">
                     <Label
                       className="text-[16px] font-Raleway text-[#032333] font-[500]"
                       htmlFor="password1"
                       value="Password"
                     />
+                    <TextInput
+                      id="password1"
+                      name="user_password"
+                      type={showPassword ? "text" : "password"} // Toggle password visibility
+                      placeholder="Enter your password"
+                      required
+                    />
+                    <button
+                      type="button"
+                      className="absolute top-6 inset-y-0 right-0 flex items-center px-3 text-gray-500 focus:outline-none"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? <FiEye /> : <FiEyeOff />}
+                    </button>
                   </div>
-                  <TextInput
-                    id="password1"
-                    name="user_password"
-                    type="password"
-                    icon={IoMdLock}
-                    placeholder="Enter your password"
-                    required
-                  />
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <div>

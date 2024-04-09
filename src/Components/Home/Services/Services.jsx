@@ -10,6 +10,7 @@ import Image from "next/image";
 import API_ROUTES from "@/app/api/confiq";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
 import Link from "next/link";
+import "../../../app/globals.css";
 
 const Services = () => {
   // states
@@ -111,7 +112,7 @@ const Services = () => {
         <div className="py-6 xl:pt-10 ">
           <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 lg:py-8">
             {/* left heading & description starts*/}
-            <div className="w-full lg:w-[35%]">
+            <div className="w-full lg:w-[30%]">
               <div className="w-full lg:w-[400px]">
                 <h3 className="text-center lg:text-left text-[30px] md:text-[48px] font-bold font-Raleway text-[#0F172A]">
                   Kick Start With Our Services{" "}
@@ -164,7 +165,7 @@ const Services = () => {
                 <ServiceLoading />
               </>
             ) : (
-              <div className="w-full flex justify-center items-center  lg:w-[65%]  ">
+              <div className="w-full flex justify-center items-center  lg:w-[70%]  ">
                 {/* cards */}
                 <Swiper
                   ref={swiperRef}
@@ -177,13 +178,20 @@ const Services = () => {
                     setCurrentSlide(swiper.activeIndex)
                   }
                 >
-                  {services.map((service) => {
+                  {services.map((service, index) => {
+                    const isLastSlide = index === services.length - 1;
+                    const isThirdSlide = index === 1;
+
                     return (
-                      <SwiperSlide key={service.id} className="">
+                      <SwiperSlide key={service.id}>
                         <Link
                           href={`/services/${service.slug.replace(/\s+/g, "")}`}
                         >
-                          <div className="w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer">
+                          <div
+                            className={`w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
+                              isThirdSlide && "no-margin"
+                            } ${isLastSlide ? "" : "no-margin2"}`}
+                          >
                             <div className="flex flex-col">
                               <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
                                 <div>

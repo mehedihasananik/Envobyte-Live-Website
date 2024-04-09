@@ -1,16 +1,14 @@
 "use client";
-
 import { Label, TextInput } from "flowbite-react";
 import Container from "@/Components/Container/Container";
 import React, { useState } from "react";
-import { FiArrowRight } from "react-icons/fi";
+import { FiArrowRight, FiEye, FiEyeOff } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
-import { IoMdLock } from "react-icons/io";
-import { IoPersonSharp } from "react-icons/io5";
+import { IoMdLock, IoPersonSharp } from "react-icons/io";
 import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
-import * as Yup from "yup"; // Import Yup for validation
+import * as Yup from "yup";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -18,13 +16,8 @@ const SignUp = () => {
     user_email: "",
     user_password: "",
   });
+  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
 
-  // Define Yup schema for validation
-  // Define Yup schema for validation
-  // Define Yup schema for validation
-  // Define Yup schema for validation
-  // Define Yup schema for validation
-  // Define Yup schema for validation
   const validationSchema = Yup.object().shape({
     user_name: Yup.string()
       .required("Name is required")
@@ -40,7 +33,6 @@ const SignUp = () => {
         /^[^\d].*\.com$/,
         "Email can't start with a number & must end with .com"
       ),
-
     user_password: Yup.string()
       .required("Password is required")
       .min(6, "Password must be at least 6 characters")
@@ -51,13 +43,11 @@ const SignUp = () => {
   });
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
+    event.preventDefault();
 
     try {
-      // Validate form data using Yup schema
       await validationSchema.validate(formData, { abortEarly: false });
 
-      // Make a POST request to the API endpoint
       const response = await axios.post(
         "http://192.168.10.14:8000/api/sign_up",
         formData
@@ -74,24 +64,19 @@ const SignUp = () => {
       if (response.data.resultexist) {
         toast.error(response.data.resultexist);
       }
-
-      // Handle success response here, e.g., show a success message to the user
     } catch (error) {
       console.error("Error:", error);
-      // Handle Yup validation errors
       if (error.name === "ValidationError") {
         error.inner.forEach((err) => {
           toast.error(err.message);
         });
       } else {
-        // Handle other errors, e.g., network error
         toast.error("Something went wrong. Please try again later.");
       }
     }
   };
 
   const handleChange = (event) => {
-    // Update form data when input values change
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -102,10 +87,8 @@ const SignUp = () => {
   return (
     <div className="login_singUp pt-5">
       <Container>
-        {/* login */}
         <div className="w-full h-fit flex justify-center pt-5 ">
           <div className="shadow-md  border rounded-lg py-5 px-10  md:py-10 md:px-12">
-            {/* title */}
             <div className="text-center pb-10 md:pb-14">
               <h3 className="text-[32px] md:text-[40px] text-[#333333] font-Raleway font-bold">
                 Create account
@@ -114,7 +97,6 @@ const SignUp = () => {
                 Let&apos;s create your account
               </p>
             </div>
-            {/* social login */}
             <div className="flex flex-col md:flex-row gap-10 pb-8 lg:pb-12">
               <button className="flex justify-center items-center gap-2 font-Raleway border p-2 rounded-md hover:border-[#FF693B] transition-all duration-200">
                 <img src="/assets/gLogo.png" alt="" />{" "}
@@ -129,7 +111,6 @@ const SignUp = () => {
                 </span>
               </button>
             </div>
-            {/* or break */}
             <div className="flex items-center gap-x-5  md:pt-0">
               <span className="w-[50%] h-[1px] border"></span>{" "}
               <span className="text-[14px] font-Raleway text-[#032333] font-medium">
@@ -137,14 +118,11 @@ const SignUp = () => {
               </span>{" "}
               <span className="w-[50%] h-[1px] border"></span>
             </div>
-            {/* form */}
             <div className="pt-4 md:pt-8">
               <form
                 className="flex max-w-md flex-col gap-4"
                 onSubmit={handleSubmit}
               >
-                {/* Input fields */}
-                {/* Name */}
                 <div>
                   <div className="mb-2 block">
                     <Label
@@ -164,7 +142,6 @@ const SignUp = () => {
                     required
                   />
                 </div>
-                {/* Email */}
                 <div>
                   <div className="mb-2 block">
                     <Label
@@ -184,29 +161,32 @@ const SignUp = () => {
                     required
                   />
                 </div>
-                {/* Password */}
                 <div>
-                  <div className="mb-2 block">
+                  <div className="mb-2 block relative">
                     <Label
                       className="text-[16px] font-Raleway text-[#032333] font-[500]"
                       htmlFor="password1"
                       value="Password"
                     />
+                    <TextInput
+                      id="password1"
+                      type={showPassword ? "text" : "password"} // Toggle password visibility
+                      // Show different eye icon based on visibility state
+                      placeholder="Enter your password"
+                      name="user_password"
+                      value={formData.user_password}
+                      onChange={handleChange}
+                      required
+                    />
+                    <button
+                      type="button"
+                      className="absolute top-6 inset-y-0 right-0 flex items-center px-3 text-gray-500 focus:outline-none"
+                      onClick={() => setShowPassword(!showPassword)}
+                    >
+                      {showPassword ? <FiEye /> : <FiEyeOff />}
+                    </button>
                   </div>
-                  <TextInput
-                    id="password1"
-                    type="password"
-                    icon={IoMdLock}
-                    placeholder="Enter your password"
-                    name="user_password"
-                    value={formData.user_password}
-                    onChange={handleChange}
-                    required
-                  />
                 </div>
-                {/* Agreement */}
-                {/* Your existing agreement checkbox code */}
-                {/* Submit button */}
                 <button
                   className="bg-[#FF693B] text-[16px] font-semibold font-Raleway md:mt-6 py-2 hover:bg-[#fff] hover:text-[#FF693B] flex justify-center items-center rounded-md text-white border border-[#FF693B] transition-all duration-300"
                   type="submit"

@@ -8,6 +8,7 @@ import ServicePortolio from "@/Components/Utilites/ServicePortfolio/ServicePorto
 import { useState } from "react";
 import ServiceModal from "@/Components/Utilites/ServiceModal/ServiceModal";
 import SinglePackage from "./SinglePackage";
+import Link from "next/link";
 
 const ServiceDetails = ({ service, sliders, packages }) => {
   const [openModal, setOpenModal] = useState(false);
@@ -83,17 +84,24 @@ const ServiceDetails = ({ service, sliders, packages }) => {
         </div>
       </Container>
       {/* portfolios*/}
-      <div className="text-center py-3 md:py-5">
-        <h2 className="text-[32px] md:text-[48px] text-[#0F172A] font-bold font-Raleway">
-          Portfolio&apos;s{" "}
-        </h2>
+      <div>
+        <div className="text-center py-3 md:py-5">
+          <h2 className="text-[32px] md:text-[48px] text-[#0F172A] font-bold font-Raleway">
+            Portfolio&apos;s{" "}
+          </h2>
+        </div>
+        <div className="pl-[3%]">
+          <ServicePortolio />
+        </div>
       </div>
-      <ServicePortolio />
 
       <div className="flex justify-center py-10">
-        <button className="text-[16px] bg-[#FF693B] px-11 py-3 text-white rounded-xl border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
+        <Link
+          href={"/portfolio"}
+          className="text-[16px] bg-[#FF693B] px-11 py-3 text-white rounded-xl border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300"
+        >
           See More
-        </button>
+        </Link>
       </div>
       <Container>
         {/* relevant services */}
