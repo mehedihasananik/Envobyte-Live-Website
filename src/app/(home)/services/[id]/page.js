@@ -44,14 +44,9 @@ const SinglePage = async ({ params }) => {
   console.log(service);
 
   return (
-    <div>
-      {" "}
-      <ServiceDetails
-        service={service}
-        sliders={sliders}
-        packages={packages}
-      />{" "}
-    </div>
+    <>
+      <ServiceDetails service={service} sliders={sliders} packages={packages} />
+    </>
   );
 };
 
