@@ -193,7 +193,7 @@ const Footer = () => {
       <hr />
       <div className="text-center py-3 ">
         <p className="text-[#444444] text-[14px] font-bold">
-          @2023 - ENVOBYTE, All rights are reserved.
+          @2024 - ENVOBYTE, All rights are reserved.
         </p>
       </div>
     </Container>

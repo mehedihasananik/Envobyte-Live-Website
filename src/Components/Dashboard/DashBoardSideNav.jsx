@@ -9,15 +9,6 @@ import { FiMessageSquare } from "react-icons/fi";
 import { FiLayers } from "react-icons/fi";
 import { Sidebar } from "flowbite-react";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
-import {
-  HiArrowSmRight,
-  HiChartPie,
-  HiInbox,
-  HiShoppingBag,
-  HiTable,
-  HiUser,
-  HiViewBoards,
-} from "react-icons/hi";
 
 const DashBoardSideNav = ({ height }) => {
   const [showSidebar, setShowSidebar] = useState(false);

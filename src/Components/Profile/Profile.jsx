@@ -176,7 +176,7 @@ const Profile = () => {
 
                 <div className="w-full rounded-lg bg-blue-500 hover:bg-[#FF693B] transition-all duration-300 lg:mt-8 text-white text-lg font-semibold ">
                   <button type="submit" className="w-full py-3">
-                    Submit
+                    Update
                   </button>
                 </div>
               </form>
