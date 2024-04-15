@@ -8,6 +8,7 @@ import { IoMdLock } from "react-icons/io";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import ReCAPTCHA from "react-google-recaptcha";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -57,6 +58,9 @@ const Login = () => {
 
     setLoading(false);
   };
+  function onChange() {
+    
+  }
 
   return (
     <div className="login_singUp pt-5">
@@ -111,7 +115,7 @@ const Login = () => {
                     id="email1"
                     type="email"
                     icon={HiMail}
-                    placeholder="example@email.com"
+                    placeholder="Enter your email address"
                     required
                   />
                 </div>
@@ -137,6 +141,12 @@ const Login = () => {
                       {showPassword ? <FiEye /> : <FiEyeOff />}
                     </button>
                   </div>
+                </div>
+                <div>
+                <ReCAPTCHA
+                sitekey="6LcqZLopAAAAACmhsdtqnY3m0QHY6ELWc2QoAlVO"
+                onChange={onChange}
+              />
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <div>

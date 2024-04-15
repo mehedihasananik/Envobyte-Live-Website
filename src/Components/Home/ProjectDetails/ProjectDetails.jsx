@@ -4,6 +4,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import * as Yup from "yup"; // Import Yup for validation
+import ReCAPTCHA from "react-google-recaptcha";
 
 const ProjectDetails = () => {
   const [formData, setFormData] = useState({
@@ -85,6 +86,9 @@ const ProjectDetails = () => {
       [name]: value,
     }));
   };
+  function onChange() {
+    
+  }
 
   return (
     <div
@@ -250,6 +254,12 @@ const ProjectDetails = () => {
                       />
                     </div>
                   </div>
+                </div>
+                <div>
+                <ReCAPTCHA
+                sitekey="6LcqZLopAAAAACmhsdtqnY3m0QHY6ELWc2QoAlVO"
+                onChange={onChange}
+              />
                 </div>
                 <div className="pt-6">
                   {" "}

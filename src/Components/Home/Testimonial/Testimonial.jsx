@@ -20,6 +20,7 @@ const Testimonial = () => {
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
+  console.log(testimonials);
 
   useEffect(() => {
     const fetchData = async () => {

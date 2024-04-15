@@ -7,13 +7,7 @@ import React from "react";
 const ManageOrderPage = () => {
   return (
     <div className="bg-[#FCFCFC]">
-      <div className="w-full flex">
-        <DashBoardSideNav height="100vh" />
-        <div className="w-full">
-          <DashBoardNav title="Manage-order" />
-          <ManageOrder />
-        </div>
-      </div>
+      <ManageOrder />
     </div>
   );
 };
