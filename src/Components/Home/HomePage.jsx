@@ -13,7 +13,7 @@ import {
 
 const HomePage = () => {
   return (
-    <>
+    <div className="overflow-hidden">
       <Banner />
       <Brands />
       <Services />
@@ -23,7 +23,7 @@ const HomePage = () => {
       <Testimonial />
       <Questions title="Questions Looks Here" />
       <ProjectDetails />
-    </>
+    </div>
   );
 };
 

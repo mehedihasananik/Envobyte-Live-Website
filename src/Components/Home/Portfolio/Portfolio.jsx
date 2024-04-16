@@ -1,6 +1,7 @@
 "use client";
 import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
+import { serviceApi, sevice_portfolioApi } from "@/config/apis";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
@@ -17,8 +18,8 @@ const Portfolio = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ROUTES.route}/sevice_portfolio`);
-        const response2 = await fetch(`${API_ROUTES.route}/service`);
+        const response = await fetch(`${sevice_portfolioApi}`);
+        const response2 = await fetch(`${serviceApi}`);
         const data = await response.json();
         const data2 = await response2.json();
         setPortfolios(data);
@@ -48,16 +49,42 @@ const Portfolio = () => {
             </h3>
           </div>
           <div className="flex flex-col lg:flex-row gap-3 md:gap-10 text-[#9E9E9E] text-[16px] lg:text-[16px] ">
-            <div className="flex gap-10">
-              {services.map((service) => (
-                <button
-                  key={service.service_id}
-                  onClick={() => setSelectedServiceId(service.service_id)}
-                  className="text-[#9E9E9E] hover:text-[#FA8D59] font-bold  transition-all text-[16px]"
-                >
-                  {service.service_name}
-                </button>
-              ))}
+            <div className="hidden md:block">
+              <div className="flex gap-10">
+                {services.map((service) => (
+                  <button
+                    key={service.service_id}
+                    onClick={() => setSelectedServiceId(service.service_id)}
+                    className="text-[#9E9E9E] hover:text-[#FA8D59] font-bold  transition-all text-[16px]"
+                  >
+                    {service.service_name}
+                  </button>
+                ))}
+              </div>
+            </div>
+            <div className="block md:hidden ">
+              <div className="flex justify-center space-x-4 pb-4">
+                {services.slice(0, 3).map((service) => (
+                  <button
+                    key={service.service_id}
+                    onClick={() => setSelectedServiceId(service.service_id)}
+                    className="text-[#9E9E9E] hover:text-[#FA8D59] font-bold  transition-all text-[14px] "
+                  >
+                    {service.service_name}
+                  </button>
+                ))}
+              </div>{" "}
+              <div className="flex justify-center space-x-4">
+                {services.slice(3, 6).map((service) => (
+                  <button
+                    key={service.service_id}
+                    onClick={() => setSelectedServiceId(service.service_id)}
+                    className="text-[#9E9E9E] hover:text-[#FA8D59] font-bold  transition-all text-[14px] "
+                  >
+                    {service.service_name}
+                  </button>
+                ))}
+              </div>{" "}
             </div>
           </div>
         </div>

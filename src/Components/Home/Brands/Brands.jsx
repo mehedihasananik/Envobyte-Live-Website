@@ -1,6 +1,7 @@
 "use client";
 import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
+import { brandsApi } from "@/config/apis";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 
@@ -11,7 +12,7 @@ const Brands = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ROUTES.route}/home_brand`);
+        const response = await fetch(`${brandsApi}`);
         const data = await response.json();
         setBrands(data);
         setLoading(false); // Set loading to false after data is fetched
@@ -51,7 +52,7 @@ const Brands = () => {
               <>
                 {/* brands logo */}
                 <div className="w-[100%] flex gap-x-5 lg:gap-x-10 justify-center items-center lg:justify-end">
-                  {brands.map((brand) => {
+                  {brands?.map((brand) => {
                     return (
                       <Image
                         key={brand.id}

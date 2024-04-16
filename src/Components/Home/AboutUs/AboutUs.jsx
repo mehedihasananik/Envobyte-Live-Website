@@ -1,6 +1,7 @@
 "use client";
 import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
+import { about_us_homeApi } from "@/config/apis";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -16,7 +17,7 @@ const AboutUs = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ROUTES.route}/about_us_home`);
+        const response = await fetch(`${about_us_homeApi}`);
         const data = await response.json();
         setAbout(data);
         setLoading(false); // Set loading to false after data is fetched

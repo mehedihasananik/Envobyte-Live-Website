@@ -2,6 +2,7 @@
 
 import Accordion from "@/Components/Accordion/Accordion";
 import API_ROUTES from "@/app/api/confiq";
+import { faqApi } from "@/config/apis";
 import { useEffect, useState } from "react";
 import { List } from "react-content-loader";
 
@@ -12,7 +13,7 @@ const Questions = ({ className, title }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ROUTES.route}/faq`);
+        const response = await fetch(`${faqApi}`);
         const data = await response.json();
         setQuestions(data);
         setLoading(false); // Set loading to false after data is fetched

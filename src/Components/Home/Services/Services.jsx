@@ -11,6 +11,7 @@ import API_ROUTES from "@/app/api/confiq";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
 import Link from "next/link";
 import "../../../app/globals.css";
+import { servicesApi } from "@/config/apis";
 
 const Services = () => {
   // states
@@ -23,7 +24,7 @@ const Services = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ROUTES.route}/sevice_items`);
+        const response = await fetch(`${servicesApi}`);
         const data = await response.json();
         setServices(data);
         setLoading(false); // Set loading to false after data is fetched
@@ -188,7 +189,7 @@ const Services = () => {
                           href={`/services/${service.slug.replace(/\s+/g, "")}`}
                         >
                           <div
-                            className={`w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
+                            className={`w-[300px] xxl:w-[300px] 4xl:w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
                               isThirdSlide && "no-margin"
                             } ${isLastSlide ? "" : "no-margin2"}`}
                           >

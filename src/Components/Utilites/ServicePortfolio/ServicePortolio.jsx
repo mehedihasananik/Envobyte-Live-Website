@@ -36,7 +36,6 @@ const ServicePortolio = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(portfolios);
 
   const swiperRef = useRef(null);
 

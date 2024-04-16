@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
@@ -56,13 +56,7 @@ const ServicesPageContent = () => {
     const filteredServices = filterServices();
 
     // Remove duplicates by filtering out services with duplicate IDs
-    const uniqueServices = Array.from(
-      new Set(filteredServices.map((service) => service.service_id))
-    ).map((serviceId) => {
-      return filteredServices.find(
-        (service) => service.service_id === serviceId
-      );
-    });
+    const uniqueServices = filteredServices;
 
     setServiceItems(uniqueServices);
   }, [selectedServiceId, searchQuery, services]);
@@ -154,9 +148,9 @@ const ServicesPageContent = () => {
               </>
             ) : (
               <>
-                {serviceItems.map((service) => (
+                {serviceItems.map((service, index) => (
                   <Link
-                    key={service.service_id}
+                    key={index} // Change key to index
                     href={`/services/${service.slug.replace(/\s+/g, "")}`}
                   >
                     <div className="group w-[330px] shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">

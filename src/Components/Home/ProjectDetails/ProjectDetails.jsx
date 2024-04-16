@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import * as Yup from "yup"; // Import Yup for validation
 import ReCAPTCHA from "react-google-recaptcha";
+import { user_feedbackApi } from "@/config/apis";
 
 const ProjectDetails = () => {
   const [formData, setFormData] = useState({
@@ -50,10 +51,8 @@ const ProjectDetails = () => {
 
     try {
       await validationSchema.validate(formData, { abortEarly: false });
-      const response = await axios.post(
-        "http://192.168.10.14:8000/api/user_feedback",
-        formData
-      );
+      const response = await axios.post(`${user_feedbackApi}`, formData);
+
       console.log("Response:", response.data);
 
       // Check the response structure
@@ -86,9 +85,7 @@ const ProjectDetails = () => {
       [name]: value,
     }));
   };
-  function onChange() {
-    
-  }
+  function onChange() {}
 
   return (
     <div
@@ -256,10 +253,10 @@ const ProjectDetails = () => {
                   </div>
                 </div>
                 <div>
-                <ReCAPTCHA
-                sitekey="6LcqZLopAAAAACmhsdtqnY3m0QHY6ELWc2QoAlVO"
-                onChange={onChange}
-              />
+                  <ReCAPTCHA
+                    sitekey="6LcqZLopAAAAACmhsdtqnY3m0QHY6ELWc2QoAlVO"
+                    onChange={onChange}
+                  />
                 </div>
                 <div className="pt-6">
                   {" "}

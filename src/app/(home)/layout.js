@@ -3,6 +3,7 @@ import "../globals.css";
 import { Footer } from "@/Components";
 import Header from "@/Components/Home/Navbar/Header";
 import { Toaster } from "react-hot-toast";
+import AuthProviders, { ThemeProvider } from "@/providers/AuthProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,9 +23,11 @@ export default function RootLayout({ children }) {
 
       <body className={inter.className}>
         <Toaster />
-        <Header />
-        {children}
-        <Footer />
+        <AuthProviders>
+          <Header />
+          {children}
+          <Footer />
+        </AuthProviders>
       </body>
     </html>
   );

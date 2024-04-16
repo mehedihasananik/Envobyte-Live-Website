@@ -46,7 +46,7 @@ const DashBoardSideNav = ({ height }) => {
                   <div className="lg:pl-[13%] pt-1">
                     <Link href={"/"}>
                       {" "}
-                      <img src="/assets/logo.png" alt="" />
+                      <img  src="/assets/logo.png" alt="" />
                     </Link>
                   </div>
                   <div className="w-full">

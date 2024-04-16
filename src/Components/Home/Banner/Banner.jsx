@@ -2,6 +2,7 @@
 
 import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
+import { bannerApi } from "@/config/apis";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -15,7 +16,7 @@ const Banner = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ROUTES.route}/home_banner`);
+        const response = await fetch(`${bannerApi}/`);
         const data = await response.json();
         setBanner(data);
         setLoading(false); // Set loading to false after data is fetched
@@ -105,6 +106,7 @@ const Banner = () => {
                 src={banner.banner}
                 quality={100}
                 alt="banner image"
+                priority={false}
                 onContextMenu={(e) => e.preventDefault()}
               />
             </div>

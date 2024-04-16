@@ -2,13 +2,16 @@
 import Container from "@/Components/Container/Container";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Navbar } from "flowbite-react";
 import { usePathname } from "next/navigation";
+import { AuthContext } from "@/providers/AuthProviders";
 
 const Header = () => {
   const userData = JSON.parse(sessionStorage.getItem("userData"));
   const [cleared, setCleared] = useState(false);
+  const user = useContext(AuthContext);
+  console.log(user);
 
   const clearSession = () => {
     // Remove the userData from sessionStorage
@@ -40,6 +43,7 @@ const Header = () => {
                 width={159}
                 height={49}
                 alt="Picture of the logo"
+                priority={false}
                 className="relative left-[-8px]"
               />
             </Link>
@@ -92,6 +96,7 @@ const Header = () => {
               width={100}
               height={49}
               alt="Picture of the logo"
+              priority={false}
             />
           </Navbar.Brand>
           <Navbar.Toggle />

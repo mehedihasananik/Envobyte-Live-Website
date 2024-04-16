@@ -8,24 +8,18 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { HiArrowLeft } from "react-icons/hi";
 import { HiArrowRight } from "react-icons/hi";
-
-// import required modules
-import { Navigation } from "swiper/modules";
-import Container from "@/Components/Container/Container";
-import Image from "next/image";
-import API_ROUTES from "@/app/api/confiq";
+import { testimonials_itemsApi } from "@/config/apis";
 
 const Testimonial = () => {
   const [testimonials, setTestimonials] = useState([]);
   const [loading, setLoading] = useState(true);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
-  console.log(testimonials);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`${API_ROUTES.route}/testimonials_items`);
+        const response = await fetch(`${testimonials_itemsApi}`);
         const data = await response.json();
         setTestimonials(data);
         setTotalSlides(data.length);
@@ -63,7 +57,7 @@ const Testimonial = () => {
       spaceBetween: 30,
     },
     1336: {
-      slidesPerView: 2,
+      slidesPerView: 3,
       spaceBetween: 30,
     },
     1280: {
