@@ -16,6 +16,8 @@ const ProjectDetails = () => {
     message: "",
   });
 
+  const [captchaVerified, setCaptchaVerified] = useState(false); // State to track ReCAPTCHA verification
+
   const validationSchema = Yup.object().shape({
     first_name: Yup.string()
       .required("Name is required")
@@ -49,9 +51,14 @@ const ProjectDetails = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    if (!captchaVerified) {
+      toast.error("Please verify that you are not a robot.");
+      return; // Prevent form submission if ReCAPTCHA is not verified
+    }
+
     try {
       await validationSchema.validate(formData, { abortEarly: false });
-      const response = await axios.post(`${user_feedbackApi}`, formData);
+      const response = await axios.post(user_feedbackApi, formData);
 
       console.log("Response:", response.data);
 
@@ -85,7 +92,11 @@ const ProjectDetails = () => {
       [name]: value,
     }));
   };
-  function onChange() {}
+
+  const handleCaptchaChange = (value) => {
+    // This function will be called when ReCAPTCHA status changes
+    setCaptchaVerified(true); // Set captcha verification status to true
+  };
 
   return (
     <div
@@ -255,12 +266,15 @@ const ProjectDetails = () => {
                 <div>
                   <ReCAPTCHA
                     sitekey="6LcqZLopAAAAACmhsdtqnY3m0QHY6ELWc2QoAlVO"
-                    onChange={onChange}
+                    onChange={handleCaptchaChange}
                   />
                 </div>
                 <div className="pt-6">
-                  {" "}
-                  <button className="text-[16px] bg-[#FF693B] px-8 py-4 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300">
+                  <button
+                    className="text-[16px] bg-[#FF693B] px-8 py-4 text-white rounded-lg border border-[#FF693B]  hover:bg-white hover:text-[#FF693B] transition-all duration-300"
+                    type="submit"
+                    disabled={!captchaVerified}
+                  >
                     Send Request
                   </button>
                 </div>
