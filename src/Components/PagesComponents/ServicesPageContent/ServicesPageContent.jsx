@@ -65,7 +65,6 @@ const ServicesPageContent = () => {
     });
 
     setServiceItems(uniqueServices);
-    console.log(uniqueServices);
   }, [selectedServiceId, searchQuery, services]);
 
   const handleServiceChange = (e) => {
@@ -75,7 +74,6 @@ const ServicesPageContent = () => {
   const handleSearchInputChange = (e) => {
     setSearchQuery(e.target.value);
   };
-  console.log(serviceItems);
 
   return (
     <div className="service_section">

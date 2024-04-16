@@ -58,9 +58,7 @@ const Login = () => {
 
     setLoading(false);
   };
-  function onChange() {
-    
-  }
+  function onChange() {}
 
   return (
     <div className="login_singUp pt-5">
@@ -143,10 +141,10 @@ const Login = () => {
                   </div>
                 </div>
                 <div>
-                <ReCAPTCHA
-                sitekey="6LcqZLopAAAAACmhsdtqnY3m0QHY6ELWc2QoAlVO"
-                onChange={onChange}
-              />
+                  <ReCAPTCHA
+                    sitekey="6LcqZLopAAAAACmhsdtqnY3m0QHY6ELWc2QoAlVO"
+                    onChange={onChange}
+                  />
                 </div>
                 <div className="flex items-center justify-between gap-2">
                   <div>
