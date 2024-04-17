@@ -26,7 +26,7 @@ const Profile = () => {
 
     fetchData();
   }, []);
-  console.log(profile);
+
   const backgroundImage = profile?.image ? `url(${profile.image})` : "";
   console.log(backgroundImage);
   return (

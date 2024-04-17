@@ -1,6 +1,7 @@
 "use client";
 
 import Accordion from "@/Components/Accordion/Accordion";
+import Container from "@/Components/Container/Container";
 import API_ROUTES from "@/app/api/confiq";
 import { faqApi } from "@/config/apis";
 import { useEffect, useState } from "react";
@@ -29,9 +30,9 @@ const Questions = ({ className, title }) => {
   const MyListLoader = () => <List />;
 
   return (
-    <>
+    <Container>
       <div className={`py-10 ${className}`}>
-        <div className="max-w-[1680px] mx-auto md:px-[8%]">
+        <div className="max-w-[1680px] mx-auto ">
           {loading ? (
             <div>
               <MyListLoader className="text-center flex justify-center items-center w-[100%]" />
@@ -64,7 +65,7 @@ const Questions = ({ className, title }) => {
           )}
         </div>
       </div>
-    </>
+    </Container>
   );
 };
 

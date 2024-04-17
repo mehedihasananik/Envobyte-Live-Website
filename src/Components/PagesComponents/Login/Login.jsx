@@ -9,6 +9,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import ReCAPTCHA from "react-google-recaptcha";
+import { fetchData } from "@/config/apiRequests.js";
+import { loginApi } from "@/config/apis";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -29,27 +31,15 @@ const Login = () => {
     };
 
     try {
-      const response = await fetch("http://192.168.10.14:8000/api/user_login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(requestData),
-      });
+      const data = await fetchData(`${loginApi}`, "POST", requestData);
 
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        if (data.success) {
-          toast.success("Logged in successfully");
-          sessionStorage.setItem("userData", JSON.stringify(data));
-          router.push("/dashboard");
-        }
-        if (data.ErrorMessage) {
-          toast.error(data.ErrorMessage);
-        }
-      } else {
-        console.log(data);
+      if (data.success) {
+        toast.success("Logged in successfully");
+        sessionStorage.setItem("userData", JSON.stringify(data));
+        router.push("/dashboard");
+      }
+      if (data.ErrorMessage) {
+        toast.error(data.ErrorMessage);
       }
     } catch (error) {
       console.error("Error:", error);

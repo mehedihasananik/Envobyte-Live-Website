@@ -5,6 +5,13 @@ import Loading from "@/Components/Utilites/Loading/Loading";
 import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchData } from "@/config/apiRequests.js";
+import {
+  searchServiceApi,
+  search_sevice_categoryAll,
+  serviceApi,
+  sevice_portfolioApi,
+} from "@/config/apis";
 
 const PortfolioPage = () => {
   const [portfolioCategories, setPortfolioCategories] = useState([]);
@@ -17,9 +24,7 @@ const PortfolioPage = () => {
 
   const fetchServiceCategories = async (selectedValue) => {
     try {
-      const response = await fetch(
-        `${API_ROUTES.route}/search_sevice_category/${selectedValue}`
-      );
+      const response = await fetch(`${searchServiceApi}/${selectedValue}`);
       const data = await response.json();
       setServiceCategories(data);
     } catch (error) {
@@ -27,16 +32,11 @@ const PortfolioPage = () => {
     }
   };
 
-  const fetchData = async () => {
+  const fetchDataAsync = async () => {
     try {
-      const response = await fetch(`${API_ROUTES.route}/sevice_portfolio`);
-      const response2 = await fetch(`${API_ROUTES.route}/service`);
-      const categoriesResponse = await fetch(
-        `${API_ROUTES.route}/search_sevice_category/all`
-      );
-      const data = await response.json();
-      const data2 = await response2.json();
-      const categoriesData = await categoriesResponse.json();
+      const data = await fetchData(`${sevice_portfolioApi}`);
+      const data2 = await fetchData(`${serviceApi}`);
+      const categoriesData = await fetchData(`${search_sevice_categoryAll}`);
       setPortfolioCategories(data);
       setServices(data2);
       setServiceCategories(categoriesData);
@@ -48,7 +48,7 @@ const PortfolioPage = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchDataAsync();
   }, []);
 
   const handleServiceChange = async (e) => {

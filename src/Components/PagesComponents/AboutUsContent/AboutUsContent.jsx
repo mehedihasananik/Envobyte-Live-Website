@@ -1,10 +1,10 @@
 import Container from "@/Components/Container/Container";
-import API_ROUTES from "@/app/api/confiq";
+import { aboutUsApi, aboutUsItemApi } from "@/config/apis";
 import Image from "next/image";
 import React from "react";
 
 async function getAboutPage() {
-  const res = await fetch(`${API_ROUTES.route}/aboutus_page`, {
+  const res = await fetch(`${aboutUsApi}`, {
     next: { revalidate: 10 },
   });
 
@@ -15,7 +15,7 @@ async function getAboutPage() {
 }
 
 async function getAbout_item() {
-  const res = await fetch(`${API_ROUTES.route}/aboutus_page_item`, {
+  const res = await fetch(`${aboutUsItemApi}`, {
     next: { revalidate: 10 },
   });
 

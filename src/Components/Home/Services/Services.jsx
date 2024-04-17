@@ -84,7 +84,7 @@ const Services = () => {
     },
     1336: {
       slidesPerView: 3,
-      spaceBetween: 50,
+      spaceBetween: 10,
     },
     1280: {
       slidesPerView: 2,
@@ -108,12 +108,12 @@ const Services = () => {
 
   return (
     <div className="overflow-hidden">
-      <div className="max-w-[1680px] mx-auto px-[4%] md:px[8%] 4xl:px-[0] 4xl:max-w-[1920px] 4xl:pl-[14%]">
+      <div className="max-w-[1680px] mx-auto  4xl:px-[0] 4xl:max-w-[1920px] xl:pl-[8%] 2xl:pl-[13%] 4xl:pl-[14%]">
         {/* services */}
         <div className="py-6 xl:pt-10 ">
           <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 lg:py-8">
             {/* left heading & description starts*/}
-            <div className="w-full lg:w-[30%]">
+            <div className="w-full lg:w-[30%] xxl:w-[25%] 2xl:w-[30%]">
               <div className="w-full lg:w-[400px]">
                 <h3 className="text-center lg:text-left text-[30px] md:text-[48px] font-bold font-Raleway text-[#0F172A]">
                   Kick Start With Our Services{" "}
@@ -166,7 +166,7 @@ const Services = () => {
                 <ServiceLoading />
               </>
             ) : (
-              <div className="w-full flex justify-center items-center  lg:w-[70%]  ">
+              <div className="w-full flex justify-center items-center  lg:w-[70%] xxl:w-[75%]   2xl:w-[70%]">
                 {/* cards */}
                 <Swiper
                   ref={swiperRef}

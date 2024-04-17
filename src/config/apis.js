@@ -11,6 +11,21 @@ const faqApi = `${apiEndpoint}/faq`;
 const user_feedbackApi = `${apiEndpoint}/user_feedback`;
 
 // services page
+const serviceListApi = `${apiEndpoint}/service`;
+const allsServiceItemsApi = `${apiEndpoint}/sevice_items`;
+
+// portfolio page
+const searchServiceApi = `${apiEndpoint}/search_sevice_category`;
+const search_sevice_categoryAll = `${apiEndpoint}/search_sevice_category/all`;
+
+// about page
+const aboutUsApi = `${apiEndpoint}/aboutus_page`;
+const aboutUsItemApi = `${apiEndpoint}/aboutus_page_item`;
+
+// register page page
+
+// login
+const loginApi = `${apiEndpoint}/user_login`;
 
 export {
   bannerApi,
@@ -22,4 +37,11 @@ export {
   testimonials_itemsApi,
   faqApi,
   user_feedbackApi,
+  serviceListApi,
+  allsServiceItemsApi,
+  loginApi,
+  searchServiceApi,
+  search_sevice_categoryAll,
+  aboutUsApi,
+  aboutUsItemApi,
 };

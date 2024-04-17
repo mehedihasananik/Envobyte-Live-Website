@@ -1,10 +1,10 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import Container from "@/Components/Container/Container";
-import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
+import { allsServiceItemsApi, serviceListApi } from "@/config/apis";
 
 const ServicesPageContent = () => {
   const [serviceCategories, setServiceCategories] = useState([]);
@@ -16,11 +16,11 @@ const ServicesPageContent = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch(`${API_ROUTES.route}/service`);
+      const response = await fetch(`${serviceListApi}`);
       const data = await response.json();
       setServiceCategories(data);
 
-      const response2 = await fetch(`${API_ROUTES.route}/sevice_items`);
+      const response2 = await fetch(`${allsServiceItemsApi}`);
       const data2 = await response2.json();
       setServices(data2);
       setLoading(false);

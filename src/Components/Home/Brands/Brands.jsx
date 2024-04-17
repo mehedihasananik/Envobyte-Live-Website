@@ -1,6 +1,6 @@
 "use client";
 import Container from "@/Components/Container/Container";
-import API_ROUTES from "@/app/api/confiq";
+import { fetchData } from "@/config/apiRequests.js";
 import { brandsApi } from "@/config/apis";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -10,19 +10,17 @@ const Brands = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${brandsApi}`);
-        const data = await response.json();
-        setBrands(data);
-        setLoading(false); // Set loading to false after data is fetched
-      } catch (error) {
-        console.error("Error fetching banner data:", error);
-        setLoading(false); // Set loading to false even if there's an error
-      }
-    };
+    const apiUrl = `${brandsApi}`;
 
-    fetchData();
+    fetchData(apiUrl) // Default method is 'GET'
+      .then((data) => {
+        setBrands(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.log(error);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -51,7 +49,7 @@ const Brands = () => {
             ) : (
               <>
                 {/* brands logo */}
-                <div className="w-[100%] flex gap-x-5 lg:gap-x-10 justify-center items-center lg:justify-end">
+                <div className="w-[100%]  flex sm:gap-x-3 lsm:gap-x-5 lg:gap-x-10 justify-center items-center lg:justify-end">
                   {brands?.map((brand) => {
                     return (
                       <Image

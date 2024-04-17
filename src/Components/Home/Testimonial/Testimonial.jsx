@@ -58,7 +58,7 @@ const Testimonial = () => {
     },
     1336: {
       slidesPerView: 3,
-      spaceBetween: 30,
+      spaceBetween: 10,
     },
     1280: {
       slidesPerView: 2,
@@ -82,7 +82,7 @@ const Testimonial = () => {
 
   return (
     <div id="testimonial" className=" overflow-hidden ">
-      <div className="max-w-[1680px] mx-auto px-[4%] md:px[8%] 4xl:px-[0] 4xl:max-w-[1920px] 4xl:pl-[14%]">
+      <div className="max-w-[1680px] mx-auto  4xl:px-[0] 4xl:max-w-[1920px] xl:pl-[8%] 2xl:pl-[13%] 4xl:pl-[14%]">
         {/* services */}
         <div className="py-5 xl:pt-10 ">
           <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 py-8">

@@ -101,7 +101,7 @@ const ProjectDetails = () => {
   return (
     <div
       id="projectDetails"
-      className="bg-[#F8FAFC] py-5 pb-8 md:py-10 md:pb-14 lg:py-10"
+      className="bg-[#F8FAFC] py-5 pb-8 md:py-10 md:pb-[4%] lg:py-10 lg:pb-[4%]"
     >
       <Container>
         {/* project details */}
