@@ -1,4 +1,5 @@
 "use client";
+import Head from "next/head";
 import React, { useContext, useEffect, useState } from "react";
 import Container from "@/Components/Container/Container";
 import Image from "next/image";

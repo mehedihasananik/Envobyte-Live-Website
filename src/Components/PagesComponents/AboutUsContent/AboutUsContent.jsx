@@ -1,5 +1,6 @@
 import Container from "@/Components/Container/Container";
 import { aboutUsApi, aboutUsItemApi } from "@/config/apis";
+import Head from "next/head";
 import Image from "next/image";
 import React from "react";
 
