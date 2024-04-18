@@ -81,7 +81,6 @@ const PortfolioPage = () => {
       (selectedCategoryId === 0 || item.category_id === selectedCategoryId) &&
       item.heading.toLowerCase().includes(searchQuery.toLowerCase())
   );
-  console.log(filteredPortfolio);
 
   return (
     <div className="pt-8 lg:pt-10">

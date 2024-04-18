@@ -11,7 +11,6 @@ const Header = () => {
   const userData = JSON.parse(sessionStorage.getItem("userData"));
   const [cleared, setCleared] = useState(false);
   const user = useContext(AuthContext);
-  console.log(user);
 
   const clearSession = () => {
     // Remove the userData from sessionStorage
@@ -102,7 +101,7 @@ const Header = () => {
           <Navbar.Toggle />
           <Navbar.Collapse className="">
             {menus.map((item, index) => (
-              <Navbar.Link
+              <Link
                 key={index}
                 href={item.link}
                 className={
@@ -110,7 +109,7 @@ const Header = () => {
                 }
               >
                 {item.name}
-              </Navbar.Link>
+              </Link>
             ))}
             {/* login button */}
             <Link

@@ -1,6 +1,5 @@
 "use client";
-import Head from "next/head";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Container from "@/Components/Container/Container";
 import Image from "next/image";
 import Link from "next/link";
@@ -139,7 +138,7 @@ const ServicesPageContent = () => {
               <div></div>
             </div>
           </div>
-          <div className="grid grid-cols-1 md:grid md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3  2xl:grid-cols-4 justify-items-center place-items-center gap-8 pb-8 md:gap-16 mt-5 md:mt-10 ">
+          <div className="grid grid-cols-1 md:grid md:grid-cols-2 lg:grid-cols-2  xl:grid-cols-4 justify-items-center place-items-center gap-8 pb-8 lg:gap-x-40 4xl:gap-x-16  mt-5 md:mt-10 ">
             {loading ? (
               <>
                 <ServiceLoading />
@@ -154,7 +153,7 @@ const ServicesPageContent = () => {
                     key={index} // Change key to index
                     href={`/services/${service.slug.replace(/\s+/g, "")}`}
                   >
-                    <div className="group w-[330px] shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
+                    <div className="group xl:w-[280px] xxl:w-[310px]  2xl:w-[330px]  shadow-lg rounded-md border border-[#E2E8F0]  cursor-pointer">
                       <div className="flex flex-col">
                         <div className="bg-[#E2E8F0]">
                           <div>
@@ -168,7 +167,7 @@ const ServicesPageContent = () => {
                           </div>
                         </div>
                         <div className="px-5 group-hover:bg-[#FF693B] group-hover:text-white transition-all duration-200">
-                          <h3 className="text-[24px] font-bold  font-Raleway pt-5 pb-2">
+                          <h3 className="text-[20px] md:text-[24px] font-bold  font-Raleway pt-5 pb-2">
                             {service.title}
                           </h3>
                           <p className="text-[14px] text-[#475569] group-hover:text-white transition-all duration-200">

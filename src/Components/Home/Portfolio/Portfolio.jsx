@@ -1,6 +1,5 @@
 "use client";
 import Container from "@/Components/Container/Container";
-import API_ROUTES from "@/app/api/confiq";
 import { serviceApi, sevice_portfolioApi } from "@/config/apis";
 import Image from "next/image";
 import Link from "next/link";

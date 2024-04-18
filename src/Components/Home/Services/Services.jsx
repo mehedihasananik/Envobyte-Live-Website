@@ -12,6 +12,7 @@ import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
 import Link from "next/link";
 import "../../../app/globals.css";
 import { servicesApi } from "@/config/apis";
+import { Autoplay } from "swiper/modules";
 
 const Services = () => {
   // states
@@ -166,7 +167,7 @@ const Services = () => {
                 <ServiceLoading />
               </>
             ) : (
-              <div className="w-full flex justify-center items-center  lg:w-[70%] xxl:w-[75%]   2xl:w-[70%]">
+              <div className="w-full flex justify-center items-center pl-[3%] md:pl-[2%] lg:pl-0  lg:w-[70%] xxl:w-[75%]   2xl:w-[70%]">
                 {/* cards */}
                 <Swiper
                   ref={swiperRef}
@@ -178,6 +179,11 @@ const Services = () => {
                   onSlideChange={(swiper) =>
                     setCurrentSlide(swiper.activeIndex)
                   }
+                  // autoplay={{
+                  //   delay: 2500,
+                  //   disableOnInteraction: false,
+                  // }}
+                  modules={[Autoplay]}
                 >
                   {services.map((service, index) => {
                     const isLastSlide = index === services.length - 1;
@@ -189,7 +195,7 @@ const Services = () => {
                           href={`/services/${service.slug.replace(/\s+/g, "")}`}
                         >
                           <div
-                            className={`w-[300px] xxl:w-[300px] 4xl:w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
+                            className={`w-[320px] xxl:w-[300px] 4xl:w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
                               isThirdSlide && "no-margin"
                             } ${isLastSlide ? "" : "no-margin2"}`}
                           >
