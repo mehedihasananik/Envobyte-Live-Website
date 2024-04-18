@@ -1,5 +1,9 @@
 import ServiceDetails from "@/Components/PagesComponents/ServiceDetails/ServiceDetails";
-import API_ROUTES from "@/app/api/confiq";
+import {
+  singeServiceDetails,
+  singleService_package,
+  singleSliderPageDetails,
+} from "@/config/apis";
 
 export const metadata = {
   title: "Single Service || Envobyte",
@@ -7,7 +11,7 @@ export const metadata = {
 };
 
 async function serviceData(id) {
-  const res = await fetch(`${API_ROUTES.route}/sevice_items_details/${id}`, {
+  const res = await fetch(`${singeServiceDetails}/${id}`, {
     next: { revalidate: 10 },
   });
 
@@ -17,7 +21,7 @@ async function serviceData(id) {
   return res.json();
 }
 async function slidersData(id) {
-  const res = await fetch(`${API_ROUTES.route}/service_items_slider/${id}`, {
+  const res = await fetch(`${singleSliderPageDetails}/${id}`, {
     next: { revalidate: 10 },
   });
 
@@ -27,7 +31,7 @@ async function slidersData(id) {
   return res.json();
 }
 async function packageData(id) {
-  const res = await fetch(`${API_ROUTES.route}/service_package/${id}`, {
+  const res = await fetch(`${singleService_package}/${id}`, {
     next: { revalidate: 10 },
   });
 

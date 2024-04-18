@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { HiArrowSmallRight } from "react-icons/hi2";
 import Loading from "@/Components/Utilites/Loading/Loading";
-import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
 import { fetchData } from "@/config/apiRequests.js";

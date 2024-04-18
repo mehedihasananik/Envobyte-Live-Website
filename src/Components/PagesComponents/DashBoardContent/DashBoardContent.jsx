@@ -1,5 +1,6 @@
 "use client";
-import API_ROUTES from "@/app/api/confiq";
+import { fetchData } from "@/config/apiRequests.js";
+import { dashboardApis } from "@/config/apis";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
@@ -8,27 +9,15 @@ const DashBoardContent = () => {
   const [projects, setProjects] = useState(null);
   const userData = JSON.parse(sessionStorage.getItem("userData"));
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `${API_ROUTES.route}/service_order_dashboard`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ user_id: userData.id }),
-          }
-        );
-        const data = await response.json();
-        setProjects(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const fetchingData = async () => {
+    const data = await fetchData(`${dashboardApis}`, "POST", {
+      user_id: userData.id,
+    });
+    setProjects(data);
+  };
 
-    fetchData();
+  useEffect(() => {
+    fetchingData();
   }, []);
 
   return (

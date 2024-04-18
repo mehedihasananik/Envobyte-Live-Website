@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { LuLogOut } from "react-icons/lu";
 import Link from "next/link";
 import { HiMenuAlt3 } from "react-icons/hi";
@@ -9,20 +9,16 @@ import { FiMessageSquare } from "react-icons/fi";
 import { FiLayers } from "react-icons/fi";
 import { Sidebar } from "flowbite-react";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
+import { AuthContext } from "@/providers/AuthProviders";
+import { usePathname, useRouter } from "next/navigation";
 
 const DashBoardSideNav = ({ height }) => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const { dashboardMenus } = useContext(AuthContext);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
-
-  const menus = [
-    { name: "Dashboard", link: "/dashboard", icon: LuLayoutGrid },
-    { name: "Message", link: "/message", icon: FiMessageSquare },
-    { name: "New Order", link: "/new-order", icon: HiMenuAlt3 },
-    { name: "Manage Order", link: "/manage-order", icon: FiLayers },
-  ];
 
   return (
     <div className="relative bg-[#8CD3FB1A] ">
@@ -46,11 +42,11 @@ const DashBoardSideNav = ({ height }) => {
                   <div className="lg:pl-[13%] pt-1">
                     <Link href={"/"}>
                       {" "}
-                      <img  src="/assets/logo.png" alt="" />
+                      <img src="/assets/logo.png" alt="" />
                     </Link>
                   </div>
                   <div className="w-full">
-                    {menus?.map((menu, i) => (
+                    {dashboardMenus?.map((menu, i) => (
                       <div
                         key={i}
                         className={` ${

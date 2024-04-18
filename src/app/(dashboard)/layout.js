@@ -3,6 +3,7 @@ import "../globals.css";
 import { Toaster } from "react-hot-toast";
 import DashBoardSideNav from "@/Components/Dashboard/DashBoardSideNav";
 import DashBoardNav from "@/Components/Dashboard/DashBoardNav";
+import AuthProviders from "@/providers/AuthProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,25 +20,21 @@ export default function RootLayout({ children }) {
         href="https://i.ibb.co/nM2nH6n/android-chrome-256x256.png"
         sizes="any"
       />
-
       <body className={inter.className}>
-
         <div className="bg-[#FCFCFC]">
           <div>
             <div className="w-full flex">
-              <DashBoardSideNav height="100vh" />
-              <div className="w-full ">
-                <DashBoardNav title="dashboard" />
-                {children}
-              </div>
+              <AuthProviders>
+                <DashBoardSideNav height="100vh" />
+                <div className="w-full ">
+                  <DashBoardNav />
+                  {children}
+                </div>
+              </AuthProviders>
             </div>
           </div>
         </div>
-
         <Toaster />
-
-
-
       </body>
     </html>
   );

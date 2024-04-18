@@ -5,6 +5,8 @@ import API_ROUTES from "@/app/api/confiq";
 import Image from "next/image";
 import Link from "next/link";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
+import { allsServiceItemsApi, serviceListApi } from "@/config/apis";
+import { fetchData } from "@/config/apiRequests.js";
 
 const DashBoardOrder = () => {
   const [serviceCategories, setServiceCategories] = useState([]);
@@ -14,14 +16,12 @@ const DashBoardOrder = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [serviceItems, setServiceItems] = useState([]);
 
-  const fetchData = async () => {
+  const fetchOrderData = async () => {
     try {
-      const response = await fetch(`${API_ROUTES.route}/service`);
-      const data = await response.json();
+      const data = await fetchData(serviceListApi);
       setServiceCategories(data);
 
-      const response2 = await fetch(`${API_ROUTES.route}/sevice_items`);
-      const data2 = await response2.json();
+      const data2 = await fetchData(allsServiceItemsApi);
       setServices(data2);
       setLoading(false);
     } catch (error) {
@@ -31,7 +31,7 @@ const DashBoardOrder = () => {
   };
 
   useEffect(() => {
-    fetchData();
+    fetchOrderData();
   }, []);
 
   useEffect(() => {

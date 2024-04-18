@@ -9,6 +9,8 @@ import Link from "next/link";
 import axios from "axios";
 import toast from "react-hot-toast";
 import * as Yup from "yup";
+import { signupApi } from "@/config/apis";
+import { fetchData } from "@/config/apiRequests.js";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -48,21 +50,18 @@ const SignUp = () => {
     try {
       await validationSchema.validate(formData, { abortEarly: false });
 
-      const response = await axios.post(
-        "http://192.168.10.14:8000/api/sign_up",
-        formData
-      );
+      const response = await fetchData(signupApi, "POST", formData); // Using fetchData instead of axios.post
 
-      if (response.data.resultsuccess) {
+      if (response.resultsuccess) {
         setFormData({
           user_name: "",
           user_email: "",
           user_password: "",
         });
-        toast.success(response.data.resultsuccess);
+        toast.success(response.resultsuccess);
       }
-      if (response.data.resultexist) {
-        toast.error(response.data.resultexist);
+      if (response.resultexist) {
+        toast.error(response.resultexist);
       }
     } catch (error) {
       console.error("Error:", error);
@@ -83,7 +82,6 @@ const SignUp = () => {
       [name]: value,
     }));
   };
-
   return (
     <div className="login_singUp pt-5">
       <Container>

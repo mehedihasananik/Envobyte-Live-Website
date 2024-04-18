@@ -1,6 +1,8 @@
 "use client";
 
 import API_ROUTES from "@/app/api/confiq";
+import { fetchData } from "@/config/apiRequests.js";
+import { manageOrderApi } from "@/config/apis";
 import { Pagination, Table } from "flowbite-react";
 import { useEffect, useState } from "react";
 
@@ -10,26 +12,20 @@ const ManageOrder = () => {
   const [orders, setOrder] = useState(null);
   const userData = JSON.parse(sessionStorage.getItem("userData"));
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(`${API_ROUTES.route}/manage_order`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ user_id: userData.id }),
-        });
-        const data = await response.json();
-        setOrder(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
+  const fetchOrderManageData = async () => {
+    try {
+      const data = await fetchData(`${manageOrderApi}`, "POST", {
+        user_id: userData.id,
+      });
+      setOrder(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
-    fetchData();
+  useEffect(() => {
+    fetchOrderManageData();
   }, []);
-  console.log(orders);
 
   const onPageChange = (page) => setCurrentPage(page);
 

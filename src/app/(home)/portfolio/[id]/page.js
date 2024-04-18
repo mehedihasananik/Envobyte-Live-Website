@@ -1,9 +1,8 @@
 import PortfolioDetails from "@/Components/PagesComponents/PortfolioDetails/PortfolioDetails";
-import ServiceDetails from "@/Components/PagesComponents/ServiceDetails/ServiceDetails";
-import API_ROUTES from "@/app/api/confiq";
+import { singlePortfolio } from "@/config/apis";
 
 async function getProduct(id) {
-  const response = await fetch(`${API_ROUTES.route}/portfolio_details/${id}`);
+  const response = await fetch(`${singlePortfolio}/${id}`);
   const data = await response.json();
   return data;
 }
