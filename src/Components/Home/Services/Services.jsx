@@ -15,7 +15,7 @@ async function getServiceItems() {
 
 const Services = async () => {
   const serviceItems = await getServiceItems();
-  console.log(serviceItems);
+
   return (
     <div className="overflow-hidden">
       <ServicesHomeItems services={serviceItems} />
