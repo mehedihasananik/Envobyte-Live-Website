@@ -4,13 +4,9 @@ import React, { useContext, useState } from "react";
 import { LuLogOut } from "react-icons/lu";
 import Link from "next/link";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { LuLayoutGrid } from "react-icons/lu";
-import { FiMessageSquare } from "react-icons/fi";
-import { FiLayers } from "react-icons/fi";
 import { Sidebar } from "flowbite-react";
 import { RiBarChartHorizontalLine } from "react-icons/ri";
 import { AuthContext } from "@/providers/AuthProviders";
-import { usePathname, useRouter } from "next/navigation";
 
 const DashBoardSideNav = ({ height }) => {
   const [showSidebar, setShowSidebar] = useState(false);
