@@ -1,7 +1,5 @@
 "use client";
-
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import CountUp from "react-countup";
 import ScrollTrigger from "react-scroll-trigger";
 import Link from "next/link";
@@ -9,6 +7,24 @@ import Link from "next/link";
 const AboutUsItems = ({ about }) => {
   const [counterOn, setCounterOn] = useState(false);
   const { heading, text, experience, project, customers, country } = about;
+
+  useEffect(() => {
+    // Function to handle entering the section
+    const handleScrollEnter = () => {
+      if (!counterOn) {
+        setCounterOn(true);
+      }
+    };
+
+    // Adding scroll event listener when component mounts
+    window.addEventListener("scroll", handleScrollEnter);
+
+    // Cleanup function to remove the event listener when component unmounts
+    return () => {
+      window.removeEventListener("scroll", handleScrollEnter);
+    };
+  }, [counterOn]); // Dependency array to run effect only when counterOn changes
+
   return (
     <div>
       {/* title & description */}
@@ -19,11 +35,10 @@ const AboutUsItems = ({ about }) => {
         <p className="text-[16px] text-[#666666] py-5">{text}</p>
       </div>
 
-      <ScrollTrigger
-        onEnter={() => setCounterOn(true)}
-        onExit={() => setCounterOn(false)}
-      >
+      {/* Counters */}
+      <ScrollTrigger>
         <div className="flex justify-between gap-6 md:gap-0  ">
+          {/* Experience */}
           <div>
             <h3 className="text-[30px] md:text-[48px] text-[#0A2C8C] font-bold">
               {counterOn && (
@@ -35,6 +50,7 @@ const AboutUsItems = ({ about }) => {
               Years of Experience
             </p>
           </div>
+          {/* Project Completed */}
           <div className="text-[30px] md:text-[48px] text-[#0A2C8C] ">
             <div className="font-bold">
               <CountUp
@@ -52,12 +68,9 @@ const AboutUsItems = ({ about }) => {
               />
               <span>+</span>
             </div>
-            <p className="text-[16px] text-[#64748B] w-20">
-              {" "}
-              Project Completed
-            </p>
+            <p className="text-[16px] text-[#64748B] w-20">Project Completed</p>
           </div>
-
+          {/* Customers Satisfaction */}
           <div>
             <h3 className="text-[30px] md:text-[48px] text-[#0A2C8C] font-bold">
               {counterOn && (
@@ -69,6 +82,7 @@ const AboutUsItems = ({ about }) => {
               Customers Satisfaction
             </p>
           </div>
+          {/* Numbers of Country */}
           <div>
             <h3 className="text-[30px] md:text-[48px] text-[#0A2C8C] font-bold">
               {counterOn && (
@@ -77,13 +91,13 @@ const AboutUsItems = ({ about }) => {
               +
             </h3>
             <p className="text-[16px] text-[#64748B] w-20">
-              {" "}
               Numbers of Country
             </p>
           </div>
         </div>
       </ScrollTrigger>
 
+      {/* Learn More Button */}
       <div className="py-8 text-center lg:text-left">
         <Link
           href={"/about-us"}

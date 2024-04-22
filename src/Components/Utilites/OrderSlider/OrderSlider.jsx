@@ -148,7 +148,7 @@ const OrderSlider = ({ sliders }) => {
           items={images}
           showPlayButton={true}
           showFullscreenButton={true}
-          slideDuration={1500}
+          slideDuration={300}
           slideOnThumbnailOver={true}
           thumbnailWidth={50}
           thumbnailHeight={50}

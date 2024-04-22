@@ -17,9 +17,9 @@ const DashBoardSideNav = ({ height }) => {
   };
 
   return (
-    <div className="relative bg-[#8CD3FB1A] ">
-      <div className="bg-[#8CD3FB1A] hidden md:block">
-        <div className=" lg:flex lg:justify-end h-full bg-[#8CD3FB1A]">
+    <div className="relative   ">
+      <div className="  hidden md:block">
+        <div className=" lg:flex lg:justify-end h-full  ">
           <HiMenuAlt3
             size={26}
             className="relative top-[20px] left-[10px] lg:left-0 lg:top-0 lg:relative cursor-pointer block lg:hidden"
@@ -75,21 +75,21 @@ const DashBoardSideNav = ({ height }) => {
           </section>
         </div>
       </div>
-      <div className="md:hidden z-50 bg-[#8CD3FB1A] ">
+      <div className="md:hidden z-50   ">
         <button className="absolute top-[1.8%] left-[20px]">
           <RiBarChartHorizontalLine
             className="text-[20px]"
             onClick={toggleSidebar}
           />
         </button>
-        <div className="bg-[#8CD3FB1A]">
+        <div className=" ">
           {showSidebar && (
             <Sidebar
               style={{ margin: "0" }}
               className="pt-[32%]  "
               aria-label="Default sidebar example p-0 m-0"
             >
-              <Sidebar.Items className="bg-[#8CD3FB1A] ">
+              <Sidebar.Items className="  ">
                 <Sidebar.ItemGroup>
                   {menus.map((item, index) => {
                     return (

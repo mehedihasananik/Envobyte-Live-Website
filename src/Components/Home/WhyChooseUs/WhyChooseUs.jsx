@@ -77,7 +77,7 @@ function WhyChooseUs() {
           {/* 3rd card */}
           <div className="flex flex-row-reverse  xl:h-[300px] 2xl:h-[250px] gap-x-24">
             {/* content */}
-            <div className="bg-[#EEF2FF] flex flex-col items-center lg:flex-row gap-4 pt-8 pl-10 pr-10 pb-10 lg:pt-[50px] lg:pb-[30px] lg:pl-[64px] lg:pr-[102px] lg:relative">
+            <div className="bg-[#EEF2FF] flex flex-col items-center lg:flex-row gap-4 pt-8 pl-10 pr-10 pb-10 lg:pt-[50px] lg:pb-[30px] lg:pl-[64px] 2xl:pr-[50px] lg:relative">
               <div className="lg:absolute left-[-98px] top-[48px]">
                 <img className="w-[150px]" src="/assets/why3.png" alt="" />
               </div>

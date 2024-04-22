@@ -40,10 +40,6 @@ const ServicesHomeItems = ({ services: initialServices }) => {
     }
   };
 
-  useEffect(() => {
-    // Log spaceBetween
-  }, [spaceBetween]);
-
   // prev function
   const goPrev = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -51,20 +47,23 @@ const ServicesHomeItems = ({ services: initialServices }) => {
       setCurrentSlide((prevSlide) => Math.max(prevSlide - 1, 0));
     }
   };
+  useEffect(() => {
+    // Log spaceBetween
+  }, [spaceBetween]);
 
   // slider breakpoints
   const breakpoints = {
     2500: {
       slidesPerView: 3,
-      spaceBetween: 200,
+      spaceBetween: 50,
     },
     1920: {
       slidesPerView: 3,
       spaceBetween: 50,
     },
     1336: {
-      slidesPerView: 2,
-      spaceBetween: 10,
+      slidesPerView: 3,
+      spaceBetween: 50,
     },
     1280: {
       slidesPerView: 2,
@@ -72,7 +71,7 @@ const ServicesHomeItems = ({ services: initialServices }) => {
     },
     1024: {
       slidesPerView: 2,
-      spaceBetween: 30,
+      spaceBetween: 10,
     },
     768: {
       slidesPerView: 2,
@@ -86,10 +85,12 @@ const ServicesHomeItems = ({ services: initialServices }) => {
 
   return (
     <div className="overflow-hidden">
-      <div className="max-w-[1680px] mx-auto  4xl:px-[0] 4xl:max-w-[1920px] xl:pl-[8%] 2xl:pl-[13%] 4xl:pl-[14%] 6xl:pl-0">
+      <div className="max-w-[1680px] mx-auto px-[4%] md:px[8%] 4xl:px-[0] 4xl:max-w-[1920px] 3xl:pl-[14%] 4xl:pl-[14%] 6xl:pl-[12%]">
+        {/* services */}
         <div className="py-6 xl:pt-10 ">
           <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 lg:py-8">
-            <div className="w-full lg:w-[30%] xxl:w-[25%] 2xl:w-[30%]">
+            {/* left heading & description starts*/}
+            <div className="w-full lg:w-[30%]">
               <div className="w-full lg:w-[400px]">
                 <h3 className="text-center lg:text-left text-[30px] md:text-[48px] font-bold font-Raleway text-[#0F172A]">
                   Kick Start With Our Services{" "}
@@ -133,6 +134,8 @@ const ServicesHomeItems = ({ services: initialServices }) => {
                 </Link>
               </div>
             </div>
+            {/* right swiper */}
+
             {loading ? (
               <>
                 <ServiceLoading />
@@ -140,7 +143,8 @@ const ServicesHomeItems = ({ services: initialServices }) => {
                 <ServiceLoading />
               </>
             ) : (
-              <div className="w-full flex justify-center items-center  md:pl-[2%] lg:pl-0  lg:w-[70%] xxl:w-[75%]   2xl:w-[70%]">
+              <div className="w-full flex justify-center items-center  lg:w-[70%]  ">
+                {/* cards */}
                 <Swiper
                   ref={swiperRef}
                   slidesPerView={3}
@@ -151,22 +155,20 @@ const ServicesHomeItems = ({ services: initialServices }) => {
                   onSlideChange={(swiper) =>
                     setCurrentSlide(swiper.activeIndex)
                   }
-                  modules={[Autoplay]}
                 >
                   {services.map((service, index) => {
                     const isLastSlide = index === services.length - 1;
                     const isThirdSlide = index === 1;
+
                     return (
                       <SwiperSlide key={service.id}>
                         <Link
                           href={`/services/${service.slug.replace(/\s+/g, "")}`}
                         >
                           <div
-                            className={`md:w-[320px] xxl:w-[300px] 4xl:w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
+                            className={`w-[300px] xl:w-[350px]  xxl:w-[280px] xll:w-[300px] 4xl:w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
                               isThirdSlide && "no-margin"
-                            } ${
-                              isLastSlide ? "" : "mx-5 md:mx-0 md:no-margin2"
-                            }`}
+                            } ${isLastSlide ? "" : "no-margin2"}`}
                           >
                             <div className="flex flex-col">
                               <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">
@@ -183,6 +185,9 @@ const ServicesHomeItems = ({ services: initialServices }) => {
                                   />
                                 </div>
                               </div>
+
+                              {/* title & description */}
+
                               <div className="px-5 group-hover:bg-[#FF693B] transition-all duration-300 ">
                                 <h3 className="  text-[24px] font-bold text-[#1E293B] font-Raleway pt-5   group-hover:text-white transition-all duration-300 ">
                                   {service.title}

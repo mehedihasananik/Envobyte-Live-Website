@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
         sizes="any"
       />
       <body className={inter.className}>
-        <div className="bg-[#FCFCFC]">
+        <div className="bg-[#8CD3FB1A]">
           <div>
             <div className="w-full flex">
               <AuthProviders>

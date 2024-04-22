@@ -4,34 +4,15 @@ import Container from "@/Components/Container/Container";
 import Image from "next/image";
 import Link from "next/link";
 import ServiceLoading from "@/Components/Utilites/Loading/ServiceLoading";
-import { allsServiceItemsApi, serviceListApi } from "@/config/apis";
 
-const ServicesPageContent = () => {
-  const [serviceCategories, setServiceCategories] = useState([]);
-  const [services, setServices] = useState([]);
+const ServicesPageContent = ({ serviceCategories, services }) => {
   const [loading, setLoading] = useState(true);
   const [selectedServiceId, setSelectedServiceId] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
   const [serviceItems, setServiceItems] = useState([]);
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch(`${serviceListApi}`);
-      const data = await response.json();
-      setServiceCategories(data);
-
-      const response2 = await fetch(`${allsServiceItemsApi}`);
-      const data2 = await response2.json();
-      setServices(data2);
-      setLoading(false);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
-    fetchData();
+    setLoading(false);
   }, []);
 
   useEffect(() => {

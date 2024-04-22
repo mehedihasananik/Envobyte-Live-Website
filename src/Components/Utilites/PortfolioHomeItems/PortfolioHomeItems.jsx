@@ -111,18 +111,17 @@ const PortfolioHomeItems = ({ portfolios, services }) => {
                       href={`/portfolio/${portfolio.slug}`}
                     >
                       <div className="group">
-                        <div className="portfolio-bgHover cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl border border-[#CBD5E1] ">
-                          <div>
+                        <div className="portfolio-bgHover cursor-pointer flex flex-col xl:flex-row justify-between bg-[#FFFFFF] rounded-xl  ">
+                          <div className="overflow-hidden">
                             <Image
                               width={800}
                               height={262}
-                              className="w-full lg:w-[400px] h-[420px] object-cover"
+                              className="w-full lg:w-[400px] h-[420px] object-cover rounded-l-lg overflow-hidden border border-r-0 border-[#CBD5E1]"
                               src={portfolio.image}
                               alt=""
-                              onContextMenu={(e) => e.preventDefault()}
                             />
                           </div>
-                          <div className="flex flex-col justify-center items-center p-3 md:py-0 2xl:px-10 ">
+                          <div className="flex flex-col justify-center items-center p-3 md:py-0 2xl:px-10 border border-l-0 border-[#CBD5E1] rounded-r-lg">
                             <div className="text-center">
                               <h4 className="text-[14px] text-[#999999] pt-3 pb-3 md:pt-0 md:pb-6 portfolio-textHover">
                                 {portfolio.heading}
