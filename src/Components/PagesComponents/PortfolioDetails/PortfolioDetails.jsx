@@ -3,13 +3,13 @@ import RelevantServices from "@/Components/Utilites/RelevantServices/RelevantSer
 import Image from "next/image";
 import React from "react";
 
-const PortfolioDetails = ({ singlePortfolio }) => {
-  console.log(singlePortfolio);
+const PortfolioDetails = ({ singlePortfolioItem }) => {
   return (
     <div>
       <div className="md:py-10 md:pb-5">
         <Container>
-          {singlePortfolio.map((portfolio) => {
+          {singlePortfolioItem.map((portfolio) => {
+            console.log(portfolio);
             const { title, details, image, caption_text } = portfolio;
             return (
               <div key={portfolio.id}>

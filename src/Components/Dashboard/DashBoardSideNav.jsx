@@ -91,7 +91,7 @@ const DashBoardSideNav = ({ height }) => {
             >
               <Sidebar.Items className="  ">
                 <Sidebar.ItemGroup>
-                  {menus.map((item, index) => {
+                  {dashboardMenus.map((item, index) => {
                     return (
                       <Sidebar.Item key={index} href="#" icon={item.icon}>
                         {item.name}

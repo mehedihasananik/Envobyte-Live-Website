@@ -4,27 +4,26 @@ import { HiArrowSmallRight } from "react-icons/hi2";
 import Loading from "@/Components/Utilites/Loading/Loading";
 import Image from "next/image";
 import Link from "next/link";
-import { fetchData } from "@/config/apiRequests.js";
-import {
-  searchServiceApi,
-  search_sevice_categoryAll,
-  serviceApi,
-  sevice_portfolioApi,
-} from "@/config/apis";
+import { searchServiceApi } from "@/config/apis";
 
-const PortfolioPage = () => {
-  const [portfolioCategories, setPortfolioCategories] = useState([]);
-  const [services, setServices] = useState([]);
-  const [serviceCategories, setServiceCategories] = useState([]);
+const PortfolioPage = ({
+  portfolioCategories,
+  services,
+  serviceCategories: initialServiceCategories, // Rename to avoid naming conflict
+}) => {
   const [loading, setLoading] = useState(true);
   const [selectedServiceId, setSelectedServiceId] = useState(0);
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
   const [searchQuery, setSearchQuery] = useState("");
+  const [serviceCategories, setServiceCategories] = useState(
+    initialServiceCategories
+  ); // Define state
 
   const fetchServiceCategories = async (selectedValue) => {
     try {
       const response = await fetch(`${searchServiceApi}/${selectedValue}`);
       const data = await response.json();
+      // Update serviceCategories with the fetched data
       setServiceCategories(data);
     } catch (error) {
       console.error("Error fetching categories:", error);
@@ -33,12 +32,7 @@ const PortfolioPage = () => {
 
   const fetchDataAsync = async () => {
     try {
-      const data = await fetchData(`${sevice_portfolioApi}`);
-      const data2 = await fetchData(`${serviceApi}`);
-      const categoriesData = await fetchData(`${search_sevice_categoryAll}`);
-      setPortfolioCategories(data);
-      setServices(data2);
-      setServiceCategories(categoriesData);
+      // Data already passed as props, no need to fetch again
       setLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -56,7 +50,8 @@ const PortfolioPage = () => {
     if (selectedValue !== 0) {
       await fetchServiceCategories(selectedValue);
     } else {
-      await fetchServiceCategories("all");
+      // If selectedValue is 0, reset serviceCategories to its initial value
+      setServiceCategories(initialServiceCategories);
     }
   };
 
