@@ -19,7 +19,7 @@ const DashBoardContent = () => {
   useEffect(() => {
     fetchingData();
   }, []);
-
+  console.log(projects);
   return (
     <div className="lg:mx-10">
       {/* active project */}
@@ -34,8 +34,14 @@ const DashBoardContent = () => {
             ?.slice()
             .reverse()
             .map((project) => {
-              const { sevice_items, order_price, order_status, order_date } =
-                project;
+              const {
+                sevice_items,
+                order_price,
+                order_status,
+                order_date,
+                service_order_id,
+              } = project;
+
               return (
                 <Link key={project.id} href={"#"}>
                   <div className=" shadow-lg rounded-md border border-[#E2E8F0] pb-5">
@@ -93,9 +99,12 @@ const DashBoardContent = () => {
                             </h3>
                           </div>
                           <div>
-                            <h2 className="text-[14px] text-[#505050] font-[500]">
+                            <Link
+                              href={`/requirement-page/${service_order_id}`}
+                              className="text-[14px] text-[#505050] font-[500]"
+                            >
                               {order_status}
-                            </h2>
+                            </Link>
                           </div>
                         </div>
                       </div>

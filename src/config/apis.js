@@ -44,6 +44,10 @@ const dashboardApis = `${apiEndpoint}/service_order_dashboard`;
 // manage order
 const manageOrderApi = `${apiEndpoint}/manage_order`;
 
+// singeRequirement
+
+const singleRequirement = `${apiEndpoint}/service_requirements`;
+
 // new apis
 
 export {
@@ -70,4 +74,5 @@ export {
   singlePortfolio,
   dashboardApis,
   manageOrderApi,
+  singleRequirement,
 };

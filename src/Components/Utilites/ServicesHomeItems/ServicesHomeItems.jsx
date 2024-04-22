@@ -55,7 +55,7 @@ const ServicesHomeItems = ({ services: initialServices }) => {
   // slider breakpoints
   const breakpoints = {
     2500: {
-      slidesPerView: 4,
+      slidesPerView: 3,
       spaceBetween: 200,
     },
     1920: {
@@ -63,7 +63,7 @@ const ServicesHomeItems = ({ services: initialServices }) => {
       spaceBetween: 50,
     },
     1336: {
-      slidesPerView: 3,
+      slidesPerView: 2,
       spaceBetween: 10,
     },
     1280: {
@@ -86,7 +86,7 @@ const ServicesHomeItems = ({ services: initialServices }) => {
 
   return (
     <div className="overflow-hidden">
-      <div className="max-w-[1680px] mx-auto  4xl:px-[0] 4xl:max-w-[1920px] xl:pl-[8%] 2xl:pl-[13%] 4xl:pl-[14%]">
+      <div className="max-w-[1680px] mx-auto  4xl:px-[0] 4xl:max-w-[1920px] xl:pl-[8%] 2xl:pl-[13%] 4xl:pl-[14%] 6xl:pl-0">
         <div className="py-6 xl:pt-10 ">
           <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-20 xl:gap-12 lg:py-8">
             <div className="w-full lg:w-[30%] xxl:w-[25%] 2xl:w-[30%]">
@@ -140,7 +140,7 @@ const ServicesHomeItems = ({ services: initialServices }) => {
                 <ServiceLoading />
               </>
             ) : (
-              <div className="w-full flex justify-center items-center pl-[3%] md:pl-[2%] lg:pl-0  lg:w-[70%] xxl:w-[75%]   2xl:w-[70%]">
+              <div className="w-full flex justify-center items-center  md:pl-[2%] lg:pl-0  lg:w-[70%] xxl:w-[75%]   2xl:w-[70%]">
                 <Swiper
                   ref={swiperRef}
                   slidesPerView={3}
@@ -162,9 +162,11 @@ const ServicesHomeItems = ({ services: initialServices }) => {
                           href={`/services/${service.slug.replace(/\s+/g, "")}`}
                         >
                           <div
-                            className={`w-[320px] xxl:w-[300px] 4xl:w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
+                            className={`md:w-[320px] xxl:w-[300px] 4xl:w-[330px] group shadow-lg rounded-md border border-[#E2E8F0]   cursor-pointer ${
                               isThirdSlide && "no-margin"
-                            } ${isLastSlide ? "" : "no-margin2"}`}
+                            } ${
+                              isLastSlide ? "" : "mx-5 md:mx-0 md:no-margin2"
+                            }`}
                           >
                             <div className="flex flex-col">
                               <div className="bg-[#E2E8F0] group-hover:bg-[#FF693B]">

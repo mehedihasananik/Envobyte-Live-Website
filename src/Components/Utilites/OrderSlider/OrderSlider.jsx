@@ -1,5 +1,3 @@
-"use client";
-import "../../../app/globals.css";
 import React, { useState, useEffect, useRef } from "react";
 import ReactImageGallery from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
@@ -9,26 +7,24 @@ const OrderSlider = ({ sliders }) => {
   const galleryRef = useRef();
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [imageHeight, setImageHeight] = useState(null);
-  const [images, setImages] = useState([
-    {
-      original: "/assets/orderSlider1.png",
-      thumbnail: "/assets/orderSmSlider1.png",
-    },
-    {
-      original: "/assets/orderSlider2.png",
-      thumbnail: "/assets/orderSmSlider2.png",
-    },
-    {
-      original: "/assets/orderSlider3.png",
-      thumbnail: "/assets/orderSmSlider3.png",
-    },
-    {
-      original: "/assets/fiver.png",
-      thumbnail: "/assets/fiversm.png",
-    },
-  ]);
+  const [images, setImages] = useState([]);
 
   useEffect(() => {
+    // Map the slider data to the required format
+    const mappedImages = sliders.map((slider) => ({
+      original: slider.slider_image,
+      thumbnail: slider.thum_image,
+    }));
+    setImages(mappedImages);
+  }, [sliders]); // Update images when sliders prop changes
+
+  useEffect(() => {
+    console.log("Images:", images); // Log images
+    console.log(
+      "Current Image:",
+      images.length > 0 ? images[0] : "No current image"
+    ); // Log current image if available
+
     const handleFullscreenChange = () => {
       setIsFullscreen(!!document.fullscreenElement);
     };
@@ -37,19 +33,23 @@ const OrderSlider = ({ sliders }) => {
     return () => {
       document.removeEventListener("fullscreenchange", handleFullscreenChange);
     };
-  }, []);
+  }, [images]);
 
   useEffect(() => {
     const handleResize = () => {
       const currentIndex = galleryRef.current.getCurrentIndex();
       const currentImage = images[currentIndex];
-      const img = new Image();
-      img.src = currentImage.original;
 
-      img.onload = () => {
-        const naturalHeight = img.naturalHeight;
-        setImageHeight(naturalHeight);
-      };
+      if (currentImage) {
+        // Check if currentImage is defined
+        const img = new Image();
+        img.src = currentImage.original;
+
+        img.onload = () => {
+          const naturalHeight = img.naturalHeight;
+          setImageHeight(naturalHeight);
+        };
+      }
     };
 
     handleResize(); // Call initially
@@ -65,21 +65,24 @@ const OrderSlider = ({ sliders }) => {
       const currentIndex = galleryRef.current.getCurrentIndex();
       const currentImage = images[currentIndex];
 
-      const img = new Image();
-      img.src = currentImage.original;
+      if (currentImage) {
+        // Check if currentImage is defined
+        const img = new Image();
+        img.src = currentImage.original;
 
-      img.onload = () => {
-        const naturalWidth = img.naturalWidth;
-        const naturalHeight = img.naturalHeight;
+        img.onload = () => {
+          const naturalWidth = img.naturalWidth;
+          const naturalHeight = img.naturalHeight;
 
-        console.log("Natural Width:", naturalWidth);
-        console.log("Natural Height:", naturalHeight);
+          console.log("Natural Width:", naturalWidth);
+          console.log("Natural Height:", naturalHeight);
 
-        if (!isFullscreen) {
-          galleryRef.current.fullScreen();
-          setIsFullscreen(true);
-        }
-      };
+          if (!isFullscreen) {
+            galleryRef.current.fullScreen();
+            setIsFullscreen(true);
+          }
+        };
+      }
     }
   };
 

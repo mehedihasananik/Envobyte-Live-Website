@@ -81,10 +81,10 @@ const Footer = () => {
                 Order Delivery
               </Link>
               <Link
-                href={"/requirement-page"}
+                href={""}
                 className="cursor-pointer hover:text-[#FF693B] transition-all duration-200"
               >
-                Requirement page
+                Demo
               </Link>
             </ul>
           </div>

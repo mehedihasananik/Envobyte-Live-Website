@@ -21,6 +21,7 @@ module.exports = {
         xxl: "1366px",
         "2xl": "1536px",
         "4xl": "1920px",
+        "6xl": "2560px",
       },
       fontFamily: {
         Roboto: ["Roboto", "sans-serif"],

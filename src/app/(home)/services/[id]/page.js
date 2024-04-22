@@ -11,6 +11,7 @@ export const metadata = {
 };
 
 async function serviceData(id) {
+  console.log(id);
   const res = await fetch(`${singeServiceDetails}/${id}`, {
     next: { revalidate: 10 },
   });
@@ -45,7 +46,6 @@ const SinglePage = async ({ params }) => {
   const service = await serviceData(params.id);
   const sliders = await slidersData(params.id);
   const packages = await packageData(params.id);
-  console.log(service);
 
   return (
     <>

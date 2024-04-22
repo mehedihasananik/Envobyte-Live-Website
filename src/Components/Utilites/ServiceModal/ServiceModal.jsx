@@ -1,9 +1,6 @@
 "use client";
 
-import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
-import Container from "@/Components/Container/Container";
-
-import { FaFacebook } from "react-icons/fa6";
+import { Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import { FiArrowRight } from "react-icons/fi";
 import { HiMail } from "react-icons/hi";
 import { IoMdLock } from "react-icons/io";

@@ -79,7 +79,6 @@ const ServicePortolio = () => {
       >
         {portfolios.map((portfolio) => {
           const { service_name } = portfolio;
-          console.log(service_name[0].service_name);
 
           return (
             <SwiperSlide key={portfolio.id} className="">
