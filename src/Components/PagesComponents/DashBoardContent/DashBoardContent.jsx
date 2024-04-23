@@ -21,7 +21,7 @@ const DashBoardContent = () => {
   }, []);
   console.log(projects);
   return (
-    <div className="lg:mx-10">
+    <div className="lg:mx-10 bg-[#FCFCFC]">
       {/* active project */}
       <div className="bg-white py-4 rounded-md   mb-5 md:px-7">
         <h3 className="text-[#0F172A] text-[24px] font-[600]">

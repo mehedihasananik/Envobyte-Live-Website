@@ -10,7 +10,7 @@ async function getAboutPage() {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to fetch  singleAboutDetails");
   }
   return res.json();
 }
@@ -21,12 +21,12 @@ async function getAbout_item() {
   });
 
   if (!res.ok) {
-    throw new Error("Failed to fetch data");
+    throw new Error("Failed to fetch  singleAboutDetails");
   }
   return res.json();
 }
 
-const AboutUsContent = async () => {
+const AboutUsContent = async ({ aboutDetails, singleAboutDetails }) => {
   const {
     title1,
     details1,
@@ -37,13 +37,11 @@ const AboutUsContent = async () => {
     details3,
     title4,
     details4,
-  } = await getAboutPage();
+  } = aboutDetails;
 
-  const data = await getAbout_item();
-  if (!getAboutPage || !getAbout_item) {
+  if (!aboutDetails || !singleAboutDetails) {
     return <div>Loading...</div>; // You can customize your loading indicator here
   }
-
   return (
     <Container>
       <div>
@@ -120,11 +118,11 @@ const AboutUsContent = async () => {
           {/* left side */}
           <div className="lg:w-[50%]  flex flex-col justify-center">
             <h2 className="text-[#0F172A] text-[32px] font-bold font-Raleway text-center lg:text-left">
-              {data[0].title}
+              {singleAboutDetails[0].title}
             </h2>
             <div className="text-[#334155] text-center lg:text-left text-[18px] space-y-5 pt-5">
-              <p>{data[0].details.slice(0, 294)}</p>
-              <p>{data[0].details.slice(294, 600)}</p>
+              <p>{singleAboutDetails[0].details.slice(0, 294)}</p>
+              <p>{singleAboutDetails[0].details.slice(294, 600)}</p>
             </div>
           </div>
           {/* right side */}
@@ -133,7 +131,7 @@ const AboutUsContent = async () => {
               className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src={data[0].image}
+              src={singleAboutDetails[0].image}
               alt=""
             />
           </div>
@@ -143,11 +141,11 @@ const AboutUsContent = async () => {
           {/* left side */}
           <div className="lg:w-[50%] text-center lg:text-left flex flex-col justify-center">
             <h2 className="text-[#0F172A] text-[32px] font-bold font-Raleway text-center lg:text-left">
-              {data[1].title}
+              {singleAboutDetails[1].title}
             </h2>
             <div className="text-[#334155] text-[18px] space-y-5 pt-5">
-              <p>{data[1].details.slice(0, 292)}</p>
-              <p>{data[1].details.slice(292, 600)}</p>
+              <p>{singleAboutDetails[1].details.slice(0, 292)}</p>
+              <p>{singleAboutDetails[1].details.slice(292, 600)}</p>
             </div>
           </div>
           {/* right side */}
@@ -156,7 +154,7 @@ const AboutUsContent = async () => {
               className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src={data[1].image}
+              src={singleAboutDetails[1].image}
               alt=""
             />
           </div>
@@ -166,11 +164,11 @@ const AboutUsContent = async () => {
           {/* left side */}
           <div className="lg:w-[50%] flex flex-col justify-center">
             <h2 className="text-[#0F172A] text-[32px] font-bold font-Raleway text-center lg:text-left">
-              {data[2].title}
+              {singleAboutDetails[2].title}
             </h2>
             <div className="text-[#334155] text-center lg:text-left text-[18px] space-y-5 pt-5">
-              <p>{data[2].details.slice(0, 294)}</p>
-              <p>{data[2].details.slice(294, 600)}</p>
+              <p>{singleAboutDetails[2].details.slice(0, 294)}</p>
+              <p>{singleAboutDetails[2].details.slice(294, 600)}</p>
             </div>
           </div>
           {/* right side */}
@@ -179,7 +177,7 @@ const AboutUsContent = async () => {
               className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src={data[2].image}
+              src={singleAboutDetails[2].image}
               alt=""
             />
           </div>
@@ -189,11 +187,11 @@ const AboutUsContent = async () => {
           {/* left side */}
           <div className="lg:w-[50%] flex flex-col justify-center text-center lg:text-left">
             <h2 className="text-[#0F172A] text-[32px] font-bold font-Raleway text-center lg:text-left">
-              {data[3].title}
+              {singleAboutDetails[3].title}
             </h2>
             <div className="text-[#334155] text-[18px] space-y-5 pt-5">
-              <p>{data[3].details.slice(0, 294)}</p>
-              <p>{data[3].details.slice(294, 600)}</p>
+              <p>{singleAboutDetails[3].details.slice(0, 294)}</p>
+              <p>{singleAboutDetails[3].details.slice(294, 600)}</p>
             </div>
           </div>
           {/* right side */}
@@ -202,7 +200,7 @@ const AboutUsContent = async () => {
               className="w-[100%] h-[450px] rounded-lg"
               width={1000}
               height={1000}
-              src={data[3].image}
+              src={singleAboutDetails[3].image}
               alt=""
             />
           </div>
